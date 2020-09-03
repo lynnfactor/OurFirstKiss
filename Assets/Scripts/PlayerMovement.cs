@@ -9,6 +9,7 @@ using UnityEngine;
  *
  * This script moves the players right and left
  * and rotates them to the left or to the right (to lean in for smooches)
+        * As of 2020.09.03, Aubrey commented out rotation
  * 
  * TEMPORARILY works only with KEYBOARD PRESS
  * Eventually this script will be controlled via accelerometer (rotation) and proximity sensor (movement)
@@ -88,13 +89,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // rotate player by calling that function
-        RotatePlayer();  
+        //RotatePlayer();  
 
         //rb2D.MovePosition(rb2D.position + movement * moveSpeed * Time.fixedDeltaTime);
 
     }
 
 
+    /*
     // rotate
     private void RotatePlayer()
     {
@@ -111,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0,0, rotZ);
     }
+    */
 
     // detect if players are kissing
     // give feedback for smooching
