@@ -6088,6 +6088,11 @@ PrefabInstance:
       propertyPath: otherSmoochZone
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4640964532744793553, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4695505962046431735, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_LocalPosition.x
