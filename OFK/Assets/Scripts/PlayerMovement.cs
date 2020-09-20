@@ -58,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
     // reference player input
     public void GetPlayerInput()
     {
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _verticalInput = Input.GetAxisRaw("Vertical");
+        //_horizontalInput = Input.GetAxisRaw("Horizontal");
+        //_verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     // once per frame
@@ -73,14 +73,16 @@ public class PlayerMovement : MonoBehaviour
                 // "GetKey" lets you keep doing something even when you're holding the button down
                 // "GetKeyDown" only does it the one time the button is pressed
         
-        if(Input.GetKey(left))
+        if(Input.GetKeyDown(left))
         {
-            transform.Translate(Vector2.left * Time.deltaTime);
+            transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
+            
         }
         // move silhouette right
-        if(Input.GetKey(right))
+        if(Input.GetKeyDown(right))
         {
-            transform.Translate(Vector2.right * Time.deltaTime);
+            transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
+            
         }
         
     }
