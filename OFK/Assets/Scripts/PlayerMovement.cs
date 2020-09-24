@@ -67,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
 
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, 0);
+
         //GetPlayerInput();
 
         // move silhouette left
@@ -88,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // for physics
+    /*
     void FixedUpdate()
     {
         // rotate player by calling that function
@@ -96,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         //rb2D.MovePosition(rb2D.position + movement * moveSpeed * Time.fixedDeltaTime);
 
     }
-
+    */
 
     /*
     // rotate
