@@ -216,11 +216,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8907509884082184936}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: bc16c12ec28fd124d9519dc7f4d5d5e4, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 0094442959148e54fb8197a0f1c138a8, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: d9982524b8845da499c3ebcd06ebb181, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 2028f675a2ef81147916e28653287b37, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
@@ -269,7 +269,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -462,7 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8907509885419947273}
   m_Layer: 0
-  m_Name: PrefabMovieElements
+  m_Name: prefab-MovieElements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
