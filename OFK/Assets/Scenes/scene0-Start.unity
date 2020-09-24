@@ -2506,8 +2506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31160c0e79398424091eaac4f1af1fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playFirst: {fileID: 8300000, guid: 370db9892d5e2b84d92d057e44cb6a07, type: 3}
-  thenLoop: {fileID: 8300000, guid: 328dfde97378eca498828e58cc978d18, type: 3}
+  playFirst: {fileID: 8300000, guid: e7fb2bac6c7b2fd41b33ebb734d51599, type: 3}
+  thenLoop: {fileID: 8300000, guid: ef1a58688c251714d926e2f548cb057c, type: 3}
 --- !u!82 &1800566086
 AudioSource:
   m_ObjectHideFlags: 0

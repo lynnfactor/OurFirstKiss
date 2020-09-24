@@ -80,6 +80,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 84
       Script: {instanceID: 0}
     - Class: 104
@@ -1158,4 +1160,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/scene0-Start.unity
   - Assets/Scenes/scene1-Movie.unity
   - Assets/Scenes/scene2-Credits.unity
-  playerPath: C:/Users/Aubs/Desktop/Thesis Builds/2020.09.24/ourfirstkiss-players.exe
+  playerPath: C:/Users/Aubs/Desktop/Desktop Folders/IMPORTANT/Thesis/Thesis Builds/2020.09.24-added
+    music/ourfirstkiss-players.exe
