@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: 97
   right: 100
-  moveSpeed: 50
+  moveSpeed: 80
   rotLeft: 0
   rotRight: 0
   rotSpeed: 80
