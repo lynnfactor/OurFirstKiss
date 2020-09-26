@@ -51,8 +51,11 @@ MonoBehaviour:
   presentExtentionsMap:
     keys:
     - UduinoDevice_DesktopSerial
-    values: 01
-  ManagerState: 1
+    - UduinoDevice_DesktopBluetoothLE
+    - UduinoDevice_AndroidBluetoothLE
+    - UduinoDevice_AndroidSerial
+    - UduinoDevice_Wifi
+    values: 0101010101
   debugLevel: 0
   baudRate: 9600
   limitSendRate: 0
@@ -63,7 +66,7 @@ MonoBehaviour:
   readAfterCommand: 1
   skipMessageQueue: 0
   messageQueueLength: 10
-  defaultArduinoBoardType: 13
+  defaultArduinoBoardType: 0
   useCuPort: 0
   forcePinEditor: 0
   sendRateSpeed: 20
