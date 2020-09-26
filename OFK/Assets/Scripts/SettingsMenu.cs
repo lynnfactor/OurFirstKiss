@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 /* created by Aubrey Isaacman
  *
@@ -10,8 +12,11 @@ using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public void SetVolume(float volume)
+
+    public AudioMixer audioMixer;
+
+    public void SetVolume (float volume)
     {
-        Debug.Log(volume);
+        audioMixer.SetFloat("volume", volume);
     }
 }

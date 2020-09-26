@@ -780,7 +780,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 959406878}
+      - m_Target: {fileID: 1780724344}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
@@ -1141,7 +1141,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 959406877}
-  - component: {fileID: 959406878}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -1172,18 +1171,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 202.36, y: 179.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &959406878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959406876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62cf90b5c50f5c4d9271b5c9d50e662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1049872055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,6 +2410,7 @@ GameObject:
   - component: {fileID: 1780724342}
   - component: {fileID: 1780724341}
   - component: {fileID: 1780724340}
+  - component: {fileID: 1780724344}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2512,6 +2500,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1780724344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780724339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62cf90b5c50f5c4d9271b5c9d50e662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 2bccba70c25630243a34e2d482e47d21, type: 2}
 --- !u!1 &1800566084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3725269186994414714, guid: 726c0a57ae533fc4e9db0c18a663e951,
@@ -2530,8 +2531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31160c0e79398424091eaac4f1af1fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playFirst: {fileID: 8300000, guid: e7fb2bac6c7b2fd41b33ebb734d51599, type: 3}
-  thenLoop: {fileID: 8300000, guid: ef1a58688c251714d926e2f548cb057c, type: 3}
+  playFirst: {fileID: 8300000, guid: d6f2d31c9d4e3114cbe3d31d8a481ff8, type: 3}
+  thenLoop: {fileID: 8300000, guid: 043cce24bc072534d9e5ff974fe7969d, type: 3}
 --- !u!82 &1800566086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2541,7 +2542,8 @@ AudioSource:
   m_GameObject: {fileID: 1800566084}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2bccba70c25630243a34e2d482e47d21,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
