@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
+//using NDream.AirConsole;
+//using Newtonsoft.Json.Linq;
 
 public class SendEmojiButton : MonoBehaviour
 {
@@ -16,10 +16,12 @@ public class SendEmojiButton : MonoBehaviour
     private AudioManagement amScript;
     private Vector3 startPos;
     
+/*
     private void Awake()
     {
         AirConsole.instance.onMessage += OnMessage;
     }
+*/
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class SendEmojiButton : MonoBehaviour
         amScript.AddClicks(emojiNum);
     }
 
+/*
     void OnMessage(int fromDeviceID, JToken data)
     {
         Debug.Log("message from" + fromDeviceID + ", data:" + data);
@@ -49,7 +52,9 @@ public class SendEmojiButton : MonoBehaviour
             SendEmoji();
         }
     }
+*/
 
+/*
     private void OnDestroy()
     {
         //unregistered events
@@ -58,4 +63,5 @@ public class SendEmojiButton : MonoBehaviour
             AirConsole.instance.onMessage -= OnMessage;
         }
     }
+*/
 }
