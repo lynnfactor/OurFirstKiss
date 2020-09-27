@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Net.Sockets;
 using System.IO;
+using System.Collections;
 
 public class TwitchChatClient : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class TwitchChatClient : MonoBehaviour
     [SerializeField] private string commandPrefix = "!";
     [Header("Automatic initialize, otherwise it is necessary to call 'Init'")]
     [SerializeField] private bool automaticInit = true;
+
+    [SerializeField] GameObject audioManager;
+    private AudioManagement amScript;
 
     private TcpClient twitchClient;
     private StreamReader reader;
@@ -41,6 +45,10 @@ public class TwitchChatClient : MonoBehaviour
     void Start()
     {
         if (!automaticInit) return;
+
+        //getting audio mangager's script
+        amScript = audioManager.GetComponent<AudioManagement>();
+
         Init();
     }
 
@@ -100,6 +108,8 @@ public class TwitchChatClient : MonoBehaviour
 
         string[] messages = message.Split(' ');
 
+        StartCoroutine(CheckEmo("<3", messages));
+
         if (messages.Length == 0 || messages[0][0] != commandPrefix[0]) return;
 
         username = username.Substring(1);
@@ -124,5 +134,21 @@ public class TwitchChatClient : MonoBehaviour
     {
         writer.WriteLine("PRIVMSG #" + data.channelName + " :" + command + " " + parameters);
         writer.Flush();
+    }
+
+    IEnumerator CheckEmo(string identifier, string[] msg)
+    {
+        int i = 0;
+        while (i < msg.Length)
+        {
+            if (msg[i].Equals(identifier))
+            {
+                Debug.Log("msg detected");
+                amScript.AddClicks(1);
+                //yield break;
+            }
+            i++;
+            yield return null;
+        }
     }
 }
