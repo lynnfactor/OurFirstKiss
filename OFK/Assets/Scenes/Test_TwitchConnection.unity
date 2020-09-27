@@ -153,6 +153,7 @@ MonoBehaviour:
   configurationPath: Assets/Twitch/config.json
   commandPrefix: '!'
   automaticInit: 1
+  audioManager: {fileID: 923438181}
 --- !u!4 &91434633
 Transform:
   m_ObjectHideFlags: 0
@@ -1544,10 +1545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37d83ebce05ad74683fd3228dde9e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  browserStartMode: 0
-  controllerHtml: {fileID: 4900000, guid: 20eceb806f6488146a7eaf03d857dd62, type: 3}
-  autoScaleCanvas: 1
-  devGameId: 
 --- !u!4 &2126906187
 Transform:
   m_ObjectHideFlags: 0
