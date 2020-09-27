@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dc9c05fd8d39f489207f827466ac50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configurationPath: Assets/Scripts/config.json
+  configurationPath: Assets/Twitch/config.json
   commandPrefix: '!'
   automaticInit: 1
 --- !u!4 &91434633
