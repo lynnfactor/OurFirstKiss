@@ -3,7 +3,10 @@ guid: 673f5aa1074a6354693a1a91f760677e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - emojiPrefab: {instanceID: 0}
+  - canvas: {instanceID: 0}
+  - audioManager: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
