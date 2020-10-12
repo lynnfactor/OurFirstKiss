@@ -20,31 +20,73 @@ using Rewired;
 
 public class PlayerMovement : MonoBehaviour {
 
+
     //Movement
-    public float speed;
+    public float moveH;
     public Vector3 movement;
     public KeyCode left;
     public KeyCode right;
     public float degrees;
 
-    void Update () {
-        
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        movement = new Vector3(moveHorizontal, 0f, 0f );
+    [Header("Rewired")]
+    public Player rewiredPlayer;
+    public int playerID;
+    public bool isPlayer1 = false;
+    private string playerName;
 
-       if(game)
+    //initializes controls for Rewired
+    private void InitializeControls()
+    {
+        
+        rewiredPlayer = ReInput.players.GetPlayer(playerID);
+
+    }
+
+    void GetMovementInput()
+    {
+
+        moveH = rewiredPlayer.GetAxisRaw("Horizontal");
+
+    }
+
+    private void Awake()
+    {
+        //initializes controls
+        InitializeControls();
+
+        if (isPlayer1)
+        {
+
+            playerName = "Player1";
+
+        }
+        else
+        {
+
+            playerName = "Player2";
+
+        }
+    }
+
+    void Update () {
+
+        GetMovementInput();
+        movement = new Vector2(moveH,0f);
+        movement = movement * moveH * Time.deltaTime;
+        transform.position += movement;
+
+    //    if(game)
        
-       if(Input.GetKey(left))
-        {
-            movement = movement * speed * Time.deltaTime;
-            transform.position += movement;    
-        }
-        // move silhouette right
-        if(Input.GetKey(right))
-        {
-            movement = movement * speed * Time.deltaTime;
-            transform.position += movement;
-        }
+    //    if(Input.GetKey(left))
+    //     {
+    //             
+    //     }
+    //     // move silhouette right
+    //     if(Input.GetKey(right))
+    //     {
+    //         movement = movement * moveH * Time.deltaTime;
+    //         transform.position += movement;
+    //     }
     }
 
 }

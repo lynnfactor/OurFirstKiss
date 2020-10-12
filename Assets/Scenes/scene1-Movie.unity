@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!50 &105732645 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7975354139095654622, guid: e2a3be6f2501daa4fa44629df7da36c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1428767587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &422713623
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +157,7 @@ Transform:
   - {fileID: 603172115}
   - {fileID: 1428767588}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &442808335 stripped
 GameObject:
@@ -450,6 +456,21 @@ PrefabInstance:
       propertyPath: degrees
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: playerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: isPlayer1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: rb2d
+      value: 
+      objectReference: {fileID: 1708290105}
     - target: {fileID: 3671641758885330768, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Name
@@ -573,6 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5097770260902017463, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
+    - {fileID: 7029529498266127733, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
 --- !u!4 &603172115 stripped
 Transform:
@@ -834,7 +856,10 @@ MonoBehaviour:
       _name: Player1
       _descriptiveName: Player 1
       _startPlaying: 1
-      _defaultJoystickMaps: []
+      _defaultJoystickMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps:
       - _enabled: 1
@@ -856,7 +881,10 @@ MonoBehaviour:
       _name: Player2
       _descriptiveName: Player 2
       _startPlaying: 1
-      _defaultJoystickMaps: []
+      _defaultJoystickMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps:
       - _enabled: 1
@@ -876,7 +904,7 @@ MonoBehaviour:
         _ruleSets: []
     actions:
     - _id: 0
-      _name: Move Horizontal
+      _name: Horizontal
       _type: 0
       _descriptiveName: Action0
       _positiveDescriptiveName: Move Right
@@ -957,7 +985,36 @@ MonoBehaviour:
     - _name: Default
       _descriptiveName: Default
       _id: 0
-    joystickMaps: []
+    joystickMaps:
+    - id: 0
+      categoryId: 0
+      layoutId: 0
+      name: 
+      hardwareGuidString: cd9718bf-a87a-44bc-8716-60a0def28a9f
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 0
+        _actionId: 0
+        _elementType: 1
+        _elementIdentifierId: 21
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 0
+        _elementType: 1
+        _elementIdentifierId: 19
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps:
     - id: 0
       categoryId: 0
@@ -1033,12 +1090,12 @@ MonoBehaviour:
     actionIdCounter: 2
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
-    mapCategoryIdCounter: 1
+    mapCategoryIdCounter: 3
     joystickLayoutIdCounter: 1
     keyboardLayoutIdCounter: 3
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 0
+    joystickMapIdCounter: 1
     keyboardMapIdCounter: 3
     mouseMapIdCounter: 0
     customControllerMapIdCounter: 0
@@ -6281,6 +6338,16 @@ PrefabInstance:
       propertyPath: speed
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: playerID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: rb2d
+      value: 
+      objectReference: {fileID: 105732645}
     - target: {fileID: 3671641758885330768, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Name
@@ -6519,6 +6586,12 @@ RectTransform:
   m_AnchoredPosition: {x: 207.5, y: 241.5}
   m_SizeDelta: {x: 415, y: 483}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!50 &1708290105 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7975354139095654622, guid: e2a3be6f2501daa4fa44629df7da36c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 603172114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1778040976
 GameObject:
   m_ObjectHideFlags: 0
@@ -6870,7 +6943,7 @@ PrefabInstance:
     - target: {fileID: 3725269186994414726, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3725269186994414726, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
@@ -6994,7 +7067,7 @@ PrefabInstance:
     - target: {fileID: 8907509885419947273, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8907509885419947273, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}
