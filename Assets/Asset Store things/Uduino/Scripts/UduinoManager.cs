@@ -1523,9 +1523,9 @@ namespace Uduino
 
             if(autoReconnect && shouldReconnect)
             {
-                StartCoroutine("DiscoverWithDelay", 5.0f);
+                StartCoroutine("DiscoverWithDelay", autoReconnectDelay);
                 shouldReconnect = false;
-                Log.Warning("No Board detected. Reconnecting.");
+                Log.Warning("No Board detected. Reconnecting in " + autoReconnectDelay  + " seconds.");
             }
         }
 
@@ -1699,7 +1699,10 @@ namespace Uduino
                     ManagerState = UduinoManagerState.Idle;
 
                 if (!isApplicationQuiting && uduinoDevices.Count == 0)
+                {
                     StopThread();
+                    if (autoReconnect) shouldReconnect = true;
+                }
             }
             catch (Exception e)
             {
@@ -1762,9 +1765,9 @@ namespace Uduino
     public static class UduinoVersion
     {
         static int major = 3;
-        static int minor = 1;
+        static int minor = 2;
         static int patch = 2;
-        static string update = "May 2020";
+        static string update = "Sept 2020";
 
         public static string getVersion()
         {

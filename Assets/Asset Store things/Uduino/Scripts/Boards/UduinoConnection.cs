@@ -25,7 +25,12 @@ namespace Uduino
                     connection = new UduinoConnection_DesktopSerial();
             } else
             {
+#if UNITY_EDITOR
+                Log.Warning("No build platform selected");
+                return null;
+#else
                 return connection = new UduinoConnection_DesktopSerial(); // Fix for Build
+#endif            
             }
 
 #elif UNITY_ANDROID //Get the  Android Serial Plugin
