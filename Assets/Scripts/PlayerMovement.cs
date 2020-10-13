@@ -22,11 +22,9 @@ public class PlayerMovement : MonoBehaviour {
 
 
     //Movement
-    public float moveH;
-    public Vector3 movement;
-    public KeyCode left;
-    public KeyCode right;
-    public float degrees;
+    private float moveH;
+    private Vector3 movement;
+    public float degrees, speed;
 
     [Header("Rewired")]
     public Player rewiredPlayer;
@@ -72,10 +70,19 @@ public class PlayerMovement : MonoBehaviour {
 
         GetMovementInput();
         movement = new Vector2(moveH,0f);
-        movement = movement * moveH * Time.deltaTime;
-        transform.position += movement;
+        
+        if(rewiredPlayer.GetNegativeButton("Horizontal")) {
+            movement = movement * moveH * speed * Time.deltaTime;
+            transform.position -= movement;
+        }
 
-    //    if(game)
+        if(rewiredPlayer.GetButton("Horizontal")) {
+            movement = movement * moveH * speed * Time.deltaTime;
+            transform.position += movement;
+        }
+            
+
+    //    
        
     //    if(Input.GetKey(left))
     //     {

@@ -471,6 +471,11 @@ PrefabInstance:
       propertyPath: rb2d
       value: 
       objectReference: {fileID: 1708290105}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: moveH
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3671641758885330768, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Name
@@ -6348,6 +6353,11 @@ PrefabInstance:
       propertyPath: rb2d
       value: 
       objectReference: {fileID: 105732645}
+    - target: {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: moveH
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3671641758885330768, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Name
