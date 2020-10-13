@@ -522,13 +522,28 @@ namespace Uduino
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace(); // Nededed for lastRect
             EditorGUILayout.EndHorizontal();
-        
-             // load textures
-            Texture tex = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/uduino-logo.png");
-            Texture tex2 = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/arduino-bg.png");
+
+            /* // load textures
+             string uduinoLogo = null;
+             string arduinoLogo = null;
+             if (uduinoLogo == null) { uduinoLogo = FindAssetPathTo("uduino-logo.png"); }
+             if (arduinoLogo == null) { arduinoLogo = FindAssetPathTo("arduino-bg.png"); }
+             Texture tex = (Texture)EditorGUIUtility.Load(uduinoLogo);
+             Texture tex2 = (Texture)EditorGUIUtility.Load(arduinoLogo);
+             */
+            Texture tex = null;
+            Texture tex2 = null;
+            try
+            {
+                tex = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/uduino-logo.png");
+                tex2 = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/arduino-bg.png");
+
+            } catch(Exception e)
+            {
+                Log.Debug("Impossible to load the Logo");
+            }
             GUILayout.Space(0);
 
-            
             Color bgColor = new Color();
             ColorUtility.TryParseHtmlString("#ffffff", out bgColor);
 
@@ -547,11 +562,23 @@ namespace Uduino
            smallFont.alignment = TextAnchor.UpperRight;
            EditorGUI.LabelField(new Rect(lastRect.x - 35, lastRect.y , Screen.width  , 60f), "v." +UduinoVersion.getVersion()+ " ", smallFont);
 
-           // draw Textures
-           GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2 -30 , lastRect.y -5, tex2.width, tex2.height), tex2, ScaleMode.ScaleToFit);
-           GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2, lastRect.y + 6, tex.width, tex.height), tex, ScaleMode.ScaleToFit);
+            if (tex != null)
+            {
+                // draw Textures
+                GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2 - 30, lastRect.y - 5, tex2.width, tex2.height), tex2, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2, lastRect.y + 6, tex.width, tex.height), tex, ScaleMode.ScaleToFit);
+            } else
+            {
 
-           GUI.color = Color.white;
+                Color fontColorUduino = new Color();
+                ColorUtility.TryParseHtmlString("#2eb3be", out fontColorUduino);
+                GUIStyle largeUduinoFont = new GUIStyle();
+                largeUduinoFont.normal.textColor = fontColorUduino;
+                largeUduinoFont.fontSize = 40;
+                largeUduinoFont.alignment = TextAnchor.MiddleCenter;
+                EditorGUI.LabelField(new Rect(0,0, Screen.width + 1, 70f), "Uduino", largeUduinoFont);
+            }
+            GUI.color = Color.white;
           GUILayout.Space(60f);
 
         }
@@ -571,9 +598,9 @@ namespace Uduino
             Rect lastRect = GUILayoutUtility.GetLastRect();
             GUI.Box(new Rect(0, lastRect.y + 4, Screen.width, 27), "");
             lastRect = GUILayoutUtility.GetLastRect();
-            EditorGUI.DrawRect(new Rect(lastRect.x - 15, lastRect.y + 5f, Screen.width, 25f), headerColor);
-            EditorGUI.DrawRect(new Rect(lastRect.x - 18, lastRect.y + 31f, Screen.width, 1), new Color(0.55f, 0.55f, 0.55f, 1));
-            EditorGUI.DrawRect(new Rect(lastRect.x -18 , lastRect.y +4f, Screen.width, 1), new Color(0.55f, 0.55f, 0.55f, 1));
+            EditorGUI.DrawRect(new Rect(lastRect.x - 18, lastRect.y + 5f, Screen.width, 25f), headerColor); // header BG
+            EditorGUI.DrawRect(new Rect(lastRect.x - 18, lastRect.y + 31f, Screen.width, 1), new Color(0.55f, 0.55f, 0.55f, 1)); // Line top
+            EditorGUI.DrawRect(new Rect(lastRect.x -18 , lastRect.y +4f, Screen.width, 1), new Color(0.55f, 0.55f, 0.55f, 1)); // line bot
 
 
 #if UNITY_2018  || UNITY_5
@@ -975,6 +1002,7 @@ namespace Uduino
                 (!Application.isPlaying && Manager.ManagerState != UduinoManagerState.Idle)) 
             EditorUtility.SetDirty(Manager); //TODO : The values serialized are not updated if it's not forced
 
+           // EditorUtility.SetDirty(Manager);
 
             #region Stop All pins on Pause
             if (Manager.stopAllOnPause && Application.isPlaying && EditorApplication.isPaused && !isPlayAndPause)
@@ -1152,11 +1180,13 @@ namespace Uduino
                         if (Manager.pins.Count != 0) // If a pin is active
                         {
                             bool hasScriptedPin = false;
+                            int numberOfPinReading = 0;
                             foreach (Pin pin in Manager.pins)
                             {
                                 if ((pin.device == uduino.Value || pin.device == null) && !pin.isEditorPin)
                                 {
                                     DrawPinUI(contentRect,pin, uduino.Value._boardType);
+                                    if (pin.pinMode == PinMode.Input || pin.pinMode == PinMode.Input_pullup) numberOfPinReading++;
                                     EditorGUILayout.LabelField("");
                                     hasScriptedPin = true;
                                     GUILayout.Space(3f);
@@ -1165,6 +1195,10 @@ namespace Uduino
                             }
                             if (!hasScriptedPin)
                                 GUILayout.Label("No arduino pins are currently setup by code.");
+                            if (numberOfPinReading >= 0 && Manager.alwaysRead == true && Manager.threadFrequency >= 16)
+                            {
+                                EditorGUILayout.HelpBox("You are reading several Pins but your thread reading frequency seem be too low. To optimize Uduino, reduce the thread frequency and the timeouts in the Advanced Settings. If you don't need to always read the pins, disable 'always read'.", MessageType.Info);
+                            }
                         }
                         else // if no pins are active
                         {
@@ -1175,9 +1209,10 @@ namespace Uduino
                         GUILayout.EndVertical();
                         GUILayout.Space(10f);
                     }
-            #endregion
+                    #endregion
 
-            #region Send Command
+                    #region Send Command
+                    bool commandIsSent = false;
                     // GUILayout.Label("Send commands", EditorStyles.boldLabel);
                     //GUILayout.BeginVertical("Box");
                     if (uduino.Key.Contains("uduinoBoard") || uduino.Key.Contains("uduino") || Manager.forcePinEditor) // Display the informations for default Uduino Board
@@ -1207,10 +1242,12 @@ namespace Uduino
                             Manager.Read(uduino.Value);
                             Manager.ReadWriteArduino(uduino.Value);
                             EditorUtility.SetDirty(target);
+                            commandIsSent = true;
                         }
                         if (GUI.Button(new Rect(contentRect.x + contentRect.width / 4 * 3, contentRect.y + 2, contentRect.width / 4, 16), "Read", "minibuttonright")) {
                             Manager.ReadWriteArduino(uduino.Value);
                             EditorUtility.SetDirty(target);
+                            commandIsSent = true;
                         }
 
                         GUILayout.Space(5f);
@@ -1244,6 +1281,7 @@ namespace Uduino
                         uduino.Value.readTimeout = EditorGUILayout.IntField("Read timeout", uduino.Value.readTimeout);
                         uduino.Value.writeTimeout = EditorGUILayout.IntField("Write timeout", uduino.Value.writeTimeout);
                         uduino.Value.alwaysRead = EditorGUILayout.Toggle("Always read", uduino.Value.alwaysRead);
+                        uduino.Value.readInEditor = EditorGUILayout.Toggle("Always read Editor", uduino.Value.readInEditor);
 
                         if (!uduino.Value.alwaysRead)
                             uduino.Value.readAfterCommand = EditorGUILayout.Toggle("Read after commands", uduino.Value.readAfterCommand);
@@ -1281,8 +1319,13 @@ namespace Uduino
                     }
                     GUILayout.Space(5f);
 
-                    if (uduino.Value.alwaysRead || uduino.Value.readAfterCommand)
+                    if (uduino.Value.alwaysRead || (uduino.Value.readAfterCommand && commandIsSent))
+                    {
+                        if(uduino.Value.readInEditor)
+                            Manager.ReadWriteArduino(uduino.Value);
                         EditorUtility.SetDirty(target);
+                        commandIsSent = false;
+                    }
             #endregion
                 }
             }
@@ -1404,6 +1447,8 @@ namespace Uduino
             if(Manager.autoDiscover)
                 Manager.delayBeforeDiscover = EditorGUILayout.FloatField("Discover delay", Manager.delayBeforeDiscover);
             Manager.DiscoverTries = EditorGUILayout.IntField("Discovery tries", Manager.DiscoverTries);
+            if (Manager.autoReconnect && Application.isPlaying)
+                EditorGUILayout.LabelField("Manager Sate", "" + Manager.ManagerState.ToString());
 
             blacklistedFoldout = EditorGUI.Foldout(GUILayoutUtility.GetRect(40f, 40f, 16f, 16f, EditorStyles.foldout), blacklistedFoldout, "Blacklisted ports", true, EditorStyles.foldout);
 
@@ -1632,7 +1677,7 @@ namespace Uduino
 
             public static UduinoManagerEditor Instance { get; private set; }
 
-            #region Variables
+    #region Variables
             //Style-relatedx
             Color headerColor = new Color(0.65f, 0.65f, 0.65f, 1);
             //Color backgroundColor = new Color(0.75f, 0.75f, 0.75f);
@@ -1642,7 +1687,7 @@ namespace Uduino
             GUIStyle olLight = null;
             GUIStyle olInput = null;
             GUIStyle customFoldtout = null;
-            #endregion
+    #endregion
 
             const string define = "UDUINO_READY";
 
@@ -1658,7 +1703,7 @@ namespace Uduino
                 t.activeExtentionsMap["UduinoDevice_DesktopSerial"] = true;
             }
 
-            #region Styles
+    #region Styles
             void SetColorAndStyles()
             {
                 if (boldtext == null)
@@ -1719,8 +1764,19 @@ namespace Uduino
             EditorGUILayout.EndHorizontal();
 
             // load textures
-            Texture tex = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/uduino-logo.png");
-            Texture tex2 = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/arduino-bg.png");
+            // draw Textures
+            Texture tex = null;
+            Texture tex2 = null;
+            try
+            {
+                tex = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/uduino-logo.png");
+                tex2 = (Texture)EditorGUIUtility.Load("Assets/Uduino/Editor/Resources/arduino-bg.png");
+
+            } catch(Exception e)
+            {
+                Log.Debug("Impossible to load the Logo");
+            }
+            GUILayout.Space(0);
             GUILayout.Space(0);
 
 
@@ -1734,7 +1790,7 @@ namespace Uduino
             EditorGUI.DrawRect(new Rect(lastRect.x - 15, lastRect.y , Screen.width + 1, 70f), bgColor); // Fix for Unity 2018
 #else
             EditorGUI.DrawRect(new Rect(0, 0, Screen.width + 1, 70f), bgColor);
-#endif           
+#endif
             lastRect = GUILayoutUtility.GetLastRect();
             // draw text
             GUIStyle smallFont = new GUIStyle();
@@ -1742,9 +1798,24 @@ namespace Uduino
             smallFont.alignment = TextAnchor.UpperRight;
             EditorGUI.LabelField(new Rect(lastRect.x - 35, lastRect.y, Screen.width, 60f), "v." + UduinoVersion.getVersion() + " ", smallFont);
 
-            // draw Textures
-            GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2 - 30, lastRect.y - 5, tex2.width, tex2.height), tex2, ScaleMode.ScaleToFit);
-            GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2, lastRect.y + 6, tex.width, tex.height), tex, ScaleMode.ScaleToFit);
+            if (tex != null)
+            {
+                // draw Textures
+                GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2 - 30, lastRect.y - 5, tex2.width, tex2.height), tex2, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(new Rect(Screen.width / 2 - tex.width / 2, lastRect.y + 6, tex.width, tex.height), tex, ScaleMode.ScaleToFit);
+            }
+            else
+            {
+
+                Color fontColorUduino = new Color();
+                ColorUtility.TryParseHtmlString("#2eb3be", out fontColorUduino);
+                GUIStyle largeUduinoFont = new GUIStyle();
+                largeUduinoFont.normal.textColor = fontColorUduino;
+                largeUduinoFont.fontSize = 40;
+                largeUduinoFont.alignment = TextAnchor.MiddleCenter;
+                EditorGUI.LabelField(new Rect(0, 0, Screen.width + 1, 70f), "Uduino", largeUduinoFont);
+            }
+
 
             GUI.color = Color.white;
             GUILayout.Space(60f);
@@ -1785,7 +1856,7 @@ namespace Uduino
         }
 
 
-        #endregion
+    #endregion
         public void FindExistingExtensions() { }
 
             public void CheckCompatibility()
