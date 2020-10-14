@@ -56,12 +56,13 @@ MonoBehaviour:
     - UduinoDevice_AndroidSerial
     - UduinoDevice_Wifi
     values: 0101010101
+  ManagerState: 0
   debugLevel: 0
   baudRate: 9600
   limitSendRate: 0
-  readTimeout: 30
-  writeTimeout: 30
-  threadFrequency: 16
+  readTimeout: 25
+  writeTimeout: 25
+  threadFrequency: 6
   alwaysRead: 1
   readAfterCommand: 1
   skipMessageQueue: 0

@@ -155,7 +155,11 @@ namespace Uduino {
                             errorsTries++;
                             if(errorsTries > 5)
                             {
-                                Debug.Log("Todo : Reconnect automatically ? ");
+                                errorsTries = 0;
+                                UduinoManager.Instance.InvokeAsync(() =>
+                                {
+                                    UduinoManager.Instance.CloseDevice(this);
+                                });
                             }
                         }
                         return false;
@@ -279,9 +283,8 @@ namespace Uduino {
             if (serial != null && serial.IsOpen)
             {
                 Log.Warning("Closing port : <color=#2196F3>[" + _port + "]</color>");
-                serial.Close();
+                System.Threading.Thread.Sleep(UduinoManager.Instance.threadFrequency);
                 serial.Dispose();
-                boardStatus = BoardStatus.Closed;
                 serial = null;
             }
         }
@@ -289,3 +292,4 @@ namespace Uduino {
 #endif
     }
 }
+ 

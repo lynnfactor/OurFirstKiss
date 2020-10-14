@@ -28,6 +28,7 @@ namespace Uduino
 
         public bool alwaysRead = true;
         public bool readAfterCommand = false;
+        public bool readInEditor = false;
 
         public string identity = ""; // serial port name 
 
