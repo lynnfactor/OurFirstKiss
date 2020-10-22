@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: b703b61919c75424692f952bdeb744f9
 =======
 guid: 0f4862e9edd0266469bad9c7e092fb81
 >>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
+=======
+guid: 0f4862e9edd0266469bad9c7e092fb81
+>>>>>>> 1bc47385301212022249aea7386e2f0d44076061
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

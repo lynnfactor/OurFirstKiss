@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 fileFormatVersion: 2
 guid: 533a03fa1d38d0d4caf6fe6838215e88
 labels:
@@ -14,6 +15,8 @@ DefaultImporter:
   assetBundleName: uduino
   assetBundleVariant: 
 =======
+=======
+>>>>>>> 1bc47385301212022249aea7386e2f0d44076061
 fileFormatVersion: 2
 guid: 533a03fa1d38d0d4caf6fe6838215e88
 folderAsset: yes
@@ -22,4 +25,7 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+<<<<<<< HEAD
 >>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
+=======
+>>>>>>> 1bc47385301212022249aea7386e2f0d44076061
