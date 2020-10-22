@@ -4,11 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 20
-<<<<<<< HEAD
-  productGUID: f8dd6bde93496334988934ec8c16df7b
-=======
-  productGUID: 01bcce3012004874498716d875c7f353
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
+  productGUID: 464e1c96da3cff647a67398cf44878e5
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -17,11 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-<<<<<<< HEAD
-  productName: ourfirstkiss-players
-=======
   productName: OurFirstKiss
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -76,11 +68,7 @@ PlayerSettings:
   androidBlitType: 0
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-<<<<<<< HEAD
-  runInBackground: 1
-=======
   runInBackground: 0
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -117,11 +105,7 @@ PlayerSettings:
   xboxOneDisableEsram: 0
   xboxOneEnableTypeOptimization: 0
   xboxOnePresentImmediateThreshold: 0
-<<<<<<< HEAD
-  switchQueueCommandMemory: 0
-=======
   switchQueueCommandMemory: 1048576
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   switchQueueControlMemory: 16384
   switchQueueComputeMemory: 262144
   switchNVNShaderPoolsGranularity: 33554432
@@ -137,11 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-<<<<<<< HEAD
-  bundleVersion: 0.1
-=======
   bundleVersion: 1.0
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -173,31 +153,18 @@ PlayerSettings:
       dashSupport: 1
       lowOverheadMode: 0
       protectedContext: 0
-<<<<<<< HEAD
-      v2Signing: 0
-=======
       v2Signing: 1
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
   useHDRDisplay: 0
   D3DHDRBitDepth: 0
   m_ColorGamuts: 00000000
-<<<<<<< HEAD
-  targetPixelDensity: 30
-  resolutionScalingMode: 0
-  androidSupportedAspectRatio: 1
-  androidMaxAspectRatio: 2.1
-  applicationIdentifier:
-    Standalone: com.Company.ProductName
-=======
   targetPixelDensity: 0
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier: {}
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
@@ -212,15 +179,6 @@ PlayerSettings:
   CreateWallpaper: 0
   APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
-<<<<<<< HEAD
-  StripUnusedMeshComponents: 1
-  VertexChannelCompressionMask: 4054
-  iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 10.0
-  tvOSSdkVersion: 0
-  tvOSRequireExtendedGameController: 0
-  tvOSTargetOSVersionString: 10.0
-=======
   StripUnusedMeshComponents: 0
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988
@@ -228,7 +186,6 @@ PlayerSettings:
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIRequiresFullScreen: 1
@@ -280,15 +237,6 @@ PlayerSettings:
   iOSRequireARKit: 0
   iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
-<<<<<<< HEAD
-  clonedFromGUID: 5f34be1353de5cf4398729fda238591b
-  templatePackageId: com.unity.template.2d@2.3.1
-  templateDefaultScene: Assets/Scenes/SampleScene.unity
-  AndroidTargetArchitectures: 1
-  AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: '
-=======
   clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
   templateDefaultScene: 
@@ -296,7 +244,6 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
@@ -315,48 +262,9 @@ PlayerSettings:
   m_BuildTargetIcons: []
   m_BuildTargetPlatformIcons: []
   m_BuildTargetBatching: []
-<<<<<<< HEAD
-  m_BuildTargetGraphicsJobs:
-  - m_BuildTarget: MacStandaloneSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: Switch
-    m_GraphicsJobs: 0
-  - m_BuildTarget: MetroSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: AppleTVSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: BJMSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: LinuxStandaloneSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: PS4Player
-    m_GraphicsJobs: 0
-  - m_BuildTarget: iOSSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: WindowsStandaloneSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: XboxOnePlayer
-    m_GraphicsJobs: 0
-  - m_BuildTarget: LuminSupport
-    m_GraphicsJobs: 0
-  - m_BuildTarget: AndroidPlayer
-    m_GraphicsJobs: 0
-  - m_BuildTarget: WebGLSupport
-    m_GraphicsJobs: 0
-  m_BuildTargetGraphicsJobMode:
-  - m_BuildTarget: PS4Player
-    m_GraphicsJobMode: 0
-  - m_BuildTarget: XboxOnePlayer
-    m_GraphicsJobMode: 0
-  m_BuildTargetGraphicsAPIs:
-  - m_BuildTarget: AndroidPlayer
-    m_APIs: 150000000b000000
-    m_Automatic: 0
-=======
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
   m_BuildTargetGraphicsAPIs: []
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   m_BuildTargetVRSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
@@ -492,11 +400,7 @@ PlayerSettings:
   switchDataLossConfirmation: 0
   switchUserAccountLockEnabled: 0
   switchSystemResourceMemory: 16777216
-<<<<<<< HEAD
-  switchSupportedNpadStyles: 3
-=======
   switchSupportedNpadStyles: 22
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
   switchSupportedNpadCount: 8
@@ -541,11 +445,7 @@ PlayerSettings:
   ps4RemotePlayKeyAssignment: -1
   ps4RemotePlayKeyMappingDir: 
   ps4PlayTogetherPlayerCount: 0
-<<<<<<< HEAD
-  ps4EnterButtonAssignment: 1
-=======
   ps4EnterButtonAssignment: 2
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   ps4ApplicationParam1: 0
   ps4ApplicationParam2: 0
   ps4ApplicationParam3: 0
@@ -568,11 +468,7 @@ PlayerSettings:
   ps4UseAudio3dBackend: 0
   ps4UseLowGarlicFragmentationMode: 1
   ps4SocialScreenEnabled: 0
-<<<<<<< HEAD
-  ps4ScriptOptimizationLevel: 0
-=======
   ps4ScriptOptimizationLevel: 2
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   ps4Audio3dVirtualSpeakerCount: 14
   ps4attribCpuUsage: 0
   ps4PatchPkgPath: 
@@ -595,11 +491,7 @@ PlayerSettings:
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
-<<<<<<< HEAD
-  webGLMemorySize: 16
-=======
   webGLMemorySize: 32
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 1
@@ -609,28 +501,11 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-<<<<<<< HEAD
-  webGLCompressionFormat: 1
-  webGLLinkerTarget: 1
-  webGLThreadsSupport: 0
-  webGLWasmStreaming: 0
-  scriptingDefineSymbols:
-    1: UDUINO_READY;UNITY_POST_PROCESSING_STACK_V2
-    7: UNITY_POST_PROCESSING_STACK_V2
-    13: UNITY_POST_PROCESSING_STACK_V2
-    19: UNITY_POST_PROCESSING_STACK_V2
-    21: UNITY_POST_PROCESSING_STACK_V2
-    25: UNITY_POST_PROCESSING_STACK_V2
-    27: UNITY_POST_PROCESSING_STACK_V2
-    28: UNITY_POST_PROCESSING_STACK_V2
-    29: UNITY_POST_PROCESSING_STACK_V2
-=======
   webGLCompressionFormat: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols: {}
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
@@ -641,29 +516,17 @@ PlayerSettings:
   scriptingRuntimeVersion: 1
   gcIncremental: 0
   gcWBarrierValidation: 0
-<<<<<<< HEAD
-  apiCompatibilityLevelPerPlatform:
-    Standalone: 3
-  m_RenderingPath: 1
-  m_MobileRenderingPath: 1
-  metroPackageName: Template_2D
-=======
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: OurFirstKiss
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-<<<<<<< HEAD
-  metroApplicationDescription: Template_2D
-=======
   metroApplicationDescription: OurFirstKiss
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -713,12 +576,7 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-<<<<<<< HEAD
-  cloudServicesEnabled:
-    UNet: 1
-=======
   cloudServicesEnabled: {}
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -738,8 +596,4 @@ PlayerSettings:
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
-<<<<<<< HEAD
-  legacyClampBlendShapeWeights: 1
-=======
   legacyClampBlendShapeWeights: 0
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
