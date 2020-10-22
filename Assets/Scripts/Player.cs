@@ -11,9 +11,9 @@ using UnityEngine;
  *
  */
 
-public class Player : MonoBehaviour
+public class OFKPlayer : MonoBehaviour
 {
-    public static Player instance;
+    public static OFKPlayer instance;
 
     void Awake()
     {

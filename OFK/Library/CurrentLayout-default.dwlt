@@ -33,9 +33,12 @@ MonoBehaviour:
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 392}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
 --- !u!114 &2
@@ -90,6 +93,7 @@ MonoBehaviour:
     y: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 301
     height: 855
   m_MinSize: {x: 276, y: 71}
@@ -102,6 +106,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     width: 2019
     height: 30
   m_MinSize: {x: 0, y: 0}
@@ -126,6 +132,7 @@ MonoBehaviour:
     x: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 0
     width: 294
     height: 517
@@ -139,6 +146,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     y: 1110
     width: 2019
     height: 20
@@ -182,9 +191,12 @@ MonoBehaviour:
   vertical: 0
   controlID: 35
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -207,6 +219,7 @@ MonoBehaviour:
     y: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1487
     height: 905
   m_MinSize: {x: 875, y: 542}
@@ -214,6 +227,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     width: 265
     height: 1080
   m_MinSize: {x: 201, y: 221}
@@ -241,6 +256,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 0
     width: 1487
@@ -255,6 +271,10 @@ MonoBehaviour:
     x: 265
     y: 0
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+    x: 265
+    y: 0
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     width: 1378
     height: 1080
   m_MinSize: {x: 402, y: 342}
@@ -262,9 +282,12 @@ MonoBehaviour:
   vertical: 1
   controlID: 36
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -296,9 +319,12 @@ MonoBehaviour:
   vertical: 0
   controlID: 124
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -320,6 +346,7 @@ MonoBehaviour:
     y: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1186
     height: 855
   m_MinSize: {x: 403, y: 492}
@@ -329,6 +356,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     width: 821
     height: 654
   m_MinSize: {x: 200, y: 200}
@@ -340,9 +369,12 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -362,6 +394,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 0
     width: 1186
@@ -377,6 +410,10 @@ MonoBehaviour:
     x: 821
     y: 0
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+    x: 821
+    y: 0
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     width: 557
     height: 654
   m_MinSize: {x: 200, y: 200}
@@ -399,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: 
 =======
   m_Name: ConsoleWindow
@@ -406,6 +444,9 @@ MonoBehaviour:
 =======
   m_Name: ConsoleWindow
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+  m_Name: ConsoleWindow
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -427,12 +468,16 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - {fileID: 12}
@@ -448,6 +493,11 @@ MonoBehaviour:
   m_Selected: 1
   m_LastSelected: 0
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+  - {fileID: 18}
+  m_Selected: 1
+  m_LastSelected: 0
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -471,6 +521,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 468
     y: 181
     width: 973
@@ -479,6 +530,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     x: 1643
     y: 0
     width: 376
@@ -512,6 +565,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     x: 6.5
@@ -632,6 +686,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     x: 1086
     y: 75
     width: 555
@@ -774,15 +830,19 @@ MonoBehaviour:
     width: 264
     height: 1059
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       m_ExpandedIDs: a0faffff
@@ -792,6 +852,9 @@ MonoBehaviour:
 =======
       m_ExpandedIDs: 64f3ffff3cf8ffff68f8ffff8af8ffff34fbffffea400000
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+      m_ExpandedIDs: 64f3ffff3cf8ffff68f8ffff8af8ffff34fbffffea400000
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -838,6 +901,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 300.5
     y: 78.5
     width: 890
@@ -845,14 +909,19 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     x: 265
     y: 75
     width: 819
     height: 633
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: af2127ea6210019498258bff0f987a2e
@@ -995,6 +1064,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 507
     y: 94
     width: 1532
@@ -1069,6 +1139,8 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     x: 265
     y: 729
     width: 1376
@@ -1238,6 +1310,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 8
     y: 718
     width: 1366
@@ -1245,12 +1318,17 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
     x: 1643
     y: 75
     width: 375
     height: 1059
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2488e69... Deleted and re-imported Uduino. Error message appears when Arduino is disconnected
 =======
 >>>>>>> 1bc47385301212022249aea7386e2f0d44076061
+=======
+>>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
   m_ViewDataDictionary: {fileID: 0}

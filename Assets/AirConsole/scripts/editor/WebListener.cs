@@ -62,7 +62,7 @@ namespace NDream.AirConsole.Editor {
 				} catch (Exception e) {
 
 					if (Settings.debug.error) {
-						Debug.Log (e.Message); 
+						// Debug.Log (e.Message); 
 					}
 				}
 			}
