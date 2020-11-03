@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour {
 	public float maximum = 10.0f;
 	public float duration = 5.0f;
 	float startTime;
-	 public bool collided;
+	
+	[Header("Movement")]
+	// public gameObject Player;
+	public bool collided;
 
 	[Header("Rotation")]
 	public float speed = 2f;
@@ -27,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 		startTime = Time.time;
 		Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+		print("Start: " + gameObject.name);
 	}
 
 	private void InitializeControls()
@@ -49,33 +53,47 @@ public class PlayerMovement : MonoBehaviour {
 		Move ();
 	}
 
-	// void OnTriggerEnter(Collider2D other)
-	// {
-	// 	if (other.gameObject.tag == "Player")
-    //     	collided = true;
-	// }
-
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (gameObject.name == "P1" || gameObject.name == "P2") {
+			Debug.Log("Touching: " + gameObject.name);
+			collided = true;	
+        }
+	}
 	void Move()
 	{
+		
 		amountToMove = new Vector3(amountToMoveModifier,0,0);
-
-
 		if(transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
-			Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+			//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
 		}
 		else if(transform.position.x > 8.8 && rewiredPlayer.GetButtonDown("Horizontal")) {
-			Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+			//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
 		}
 		else if(transform.position.x >= -8.8 || transform.position.x <= 8.8) {
 			if(rewiredPlayer.GetButtonDown("Horizontal")) {
 				transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1);
 				// transform.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed * time), 0f, 0f);
-				Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+				//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
 			}
 			else if(rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
 				transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1);
 				// transform.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed * time), 0f, 0f);
-				Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+				//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+			}
+		}
+		else if(transform.position.x >= -8.8 || transform.position.x <= 8.8 && gameObject.name == "P1" && collided == true){
+			if(rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+				transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1);
+				// transform.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed * time), 0f, 0f);
+				//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+			}
+		}
+		else if(transform.position.x >= -8.8 || transform.position.x <= 8.8 && gameObject.name == "P2" && collided == true){
+			if(rewiredPlayer.GetButtonDown("Horizontal")) {
+				transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1);
+				// transform.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed * time), 0f, 0f);
+				//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
 			}
 		}
 	}
