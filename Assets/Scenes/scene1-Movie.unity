@@ -141,13 +141,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 1
   amountToMoveModifier: 4.4
-  minimum: 10
-  maximum: 20
-  duration: 5
   collided: 0
-  speed: 2
-  time: 0
-  maxRotation: 10
+  speed: 5
+  duration: 0.01
+  time: 2
+  maxRotation: 2.5
 --- !u!50 &105732645
 Rigidbody2D:
   serializedVersion: 4
@@ -342,6 +340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100875456534783096, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1315718484278872517, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
@@ -6798,13 +6801,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   amountToMoveModifier: 4.4
-  minimum: 10
-  maximum: 20
-  duration: 100
   collided: 0
-  speed: 2
-  time: 0
-  maxRotation: 10
+  speed: 5
+  duration: 0.01
+  time: 2
+  maxRotation: 2.5
 --- !u!50 &1708290105
 Rigidbody2D:
   serializedVersion: 4
@@ -7151,7 +7152,7 @@ PrefabInstance:
     - target: {fileID: 3725269186994414713, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0
+      value: 0.0495283
       objectReference: {fileID: 0}
     - target: {fileID: 3725269186994414713, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
@@ -7161,7 +7162,7 @@ PrefabInstance:
     - target: {fileID: 3725269186994414713, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0
+      value: 0.0495283
       objectReference: {fileID: 0}
     - target: {fileID: 3725269186994414714, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
