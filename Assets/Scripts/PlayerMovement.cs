@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
+/* by Aubrey Isaacman and Trever Berryman
+ *
+ * Trever's code:
+ * players can move to the seats directly next to them
+ * players wobble when they move to mimic moving seats
+ *
+ * Aubrey's code:
+ * when players are sitting next to each other, they prep to kiss
+ * if players are both pressing their kiss buttons, they'll kiss
+*/
+
 public class PlayerMovement : MonoBehaviour {
 
 	[Header("Rewired")]
@@ -82,6 +93,16 @@ public class PlayerMovement : MonoBehaviour {
 		
 		// Logic for when the players have collided	
 		if(collided == true) {
+				// Kiss logic:
+				// change player sprites to look at each other
+						// worry about that later
+				// then, if players both hit their kiss buttons, spawn cool shit
+				if (/*p1 button*/Input.GetKey("e") && Input.GetKey("u")/*p2 button*/)
+				{
+					Kiss();
+				}
+
+				// Move logic:
 				// Player 2 can only move left when collided is true
 				if(gameObject.name == "P1" && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
 					if(transform.position.x > -8.8) {
@@ -98,6 +119,7 @@ public class PlayerMovement : MonoBehaviour {
 						
 					}
 				}
+
 		}
 		
 		// Movement logic for when players are separated
@@ -136,5 +158,10 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 		}	
+	}
+
+	void Kiss()
+	{
+		Debug.Log("kissing!");
 	}
 }
