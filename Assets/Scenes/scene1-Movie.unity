@@ -146,6 +146,11 @@ MonoBehaviour:
   duration: 0.01
   time: 2
   maxRotation: 2.5
+  spriteRest: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
+  spriteReady: {fileID: 21300000, guid: 4e5492d3114b142359b01b4879a8d2a3, type: 3}
+  target: {fileID: 603172115}
+  rotSpeed: 1
+  kissRot: 0
 --- !u!50 &105732645
 Rigidbody2D:
   serializedVersion: 4
@@ -395,6 +400,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 5.9300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 6.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 2.1602702
       objectReference: {fileID: 0}
     - target: {fileID: 1841724246756180785, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
@@ -6363,6 +6383,21 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 5.9300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 6.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 2.1602702
+      objectReference: {fileID: 0}
     - target: {fileID: 1841724246756180785, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Offset.y
@@ -6675,6 +6710,7 @@ PrefabInstance:
     - {fileID: 2925692366983602070, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
     - {fileID: 1315718484278872517, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
     - {fileID: 7975354139095654622, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
+    - {fileID: 7029529498266127733, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e2a3be6f2501daa4fa44629df7da36c6, type: 3}
 --- !u!4 &1428767588 stripped
 Transform:
@@ -6806,6 +6842,11 @@ MonoBehaviour:
   duration: 0.01
   time: 2
   maxRotation: 2.5
+  spriteRest: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
+  spriteReady: {fileID: 21300000, guid: db5ea91e8f0fe4b08b9cea1e21ca6151, type: 3}
+  target: {fileID: 1428767588}
+  rotSpeed: 1
+  kissRot: 0
 --- !u!50 &1708290105
 Rigidbody2D:
   serializedVersion: 4

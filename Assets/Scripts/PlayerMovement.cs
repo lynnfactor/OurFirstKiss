@@ -34,10 +34,30 @@ public class PlayerMovement : MonoBehaviour {
 	public float time = 3;
 	public float maxRotation = 45f;
 
+	// So we can swap out the player sprite so they can look at each other when sitting next to each other
+	private SpriteRenderer spriteRend;
+	public Sprite spriteRest; // facing movie
+	public Sprite spriteReady; // facing partner
+
+	// So we can rotate the players towards each other for kissing
+	// target marker
+	public Transform target;
+	// angular speed in radians per sec.
+	public float rotSpeed = 1.0f;
+	public float kissRot;
+
 	void Start() {
 		// Debug position information
 		Debug.Log("Player " + playerID + " Position: " + transform.position.x);
 		print("Start: " + gameObject.name);
+
+		// sprite stuff
+		spriteRend = GetComponent<SpriteRenderer>();
+		// if the sprite is null, set it to resting sprite
+		if (spriteRend.sprite == null)
+        {
+			spriteRend.sprite = spriteRest;
+        }
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -93,11 +113,14 @@ public class PlayerMovement : MonoBehaviour {
 		
 		// Logic for when the players have collided	
 		if(collided == true) {
-				// Kiss logic:
-				// change player sprites to look at each other
-						// worry about that later
-				// then, if players both hit their kiss buttons, spawn cool shit
-				if (/*p1 button*/Input.GetKey("e") && Input.GetKey("u")/*p2 button*/)
+			// Kiss logic:
+			// change player sprites to look at each other
+			if (spriteRend.sprite == spriteRest)
+			{
+				spriteRend.sprite = spriteReady;
+			}
+			// then, if players both hit their kiss buttons, spawn cool shit
+			if (/*p1 button*/Input.GetKey("e") && Input.GetKey("u")/*p2 button*/)
 				{
 					Kiss();
 				}
@@ -124,8 +147,14 @@ public class PlayerMovement : MonoBehaviour {
 		
 		// Movement logic for when players are separated
 		if(collided != true) {
+			// change sprites back to resting position
+			if (spriteRend.sprite == spriteReady)
+			{
+				spriteRend.sprite = spriteRest;
+			}
+
 			// Player is at left barrier, don't move left
-			if(transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
 				//Don't move
 			}
 			// Player is at right barrier, don't move right
@@ -160,8 +189,43 @@ public class PlayerMovement : MonoBehaviour {
 		}	
 	}
 
+
 	void Kiss()
 	{
-		Debug.Log("kissing!");
+		// lean both players towards each other
+		// players need to stay in the ready position
+		if (spriteRend.sprite == spriteRest)
+		{
+			spriteRend.sprite = spriteReady;
+		}
+
+
+		// following this tutorial: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
+		/*
+		// determine which direction to rotate towards
+		Vector3 targetDirection = target.position - transform.position;
+		// step size is equal to speed times frame time
+		float singleStep = speed * Time.deltaTime;
+		// rotate the forward vector towards the target direction by one step
+		Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+		// draw a ray pointing at our target in
+		Debug.DrawRay(transform.position, newDirection, Color.red);
+		// calculate a rotation a step closer to the target and applies rotation to this object
+		transform.rotation = Quaternion.LookRotation(newDirection);
+		*/
+
+
+		//following this unity answers: https://answers.unity.com/questions/650460/rotating-a-2d-sprite-to-face-a-target-on-a-single.html
+		/*
+		Vector3 vectorToTarget = target.position - transform.position;
+		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotSpeed);
+		*/
+		
+
+		// spawn particles
 	}
+
+
 }
