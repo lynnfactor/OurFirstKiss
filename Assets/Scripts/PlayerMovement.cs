@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using Uduino;
 
 /* by Aubrey Isaacman and Trever Berryman
  *
@@ -51,6 +52,10 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.Log("Player " + playerID + " Position: " + transform.position.x);
 		print("Start: " + gameObject.name);
 
+		// Uduino pin setup
+		UduinoManager.Instance.pinMode(2, Pinmode.Input_pullup);
+		UduinoManager.Instance.pinMode(7, Pinmode.Input_pullup);
+
 		// sprite stuff
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
@@ -77,6 +82,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 		Move ();
+
+		// player input via arduino
+		int p1val = UduinoManager.Instance.digitalRead(2);
+		int p2val = UduinoManager.Instance.digitalRead(2);
 	}
 
 	// Sets collided to true if either player's box collider collides with each other
@@ -120,7 +129,7 @@ public class PlayerMovement : MonoBehaviour {
 				spriteRend.sprite = spriteReady;
 			}
 			// then, if players both hit their kiss buttons, spawn cool shit
-			if (/*p1 button*/Input.GetKey("e") && Input.GetKey("u")/*p2 button*/)
+			if (p1val == 1 /*Input.GetKey("e")*/ && /*Input.GetKey("u")*/ p2val == 1)
 				{
 					Kiss();
 				}
