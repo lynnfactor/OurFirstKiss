@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour {
 				spriteRend.sprite = spriteReady;
 			}
 			// then, if players both hit their kiss buttons, spawn cool shit
-			if (p1val == 1 /*Input.GetKey("e")*/ && /*Input.GetKey("u")*/ p2val == 1)
+			if ((p1val == 1 && p2val == 1) || (Input.GetKey("e") && Input.GetKey("u")) )
 				{
 					Kiss();
 				}
