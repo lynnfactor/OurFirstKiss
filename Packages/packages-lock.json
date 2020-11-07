@@ -1,41 +1,5 @@
 {
   "dependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "com.unity.2d.sprite": {
-      "version": "1.0.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {}
-    },
-    "com.unity.2d.tilemap": {
-      "version": "1.0.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {}
-    },
-    "com.unity.ads": {
-      "version": "3.4.7",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.analytics": {
-      "version": "3.3.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-=======
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
-=======
->>>>>>> 1bc47385301212022249aea7386e2f0d44076061
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,
@@ -45,15 +9,7 @@
     },
     "com.unity.ext.nunit": {
       "version": "1.0.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "depth": 0,
-=======
       "depth": 1,
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
-=======
-      "depth": 1,
->>>>>>> 1bc47385301212022249aea7386e2f0d44076061
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -63,19 +19,7 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "com.unity.test-framework": "1.1.3"
-=======
         "com.unity.test-framework": "1.1.1"
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
-=======
-        "com.unity.test-framework": "1.1.1"
->>>>>>> 1bc47385301212022249aea7386e2f0d44076061
-=======
-        "com.unity.test-framework": "1.1.1"
->>>>>>> origin
       },
       "url": "https://packages.unity.com"
     },
@@ -86,38 +30,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    "com.unity.multiplayer-hlapi": {
-      "version": "1.0.6",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "nuget.mono-cecil": "0.1.6-preview"
-      },
-      "url": "https://packages.unity.com"
-    },
->>>>>>> 39341cad6f75d0c101ca2621dedd6de9ed99de4d
-    "com.unity.postprocessing": {
-      "version": "2.3.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.purchasing": {
-      "version": "2.0.6",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-=======
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
-=======
->>>>>>> 1bc47385301212022249aea7386e2f0d44076061
     "com.unity.test-framework": {
       "version": "1.1.14",
       "depth": 0,
@@ -139,15 +51,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "version": "1.2.6",
-=======
       "version": "1.2.15",
->>>>>>> 1bc4738... Some weird settings and stuff... I just need to commit so I can do other things
-=======
-      "version": "1.2.15",
->>>>>>> 1bc47385301212022249aea7386e2f0d44076061
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -160,20 +64,6 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0"
       }
-    },
-    "com.unity.xr.legacyinputhelpers": {
-      "version": "2.1.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "nuget.mono-cecil": {
-      "version": "0.1.6-preview",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

@@ -53,8 +53,8 @@ public class PlayerMovement : MonoBehaviour {
 		print("Start: " + gameObject.name);
 
 		// Uduino pin setup
-		UduinoManager.Instance.pinMode(2, Pinmode.Input_pullup);
-		UduinoManager.Instance.pinMode(7, Pinmode.Input_pullup);
+		UduinoManager.Instance.pinMode(2, PinMode.Input_pullup);
+		UduinoManager.Instance.pinMode(7, PinMode.Input_pullup);
 
 		// sprite stuff
 		spriteRend = GetComponent<SpriteRenderer>();
@@ -84,8 +84,8 @@ public class PlayerMovement : MonoBehaviour {
 		Move ();
 
 		// player input via arduino
-		int p1val = UduinoManager.Instance.digitalRead(2);
-		int p2val = UduinoManager.Instance.digitalRead(2);
+		//int p1val = UduinoManager.Instance.digitalRead(2);
+		//int p2val = UduinoManager.Instance.digitalRead(2);
 	}
 
 	// Sets collided to true if either player's box collider collides with each other
@@ -117,6 +117,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Move()
 	{
+
+		// player input via arduino
+		int p1val = UduinoManager.Instance.digitalRead(2);
+		int p2val = UduinoManager.Instance.digitalRead(2);
+
+
 		// Assigns the amountToMoveModifier to the x (horizontal) variable
 		amountToMove = new Vector3(amountToMoveModifier,0,0);
 		
@@ -208,6 +214,7 @@ public class PlayerMovement : MonoBehaviour {
 			spriteRend.sprite = spriteReady;
 		}
 
+		Debug.Log("kissing");
 
 		// following this tutorial: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
 		/*
