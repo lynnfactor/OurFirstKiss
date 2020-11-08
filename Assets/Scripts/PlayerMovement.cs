@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float rotSpeed = 1.0f;
 	public float kissRot;
 
+	public ParticleSystem smoochParticle;
+
 	void Start() {
 		// Debug position information
 		Debug.Log("Player " + playerID + " Position: " + transform.position.x);
@@ -56,13 +58,13 @@ public class PlayerMovement : MonoBehaviour {
 		UduinoManager.Instance.pinMode(2, PinMode.Input_pullup);
 		UduinoManager.Instance.pinMode(7, PinMode.Input_pullup);
 
+		// the particle system is OFF
+		//smoochParticle.GetComponent<ParticleSystem>().enableEmission = false;
+
 		// sprite stuff
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
-		if (spriteRend.sprite == null)
-        {
-			spriteRend.sprite = spriteRest;
-        }
+		
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -82,10 +84,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 		Move ();
-
-		// player input via arduino
-		//int p1val = UduinoManager.Instance.digitalRead(2);
-		//int p2val = UduinoManager.Instance.digitalRead(2);
 	}
 
 	// Sets collided to true if either player's box collider collides with each other
@@ -128,45 +126,51 @@ public class PlayerMovement : MonoBehaviour {
 		
 		// Logic for when the players have collided	
 		if(collided == true) {
-			// Kiss logic:
+			// KISS LOGIC:
 			// change player sprites to look at each other
 			if (spriteRend.sprite == spriteRest)
 			{
 				spriteRend.sprite = spriteReady;
 			}
+
 			// then, if players both hit their kiss buttons, spawn cool shit
 			if ((p1val == 1 && p2val == 1) || (Input.GetKey("e") && Input.GetKey("u")) )
-				{
-					Kiss();
-				}
+			{
+				Kiss();
+			}
 
-				// Move logic:
-				// Player 2 can only move left when collided is true
-				if(gameObject.name == "P1" && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
-					if(transform.position.x > -8.8) {
-						StartCoroutine(Wiggle()); //Start wiggle corouitine
-						transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
+
+			// MOVE LOGIC:
+			// Player 2 can only move left when collided is true
+				if (gameObject.name == "P1" && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+				if(transform.position.x > -8.8) {
+					StartCoroutine(Wiggle()); //Start wiggle corouitine
+					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
 						
-					}
 				}
-				// Player 2 can only move right when collided is true
-				else if(gameObject.name == "P2" && rewiredPlayer.GetButtonDown("Horizontal")) {
-					if(transform.position.x < 8.8) {
-						StartCoroutine(Wiggle()); //Start wiggle corouitine
-						transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
+			}
+			// Player 2 can only move right when collided is true
+			else if(gameObject.name == "P2" && rewiredPlayer.GetButtonDown("Horizontal")) {
+				if(transform.position.x < 8.8) {
+					StartCoroutine(Wiggle()); //Start wiggle corouitine
+					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
 						
-					}
 				}
+			}
 
 		}
 		
 		// Movement logic for when players are separated
 		if(collided != true) {
+
 			// change sprites back to resting position
 			if (spriteRend.sprite == spriteReady)
 			{
 				spriteRend.sprite = spriteRest;
 			}
+
+			// turn off kissing particle system
+			//smoochParticle.Stop();
 
 			// Player is at left barrier, don't move left
 			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
@@ -213,6 +217,9 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			spriteRend.sprite = spriteReady;
 		}
+
+		// turn on the particle system
+		//smoochParticle.Play();
 
 		Debug.Log("kissing");
 
