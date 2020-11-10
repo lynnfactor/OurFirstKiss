@@ -51,8 +51,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start() {
 		// Debug position information
-		Debug.Log("Player " + playerID + " Position: " + transform.position.x);
-		print("Start: " + gameObject.name);
+		//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
+		//print("Start: " + gameObject.name);
 
 		// Uduino pin setup
 		UduinoManager.Instance.pinMode(2, PinMode.Input_pullup);
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Sets collided to true if either player's box collider collides with each other
 	void OnTriggerEnter2D(Collider2D other) {
 		if (gameObject.name == "P1" || gameObject.name == "P2") {
-			Debug.Log("Touching: " + gameObject.name); // Debug alerts for when they touch
+			//Debug.Log("Touching: " + gameObject.name); // Debug alerts for when they touch
 			collided = true;	
         }
 	}
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Sets collided to false if either player's box collider exits the other player's box collider
 	void OnTriggerExit2D(Collider2D other) {
 		if (gameObject.name == "P1" || gameObject.name == "P2") {
-			Debug.Log("Not Touching: " + gameObject.name); // Debug alerts for when they stop touching
+			//Debug.Log("Not Touching: " + gameObject.name); // Debug alerts for when they stop touching
 			collided = false;	
         }
 	}
