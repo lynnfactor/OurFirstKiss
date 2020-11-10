@@ -47,7 +47,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float rotSpeed = 1.0f;
 	public float kissRot;
 
-	public ParticleSystem smoochParticle;
+	//public ParticleSystem smoochParticle;
+	public Transform kissparticle;
 
 	void Start() {
 		// Debug position information
@@ -64,6 +65,8 @@ public class PlayerMovement : MonoBehaviour {
 		// sprite stuff
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
+
+		kissparticle.GetComponent<ParticleSystem>().enableEmission = false;
 		
 	}
 
@@ -170,7 +173,7 @@ public class PlayerMovement : MonoBehaviour {
 			}
 
 			// turn off kissing particle system
-			//smoochParticle.Stop();
+			StartCoroutine(stopParticles());
 
 			// Player is at left barrier, don't move left
 			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
@@ -218,11 +221,14 @@ public class PlayerMovement : MonoBehaviour {
 			spriteRend.sprite = spriteReady;
 		}
 
-		// turn on the particle system
-		//smoochParticle.Play();
-
+		// turn on particle system
+		kissparticle.GetComponent<ParticleSystem>().enableEmission = true;
+		
 		Debug.Log("kissing");
 
+
+
+		// trying to figure out how to get characters to rotate into each other's lips
 		// following this tutorial: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
 		/*
 		// determine which direction to rotate towards
@@ -246,8 +252,13 @@ public class PlayerMovement : MonoBehaviour {
 		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotSpeed);
 		*/
 		
+	}
 
-		// spawn particles
+	IEnumerator stopParticles()
+	{
+		yield return new WaitForSeconds(0.4f);
+
+		kissparticle.GetComponent<ParticleSystem>().enableEmission = false;
 	}
 
 
