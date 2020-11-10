@@ -130,7 +130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 91434633}
-  - component: {fileID: 91434632}
   m_Layer: 0
   m_Name: TwitchChat
   m_TagString: Untagged
@@ -138,22 +137,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &91434632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91434631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82dc9c05fd8d39f489207f827466ac50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  configurationPath: Assets/Twitch/config.json
-  commandPrefix: '!'
-  automaticInit: 1
-  audioManager: {fileID: 923438181}
 --- !u!4 &91434633
 Transform:
   m_ObjectHideFlags: 0
@@ -874,7 +857,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 923438181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4b9a87db5b52c45a626f249d0ce179, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b103d2501b73f4ebae225eb15836fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clips:

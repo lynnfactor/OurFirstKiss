@@ -1,4 +1,5 @@
 ﻿[System.Serializable]
+
 public class TwitchConnectData
 {
     public string username { get; set; }
