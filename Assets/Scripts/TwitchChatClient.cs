@@ -54,6 +54,7 @@ public class TwitchChatClient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         if(!automaticInit) return;
 
         Init();
@@ -62,7 +63,9 @@ public class TwitchChatClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("BEFORE if");
         if(twitchClient == null || !twitchClient.Connected) return;
+        Debug.Log("AFTER if");
         ReadChat();
     }
 
