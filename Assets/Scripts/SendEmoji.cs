@@ -19,6 +19,11 @@ public class SendEmoji : MonoBehaviour
     private AudioManager amScript;
     private Vector3 startPos;
 
+     private void Awake()
+    {
+        //AirConsole.instance.onMessage += OnMessage;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +42,5 @@ public class SendEmoji : MonoBehaviour
     public void AddClickCount(int emojiNum)
     {
         amScript.AddClicks(emojiNum);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

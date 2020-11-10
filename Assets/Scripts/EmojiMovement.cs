@@ -22,8 +22,8 @@ public class EmojiMovement : MonoBehaviour
         //initial setup to record the current location of the emoji
         emojiRT = this.GetComponent<RectTransform>();
         crtPos = emojiRT.anchoredPosition;
-        emoImg = this.GetComponent<Image>();
-        emoColor = emoImg.color;    
+        //emoImg = this.GetComponent<Image>();
+        //emoColor = emoImg.color;    
     }
 
     // Update is called once per frame
@@ -63,8 +63,8 @@ public class EmojiMovement : MonoBehaviour
      {
          for (float alpha = 1.0f; alpha >=0; alpha -= fadeRate)
          {
-             emoColor.a = alpha;
-             emoImg.color = emoColor;
+             //emoColor.a = alpha;
+             //emoImg.color = emoColor;
              yield return null;
          }
      }

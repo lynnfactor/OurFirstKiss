@@ -34,9 +34,7 @@ public class TwitchChatClient : MonoBehaviour
     private bool hasInitialized = false;
 
     #region Singleton
-
     public static TwitchChatClient instance{ get; private set; }
-
     void Awake()
     {
         if(instance == null)
@@ -54,18 +52,14 @@ public class TwitchChatClient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         if(!automaticInit) return;
-
         Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("BEFORE if");
         if(twitchClient == null || !twitchClient.Connected) return;
-        Debug.Log("AFTER if");
         ReadChat();
     }
 
@@ -97,6 +91,7 @@ public class TwitchChatClient : MonoBehaviour
         writer.WriteLine("PASS " + data.userToken);
         writer.WriteLine("NICK " + data.username);
         writer.WriteLine("USER " + data.username + " 8 * :" + data.username);
+        writer.WriteLine("JOIN #" + data.channelName);
         writer.Flush();
     }
 
@@ -164,7 +159,6 @@ public class TwitchChatClient : MonoBehaviour
                         sendEmojiScript.InitEmoji(0);
                 }
             }
-
             yield return null;
         }
     }
