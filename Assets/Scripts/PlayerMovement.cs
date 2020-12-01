@@ -65,8 +65,8 @@ public class PlayerMovement : MonoBehaviour {
 		// sprite stuff
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
-
-		kissparticle.GetComponent<ParticleSystem>().enableEmission = false;
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		kisseffect.enabled = false;
 		
 	}
 
@@ -222,7 +222,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		// turn on particle system
-		kissparticle.GetComponent<ParticleSystem>().enableEmission = true;
+		//kissparticle.GetComponent<ParticleSystem>().enableEmission = true;
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		kisseffect.enabled = true;
+		kissparticle.GetComponent<ParticleSystem>().Play();
+		Debug.Log(kissparticle.GetComponent<ParticleSystem>().emission.enabled);
 		
 		Debug.Log("kissing");
 
@@ -258,7 +262,10 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(0.4f);
 
-		kissparticle.GetComponent<ParticleSystem>().enableEmission = false;
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		kisseffect.enabled = false;
+		kissparticle.GetComponent<ParticleSystem>().Pause();
+		kissparticle.GetComponent<ParticleSystem>().Clear();
 	}
 
 
