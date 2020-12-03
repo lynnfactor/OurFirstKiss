@@ -141,7 +141,13 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				Kiss();
 			}
+			/*
+			else // if they stop hitting kiss buttons stop the particles
+			{
+				StartCoroutine(stopParticles());
 
+			}
+			*/
 
 			// MOVE LOGIC:
 			// Player 2 can only move left when collided is true
