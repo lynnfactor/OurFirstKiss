@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
 	//public ParticleSystem smoochParticle;
 	public Transform kissparticle;
 
-	// temp variable for debugging
+	//are they kissing?
 	private bool isKissing = false;
 
 	void Start() {
@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour {
 
 		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
 		kisseffect.enabled = false;
-		
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -91,7 +90,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 		Move ();
-		Debug.Log(isKissing);
 	}
 
 	// Sets collided to true if either player's box collider collides with each other
@@ -123,10 +121,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Move()
 	{
-		if (isKissing)
-		{
-			collided = true;
-		}
 		// player input via arduino
 		int p1val = UduinoManager.Instance.digitalRead(2);
 		int p2val = UduinoManager.Instance.digitalRead(2);
@@ -136,7 +130,7 @@ public class PlayerMovement : MonoBehaviour {
 		amountToMove = new Vector3(amountToMoveModifier,0,0);
 		
 		// Logic for when the players have collided	
-		if(collided == true) {
+		if(collided == true || isKissing == true) {
 			// KISS LOGIC:
 			// change player sprites to look at each other
 			if (spriteRend.sprite == spriteRest)
@@ -152,8 +146,22 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else // if they stop hitting kiss buttons stop the particles
 			{
+				if ((p1val == 0 && p2val == 0) || (Input.GetKeyUp("e") && Input.GetKeyUp("u")))
+				{
+					Debug.Log(gameObject.name + " pos: " + transform.position.x);
+					Debug.Log(gameObject.name + "target pos: " + target.position.x);
+					if ((gameObject.name == "P1" && transform.position.x >= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f))
+					{
+					Debug.Log(gameObject.name);
+					Vector3 targetDirection = target.position - transform.position;
+					//transform.rotation = Quaternion.Euler(0f, 0f, 5 * targetDirection.x);
+					transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
+					Debug.Log(spriteRend.sprite == spriteReady);
+					Debug.Log(transform.rotation);
+					}
+				}
 				StartCoroutine(stopParticles());
-
+				
 			}
 
 			// MOVE LOGIC:
@@ -170,7 +178,7 @@ public class PlayerMovement : MonoBehaviour {
 				if(transform.position.x < 8.8) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
-						
+
 				}
 			}
 
@@ -243,14 +251,19 @@ public class PlayerMovement : MonoBehaviour {
 		//Debug.Log(kissparticle.GetComponent<ParticleSystem>().emission.enabled);
 		Debug.Log("kissing");
 
+
 		//lean in to kiss
 		
-		Vector3 targetDirection = target.position - transform.position;
-		transform.rotation = Quaternion.Euler(0f, 0f, 5 * -1*targetDirection.x);
-		transform.position = Vector3.Lerp(transform.position, 0.01f*targetDirection + transform.position, 0.1f);
-		Debug.Log(spriteRend.sprite == spriteReady);
-		Debug.Log(transform.rotation);
-		collided = true;
+		if ((gameObject.name == "P1" && transform.position.x < target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x > target.position.x + 3f))
+		{
+			
+			Vector3 targetDirection = target.position - transform.position;
+			transform.rotation = Quaternion.Euler(0f, 0f, 5 * -1*targetDirection.x);
+			transform.position = Vector3.Lerp(transform.position, 0.01f*targetDirection + transform.position, 0.1f);
+			Debug.Log(spriteRend.sprite == spriteReady);
+			Debug.Log(transform.rotation);
+		}
+		
 		// trying to figure out how to get characters to rotate into each other's lips
 		// following this tutorial: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
 		/*
@@ -281,12 +294,14 @@ public class PlayerMovement : MonoBehaviour {
 	IEnumerator stopParticles()
 	{
 		isKissing = false;
-		yield return new WaitForSeconds(0.6f);
+		yield return new WaitForSeconds(0.4f);
 
 		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
 		kisseffect.enabled = false;
 		kissparticle.GetComponent<ParticleSystem>().Pause();
 		kissparticle.GetComponent<ParticleSystem>().Clear();
+
+		
 	}
 
 
