@@ -12266,6 +12266,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 96ecc4ac6b96bdb40959dcecee33215f, type: 2}
+    - target: {fileID: 8907509884082184916, guid: b5d24641513556648b747b0e3dcc2aab,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 1394411747}
     - target: {fileID: 8907509884082184918, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12280,6 +12285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907509884082184919, guid: b5d24641513556648b747b0e3dcc2aab,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8907509884082184937, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}
