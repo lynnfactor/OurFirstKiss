@@ -144,23 +144,24 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				Kiss();
 			}
-			else // if they stop hitting kiss buttons stop the particles
+			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
-				if ((p1val == 0 && p2val == 0) || (Input.GetKeyUp("e") && Input.GetKeyUp("u")))
+				if (isKissing && ((p1val == 0 && p2val == 0) || (Input.GetKeyUp("e") && Input.GetKeyUp("u"))))
 				{
 					Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					Debug.Log(gameObject.name + "target pos: " + target.position.x);
-					if ((gameObject.name == "P1" && transform.position.x >= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f))
+					Debug.Log(transform.position.x >= target.position.x - 3f);
+					if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f))
 					{
 					Debug.Log(gameObject.name);
 					Vector3 targetDirection = target.position - transform.position;
-					//transform.rotation = Quaternion.Euler(0f, 0f, 5 * targetDirection.x);
+					transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
 					transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
-					Debug.Log(spriteRend.sprite == spriteReady);
-					Debug.Log(transform.rotation);
+					
 					}
+					StartCoroutine(stopParticles());
 				}
-				StartCoroutine(stopParticles());
+				
 				
 			}
 
@@ -185,7 +186,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		
 		// Movement logic for when players are separated
-		if(collided != true) {
+		if(collided != true && isKissing != true) {
 
 			// change sprites back to resting position
 			if (spriteRend.sprite == spriteReady)
@@ -249,19 +250,18 @@ public class PlayerMovement : MonoBehaviour {
 		kisseffect.enabled = true;
 		kissparticle.GetComponent<ParticleSystem>().Play();
 		//Debug.Log(kissparticle.GetComponent<ParticleSystem>().emission.enabled);
-		Debug.Log("kissing");
+		//Debug.Log("kissing");
 
 
 		//lean in to kiss
 		
-		if ((gameObject.name == "P1" && transform.position.x < target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x > target.position.x + 3f))
+		if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x >= target.position.x + 3f))
 		{
 			
 			Vector3 targetDirection = target.position - transform.position;
 			transform.rotation = Quaternion.Euler(0f, 0f, 5 * -1*targetDirection.x);
 			transform.position = Vector3.Lerp(transform.position, 0.01f*targetDirection + transform.position, 0.1f);
-			Debug.Log(spriteRend.sprite == spriteReady);
-			Debug.Log(transform.rotation);
+			
 		}
 		
 		// trying to figure out how to get characters to rotate into each other's lips
