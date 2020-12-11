@@ -221,24 +221,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &442808335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8907509884048033551, guid: b5d24641513556648b747b0e3dcc2aab,
-    type: 3}
-  m_PrefabInstance: {fileID: 8907509884747047926}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &442808341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442808335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3725269186994414713, guid: 726c0a57ae533fc4e9db0c18a663e951,
@@ -12122,6 +12104,11 @@ PrefabInstance:
       propertyPath: VideoPlayer
       value: 
       objectReference: {fileID: 8907509884747047927}
+    - target: {fileID: 3725269186994414712, guid: 726c0a57ae533fc4e9db0c18a663e951,
+        type: 3}
+      propertyPath: SceneName
+      value: scene2-gameCreds
+      objectReference: {fileID: 0}
     - target: {fileID: 3725269186994414713, guid: 726c0a57ae533fc4e9db0c18a663e951,
         type: 3}
       propertyPath: orthographic size
