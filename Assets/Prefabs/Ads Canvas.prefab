@@ -125,7 +125,7 @@ Canvas:
   m_GameObject: {fileID: 1818750447138951159}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 500
   m_PixelPerfect: 0
@@ -203,8 +203,12 @@ MonoBehaviour:
   time_min: 5
   time_max: 8
   sprites:
-  - {fileID: 21300000, guid: 49fe207a7f58c5a4381eac9633dec538, type: 3}
-  - {fileID: 21300000, guid: c65a66e40f06e9745bdeb550c8894a0b, type: 3}
+  - {fileID: 21300000, guid: a4358dc5f7e344e50892aa54fa2c0374, type: 3}
+  - {fileID: 21300000, guid: 80a77be446e5b4213950160bc26c267c, type: 3}
+  - {fileID: 21300000, guid: 1319d60fdb0fd43c09fcda83c893c5fb, type: 3}
+  - {fileID: 21300000, guid: 2b2f98eb257d549f1a161afc8d05201e, type: 3}
+  - {fileID: 21300000, guid: 246b7e34c90114f66bf4db3c59894b5b, type: 3}
+  - {fileID: 21300000, guid: c1372abb6c4844926974b77f17703284, type: 3}
   image: {fileID: 1818750446933985234}
   canvas: {fileID: 1818750447138951156}
 --- !u!212 &1818750447138951158

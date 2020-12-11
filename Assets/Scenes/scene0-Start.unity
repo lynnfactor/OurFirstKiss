@@ -1031,16 +1031,6 @@ PrefabInstance:
       objectReference: {fileID: 1800566089}
     - target: {fileID: 1818750447138951153, guid: 4d87016a762842b47b353c610d6a3d9d,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1818750447138951153, guid: 4d87016a762842b47b353c610d6a3d9d,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1818750447138951153, guid: 4d87016a762842b47b353c610d6a3d9d,
-        type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: -1
       objectReference: {fileID: 0}
@@ -1056,14 +1046,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818750447138951157, guid: 4d87016a762842b47b353c610d6a3d9d,
         type: 3}
-      propertyPath: sprites.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1818750447138951157, guid: 4d87016a762842b47b353c610d6a3d9d,
-        type: 3}
-      propertyPath: sprites.Array.data[2]
+      propertyPath: sprites.Array.data[6]
       value: 
-      objectReference: {fileID: 21300000, guid: 4b6b1f8c05b754f848033140b426d1d6,
+      objectReference: {fileID: 21300000, guid: c1372abb6c4844926974b77f17703284,
         type: 3}
     - target: {fileID: 1818750447138951158, guid: 4d87016a762842b47b353c610d6a3d9d,
         type: 3}
