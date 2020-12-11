@@ -54,13 +54,15 @@ public class SlideShowAds : MonoBehaviour
             } else
             {
                 image.enabled = true;
-
-                // this image becomes the previous image
-                prevSprite = currentSprite;
             }
-            
 
             yield return new WaitForSeconds(Random.Range(time_min, time_max));
+
+            // if the image called was enabled, that image becomes the previous image
+            if (image.enabled == true)
+            {
+                prevSprite = currentSprite;
+            }
 
             // fade out
             StartCoroutine(FadeOut(1.0f, 0.0f));
