@@ -45,11 +45,7 @@ public class SlideShowAds : MonoBehaviour
 
             // assign random sprite to current sprite variable
             currentSprite = Random.Range(0, sprites.Length);
-
             image.sprite = sprites[currentSprite];
-
-            // Make sure the same image doesn't come up multiple times in a row, but doesn't work yet
-            
 
             // if the current sprite is the same as the previous sprite, call this function again
             if(currentSprite == prevSprite)
@@ -64,23 +60,16 @@ public class SlideShowAds : MonoBehaviour
             }
             
 
-
-            //image.enabled = true;
-
-
             yield return new WaitForSeconds(Random.Range(time_min, time_max));
 
             // fade out
             StartCoroutine(FadeOut(1.0f, 0.0f));
-
 
         }
     }
 
     public IEnumerator FadeIn(float aValue, float bValue)
     {
-        //float alpha = transform.GetComponent<SpriteRenderer>().material.color.a;
-
         for (float t = aValue; t < bValue; t += Time.deltaTime)
         {
             canvas.alpha = t;
@@ -91,8 +80,6 @@ public class SlideShowAds : MonoBehaviour
     // fade out
     public IEnumerator FadeOut(float aValue, float bValue)
     {
-        //float alpha = transform.GetComponent<SpriteRenderer>().material.color.a;
-
         for (float t = aValue; t > bValue; t -= Time.deltaTime)
         {
             canvas.alpha = t;
