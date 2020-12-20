@@ -47,6 +47,9 @@ public class PlayerMovement : MonoBehaviour {
 	public float rotSpeed = 1.0f;
 	public float kissRot;
 
+	// reading the input from the pressure sensors
+	float readValue = 0f;
+
 	//public ParticleSystem smoochParticle;
 	public Transform kissparticle;
 
@@ -54,13 +57,12 @@ public class PlayerMovement : MonoBehaviour {
 	private bool isKissing = false;
 
 	void Start() {
-		// Debug position information
-		//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
-		//print("Start: " + gameObject.name);
 
-		// Uduino pin setup
-		UduinoManager.Instance.pinMode(2, PinMode.Input_pullup);
-		UduinoManager.Instance.pinMode(7, PinMode.Input_pullup);
+		// set up the lip controllers
+		UduinoManager.Instance.pinMode(AnalogPin.A0, PinMode.Input);
+		UduinoManager.Instance.pinMode(AnalogPin.A3, PinMode.Input);
+		// setting up the LED on the Arduino as output for testing
+		UduinoManager.Instance.pinMode(13, PinMode.Output);
 
 		// the particle system is OFF
 		//smoochParticle.GetComponent<ParticleSystem>().enableEmission = false;
@@ -89,6 +91,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void Update () {
+		// read the sensor value
+		readValue = UduinoManager.Instance.analogRead(AnalogPin.A0, "PinRead");
+		Debug.Log("Pressure sensor: " + readValue);
+
+		// move the players
 		Move ();
 	}
 
@@ -121,6 +128,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Move()
 	{
+
 		// player input via arduino
 		int p1val = UduinoManager.Instance.digitalRead(2);
 		int p2val = UduinoManager.Instance.digitalRead(2);
