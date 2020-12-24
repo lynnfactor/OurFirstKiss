@@ -12088,7 +12088,22 @@ PrefabInstance:
     - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4,
         type: 3}
       propertyPath: pins.Array.data[1].lastReadValue
-      value: 544
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4,
+        type: 3}
+      propertyPath: pins.Array.data[0].sendValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4,
+        type: 3}
+      propertyPath: pins.Array.data[0].prevSendValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114023058375386772, guid: bb5e6aea88a650f4a8317e74940b0ea4,
+        type: 3}
+      propertyPath: shouldReconnect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb5e6aea88a650f4a8317e74940b0ea4, type: 3}
