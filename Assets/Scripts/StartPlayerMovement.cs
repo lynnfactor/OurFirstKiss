@@ -70,6 +70,7 @@ public class StartPlayerMovement : MonoBehaviour {
 		// sprite stuff
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
+		
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -125,17 +126,19 @@ public class StartPlayerMovement : MonoBehaviour {
 
 	void Move()
 	{
-
+		
 		// player input via arduino
-		int p1val = UduinoManager.Instance.digitalRead(2);
-		int p2val = UduinoManager.Instance.digitalRead(2);
+		
 
 
 		// Assigns the amountToMoveModifier to the x (horizontal) variable
-		amountToMove = new Vector3(amountToMoveModifier,0,0);
+		
 		
 		// Logic for when the players have collided	
 		if(collided == true) {
+			int p1val = UduinoManager.Instance.digitalRead(2);
+			int p2val = UduinoManager.Instance.digitalRead(2);
+			amountToMove = new Vector3(amountToMoveModifier,0,0);
 			// KISS LOGIC:
 			// change player sprites to look at each other
 			if (spriteRend.sprite == spriteRest)
@@ -145,19 +148,21 @@ public class StartPlayerMovement : MonoBehaviour {
 
 
 			// MOVE LOGIC:
-			// Player 2 can only move left when collided is true
+			// Player 1 can only move left when collided is true
 				if (gameObject.name == "P1" && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
-				if(transform.position.x > -8.7) {
+				if(transform.localPosition.x > -8.7) {
+					Debug.Log(gameObject.name + " " +transform.localPosition.x + " collided, going left");
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
+					transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + amountToMove * -1.0f, 1); // Move left
 						
 				}
 			}
 			// Player 2 can only move right when collided is true
 			else if(gameObject.name == "P2" && rewiredPlayer.GetButtonDown("Horizontal")) {
-				if(transform.position.x < 8.7) {
+				if(transform.localPosition.x < 8.7) {
+					Debug.Log(gameObject.name + " " +transform.localPosition.x + " collided, going right");
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
+					transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + amountToMove, 1); // Move right
 
 				}
 			}
@@ -166,44 +171,51 @@ public class StartPlayerMovement : MonoBehaviour {
 		
 		// Movement logic for when players are separated
 		if(collided != true) {
-
-			// change sprites back to resting position
+			int p1val = UduinoManager.Instance.digitalRead(2);
+			int p2val = UduinoManager.Instance.digitalRead(2);
+			amountToMove = new Vector3(amountToMoveModifier,0,0);
+			// change sprites back to resting localPosition
 			if (spriteRend.sprite == spriteReady)
 			{
 				spriteRend.sprite = spriteRest;
 			}
 
 			// Player is at left barrier, don't move left
-			if (transform.position.x < -8.7 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+			if (transform.localPosition.x < -8.7 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
 				//Don't move
 			}
 			// Player is at right barrier, don't move right
-			else if(transform.position.x > 8.7 && rewiredPlayer.GetButtonDown("Horizontal")) {
+			else if(transform.localPosition.x > 8.7 && rewiredPlayer.GetButtonDown("Horizontal")) {
 				//Don't move
 			}
 			
 			// If Player's are within the barriers, move normally
 
-			else if(transform.position.x >= -8.7 && transform.position.x <= 8.7) {
+			else if(transform.localPosition.x >= -8.7 && transform.localPosition.x <= 8.7) {
 				if(rewiredPlayer.GetButtonDown("Horizontal")) {
+					Debug.Log(gameObject.name + " " +transform.localPosition.x + " not collided, going right");
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
+					transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + amountToMove, 1); // Move right
+					
 				}
 				else if(rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+					Debug.Log(gameObject.name + " " +transform.localPosition.x + " not collided, going left");
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
+					transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + amountToMove * -1.0f, 1); // Move left
 				}
 			}
-			else if(transform.position.x >= -8.7 && transform.position.x <= 8.7){
+			else if(transform.localPosition.x >= -8.7 && transform.localPosition.x <= 8.7){
 				if(rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+					Debug.Log(gameObject.name + " " +transform.localPosition.x + " not collided, going left");
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
+					transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + amountToMove * -1.0f, 1); // Move left
 				}
 			}
-			else if(transform.position.x >= -8.7 && transform.position.x <= 8.7){
+			else if(transform.localPosition.x >= -8.7 && transform.localPosition.x <= 8.7){
 				if(rewiredPlayer.GetButtonDown("Horizontal")) {
+					Debug.Log(gameObject.name + " " +transform.localPosition.x + " collided, going right");
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
+					transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + amountToMove, 1); // Move right
 				}
 			}
 		}	

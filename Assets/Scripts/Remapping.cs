@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+Script for remapping menu. By L. Yu, lsyu@usc.edu
+Uses binding system where when the player clicks a button corresponding to the control, they can map it to any key. 
+Controls are stored in PlayerPrefs as global variables.
+*/
 public class Remapping : MonoBehaviour
 {
     public Text p1left;
@@ -21,9 +26,9 @@ public class Remapping : MonoBehaviour
         PlayerPrefs.SetString("P1Right", "D");
         PlayerPrefs.SetString("P1Kiss", "E");
         
-        PlayerPrefs.SetString("P1Left", "J");
-        PlayerPrefs.SetString("P1Right", "L");
-        PlayerPrefs.SetString("P1Kiss", "U");
+        PlayerPrefs.SetString("P2Left", "J");
+        PlayerPrefs.SetString("P2Right", "L");
+        PlayerPrefs.SetString("P2Kiss", "U");
         
     }
 
