@@ -22,6 +22,7 @@ public class Remapping : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("start");
         PlayerPrefs.SetString("P1Left", "A");
         PlayerPrefs.SetString("P1Right", "D");
         PlayerPrefs.SetString("P1Kiss", "E");
@@ -35,8 +36,9 @@ public class Remapping : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (buttonClicked != null)   
+        if (buttonClicked != null)
         {
+            Debug.Log(buttonClicked);
             foreach(KeyCode kcode in System.Enum.GetValues(typeof(KeyCode)))
             {
                 Debug.Log(kcode);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using Uduino;
+using System;
 
 /* by Aubrey Isaacman and Trever Berryman
  *
@@ -14,7 +15,7 @@ using Uduino;
  * when players are sitting next to each other, they prep to kiss
  * if players are both pressing their kiss buttons, they'll kiss
 */
-
+// Kissing particles: lsyu@usc.edu. particles should spawn when players hold down kiss buttons. also players should lean into each other.
 public class PlayerMovement : MonoBehaviour {
 
 	[Header("Rewired")]
@@ -148,13 +149,13 @@ public class PlayerMovement : MonoBehaviour {
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if ((p1val == 1 && p2val == 1) || (Input.GetKey(PlayerPrefs.GetString("P1Kiss")) && Input.GetKey(PlayerPrefs.GetString("P2Kiss"))) )
+			if ((p1val == 1 && p2val == 1) || (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
 			{
 				Kiss();
 			}
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
-				if (isKissing && ((p1val == 0 && p2val == 0) || (Input.GetKeyUp("e") && Input.GetKeyUp("u"))))
+				if (isKissing && ((p1val == 0 && p2val == 0) || (Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
 				{
 					Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					Debug.Log(gameObject.name + "target pos: " + target.position.x);
