@@ -8,13 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/scene0-Start.unity
     guid: 40c2895fd8d709445838648803b54cb5
   - enabled: 1
     path: Assets/Scenes/scene1-Movie.unity
     guid: 039a6c5693642ca4abc5fcbfe05280af
-  - enabled: 0
-    path: Assets/Scenes/scene2-Credits.unity
+  - enabled: 1
+    path: Assets/Scenes/scene2-gameCreds.unity
+    guid: a76ff684353fd4a24b58acee64bf919a
+  - enabled: 1
+    path: Assets/Scenes/scene2-movieCreds.unity
     guid: 0e9be7913dba89c42b36ecb6f8374813
   m_configObjects: {}

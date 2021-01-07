@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using Uduino;
+using System;
 
 /* by Aubrey Isaacman and Trever Berryman
  *
@@ -14,7 +15,7 @@ using Uduino;
  * when players are sitting next to each other, they prep to kiss
  * if players are both pressing their kiss buttons, they'll kiss
 */
-
+// Kissing particles: lsyu@usc.edu. particles should spawn when players hold down kiss buttons. also players should lean into each other.
 public class PlayerMovement : MonoBehaviour {
 
 	[Header("Rewired")]
@@ -47,17 +48,22 @@ public class PlayerMovement : MonoBehaviour {
 	public float rotSpeed = 1.0f;
 	public float kissRot;
 
+	// reading the input from the pressure sensors
+	float readValue = 0f;
+
 	//public ParticleSystem smoochParticle;
 	public Transform kissparticle;
 
-	void Start() {
-		// Debug position information
-		//Debug.Log("Player " + playerID + " Position: " + transform.position.x);
-		//print("Start: " + gameObject.name);
+	//are they kissing?
+	private bool isKissing = false;
 
-		// Uduino pin setup
-		UduinoManager.Instance.pinMode(2, PinMode.Input_pullup);
-		UduinoManager.Instance.pinMode(7, PinMode.Input_pullup);
+	void Start() {
+
+		// set up the lip controllers
+		UduinoManager.Instance.pinMode(AnalogPin.A0, PinMode.Input);
+		UduinoManager.Instance.pinMode(AnalogPin.A3, PinMode.Input);
+		// setting up the LED on the Arduino as output for testing
+		UduinoManager.Instance.pinMode(13, PinMode.Output);
 
 		// the particle system is OFF
 		//smoochParticle.GetComponent<ParticleSystem>().enableEmission = false;
@@ -66,8 +72,8 @@ public class PlayerMovement : MonoBehaviour {
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
 
-		kissparticle.GetComponent<ParticleSystem>().enableEmission = false;
-		
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		kisseffect.enabled = false;
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -86,6 +92,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void Update () {
+		// read the sensor value
+		readValue = UduinoManager.Instance.analogRead(AnalogPin.A0, "PinRead");
+		Debug.Log("Pressure sensor: " + readValue);
+
+		// move the players
 		Move ();
 	}
 
@@ -128,7 +139,7 @@ public class PlayerMovement : MonoBehaviour {
 		amountToMove = new Vector3(amountToMoveModifier,0,0);
 		
 		// Logic for when the players have collided	
-		if(collided == true) {
+		if(collided == true || isKissing == true) {
 			// KISS LOGIC:
 			// change player sprites to look at each other
 			if (spriteRend.sprite == spriteRest)
@@ -137,11 +148,31 @@ public class PlayerMovement : MonoBehaviour {
 			}
 
 			// then, if players both hit their kiss buttons, spawn cool shit
-			if ((p1val == 1 && p2val == 1) || (Input.GetKey("e") && Input.GetKey("u")) )
+			
+			if ((p1val == 1 && p2val == 1) || (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
 			{
 				Kiss();
 			}
-
+			else // if they stop hitting kiss buttons stop the particles and undo the lean
+			{
+				if (isKissing && ((p1val == 0 && p2val == 0) || (Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
+				{
+					Debug.Log(gameObject.name + " pos: " + transform.position.x);
+					Debug.Log(gameObject.name + "target pos: " + target.position.x);
+					Debug.Log(transform.position.x >= target.position.x - 3f);
+					if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f))
+					{
+					Debug.Log(gameObject.name);
+					Vector3 targetDirection = target.position - transform.position;
+					transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
+					transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
+					
+					}
+					StartCoroutine(stopParticles());
+				}
+				
+				
+			}
 
 			// MOVE LOGIC:
 			// Player 2 can only move left when collided is true
@@ -157,14 +188,14 @@ public class PlayerMovement : MonoBehaviour {
 				if(transform.position.x < 8.8) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
-						
+
 				}
 			}
 
 		}
 		
 		// Movement logic for when players are separated
-		if(collided != true) {
+		if(collided != true && isKissing != true) {
 
 			// change sprites back to resting position
 			if (spriteRend.sprite == spriteReady)
@@ -174,7 +205,6 @@ public class PlayerMovement : MonoBehaviour {
 
 			// turn off kissing particle system
 			StartCoroutine(stopParticles());
-
 			// Player is at left barrier, don't move left
 			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
 				//Don't move
@@ -214,6 +244,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Kiss()
 	{
+		
+		isKissing = true;
 		// lean both players towards each other
 		// players need to stay in the ready position
 		if (spriteRend.sprite == spriteRest)
@@ -222,12 +254,25 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		// turn on particle system
-		kissparticle.GetComponent<ParticleSystem>().enableEmission = true;
+		//kissparticle.GetComponent<ParticleSystem>().enableEmission = true;
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		kisseffect.enabled = true;
+		kissparticle.GetComponent<ParticleSystem>().Play();
+		//Debug.Log(kissparticle.GetComponent<ParticleSystem>().emission.enabled);
+		//Debug.Log("kissing");
+
+
+		//lean in to kiss
 		
-		Debug.Log("kissing");
-
-
-
+		if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x >= target.position.x + 3f))
+		{
+			
+			Vector3 targetDirection = target.position - transform.position;
+			transform.rotation = Quaternion.Euler(0f, 0f, 5 * -1*targetDirection.x);
+			transform.position = Vector3.Lerp(transform.position, 0.01f*targetDirection + transform.position, 0.1f);
+			
+		}
+		
 		// trying to figure out how to get characters to rotate into each other's lips
 		// following this tutorial: https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html
 		/*
@@ -235,6 +280,7 @@ public class PlayerMovement : MonoBehaviour {
 		Vector3 targetDirection = target.position - transform.position;
 		// step size is equal to speed times frame time
 		float singleStep = speed * Time.deltaTime;
+		Debug.Log(singleStep);
 		// rotate the forward vector towards the target direction by one step
 		Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 		// draw a ray pointing at our target in
@@ -256,9 +302,15 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator stopParticles()
 	{
+		isKissing = false;
 		yield return new WaitForSeconds(0.4f);
 
-		kissparticle.GetComponent<ParticleSystem>().enableEmission = false;
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		kisseffect.enabled = false;
+		kissparticle.GetComponent<ParticleSystem>().Pause();
+		kissparticle.GetComponent<ParticleSystem>().Clear();
+
+		
 	}
 
 

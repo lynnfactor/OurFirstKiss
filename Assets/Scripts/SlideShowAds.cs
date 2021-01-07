@@ -24,10 +24,15 @@ public class SlideShowAds : MonoBehaviour
     //public SpriteRenderer spRend;
     public CanvasGroup canvas;
 
+    // to keep track of which sprite was most recently called
+    public int prevSprite;
+    public int currentSprite;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("ShowRandomImage");
+        prevSprite = 0;
     }
 
     // cycle through the images
@@ -35,27 +40,38 @@ public class SlideShowAds : MonoBehaviour
     {
         while (true)
         {
-            
             // fade in
             StartCoroutine(FadeIn(0.0f, 1.0f));
 
-            image.sprite = sprites[Random.Range(0, sprites.Length)];
-            image.enabled = true;
+            // assign random sprite to current sprite variable
+            currentSprite = Random.Range(0, sprites.Length);
+            image.sprite = sprites[currentSprite];
+
+            // if the current sprite is the same as the previous sprite, call this function again
+            if(currentSprite == prevSprite)
+            {
+                ShowRandomImage();
+            } else
+            {
+                image.enabled = true;
+            }
+
             yield return new WaitForSeconds(Random.Range(time_min, time_max));
+
+            // if the image called was enabled, that image becomes the previous image
+            if (image.enabled == true)
+            {
+                prevSprite = currentSprite;
+            }
 
             // fade out
             StartCoroutine(FadeOut(1.0f, 0.0f));
 
-            
-            //image.enabled = false;
-            //yield return new WaitForSeconds(Random.Range(time_min, time_max));;
         }
     }
 
     public IEnumerator FadeIn(float aValue, float bValue)
     {
-        //float alpha = transform.GetComponent<SpriteRenderer>().material.color.a;
-
         for (float t = aValue; t < bValue; t += Time.deltaTime)
         {
             canvas.alpha = t;
@@ -66,8 +82,6 @@ public class SlideShowAds : MonoBehaviour
     // fade out
     public IEnumerator FadeOut(float aValue, float bValue)
     {
-        //float alpha = transform.GetComponent<SpriteRenderer>().material.color.a;
-
         for (float t = aValue; t > bValue; t -= Time.deltaTime)
         {
             canvas.alpha = t;
