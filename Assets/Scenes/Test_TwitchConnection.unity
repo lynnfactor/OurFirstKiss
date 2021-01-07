@@ -861,10 +861,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 1ed3232855f251b43bb8d117dda0beda, type: 3}
-  - {fileID: 8300000, guid: 1ed3232855f251b43bb8d117dda0beda, type: 3}
-  - {fileID: 8300000, guid: 1ed3232855f251b43bb8d117dda0beda, type: 3}
-  - {fileID: 8300000, guid: 1ed3232855f251b43bb8d117dda0beda, type: 3}
+  - {fileID: 8300000, guid: 067db410724fecd42b099c690066ee75, type: 3}
+  - {fileID: 8300000, guid: d0bce0b9fe0cbfd409c9c3737a1fef2e, type: 3}
+  - {fileID: 8300000, guid: 31c146dd19ffc6943b16f22fc1d03817, type: 3}
+  - {fileID: 8300000, guid: 87f36fbb3fce20c4fb41d24775388975, type: 3}
+  - {fileID: 8300000, guid: 720fad6f4cf992749b9bc23f07f1a73b, type: 3}
 --- !u!4 &923438184
 Transform:
   m_ObjectHideFlags: 0
