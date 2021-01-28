@@ -27,7 +27,7 @@ public class StartPlayerMovement : MonoBehaviour {
 	Vector3 amountToMove; // Goes with amountToMoveModifier to do movement calculation
 	
 	[Header("Movement")]
-	public bool collided; // Shows if the players are colliding or not
+	public bool collided = false; // Shows if the players are colliding or not
 
 	[Header("Rotation")]
 	public float speed = 2f;
