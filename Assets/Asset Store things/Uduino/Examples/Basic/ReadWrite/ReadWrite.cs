@@ -12,7 +12,7 @@ public class ReadWrite : MonoBehaviour {
     {
         u = UduinoManager.Instance;
         u.pinMode(AnalogPin.A0, PinMode.Input);
-        u.pinMode(11, PinMode.PWM);
+        u.pinMode(3, PinMode.Output);
     }
 
     void Update ()
@@ -23,6 +23,6 @@ public class ReadWrite : MonoBehaviour {
     void ReadValue()
     {
         readValue = u.analogRead(AnalogPin.A0);
-        u.analogWrite(11,readValue/6);
+        u.analogWrite(3,readValue/6);
     }
 }
