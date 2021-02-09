@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using UnityEngine.Serialization;
+using UnityEngine.InputSystem;              // <-error
+
 
 /*
 Script for remapping menu. By L. Yu, lsyu@usc.edu
 Uses binding system where when the player clicks a button corresponding to the control, they can map it to any key. 
 Controls are stored in PlayerPrefs as global variables.
 */
+
 public class Remapping : MonoBehaviour
 {
     public Text p1left;
@@ -18,6 +23,7 @@ public class Remapping : MonoBehaviour
     public Text p2kiss;
     public GameObject bottom; // bottom text
     private string buttonClicked = null;
+    //public InputAction p1L;
     
     // Start is called before the first frame update
     void Start()
@@ -80,6 +86,13 @@ public class Remapping : MonoBehaviour
 
     public void P1Left()
     {
+        /*
+        p1L.PerformInteractiveRebinding()
+                    // To avoid accidental input from mouse motion
+                    .WithControlsExcluding("Mouse")
+                    .OnMatchWaitForAnother(0.1f)
+                    .Start();
+        */
         buttonClicked = "P1Left";
     }
     public void P1Right()
