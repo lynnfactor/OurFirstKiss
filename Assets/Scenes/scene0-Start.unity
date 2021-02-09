@@ -12175,7 +12175,6 @@ GameObject:
   - component: {fileID: 1452820093}
   - component: {fileID: 1452820092}
   - component: {fileID: 1452820091}
-  - component: {fileID: 1452820090}
   - component: {fileID: 1452820089}
   - component: {fileID: 1452820088}
   m_Layer: 0
@@ -12230,31 +12229,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1452820090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452820086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b383c71580a2289448d1ca707ac14b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 0
-  amountToMoveModifier: 2.8
-  collided: 0
-  speed: 2
-  duration: 0
-  time: 3
-  maxRotation: 10
-  spriteRest: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
-  spriteReady: {fileID: 21300000, guid: db5ea91e8f0fe4b08b9cea1e21ca6151, type: 3}
-  target: {fileID: 2820748048168446313}
-  rotSpeed: 0.5
-  kissRot: 0
-  kissparticle: {fileID: 0}
 --- !u!114 &1452820091
 MonoBehaviour:
   m_ObjectHideFlags: 0
