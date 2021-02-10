@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 	UduinoManager u;
 	int p1ReadVal = 0;
 	int p2ReadVal = 0;
+	public int minKissPressure = 20;
 
 	[Header("Rewired")]
     public Player rewiredPlayer; // Player object for rewired
@@ -160,13 +161,13 @@ public class PlayerMovement : MonoBehaviour {
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if ((p1ReadVal >= 20 && p2ReadVal >= 20) ||/*(p1val == 1 && p2val == 1) || */(Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
+			if ((p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||/*(p1val == 1 && p2val == 1) || */(Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
 			{
 				Kiss();
 			}
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
-				if (isKissing && (p1ReadVal < 20 && p2ReadVal < 20 ||/*1val == 0 && p2val == 0) ||*/(Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
+				if (isKissing && (p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||/*1val == 0 && p2val == 0) ||*/(Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
 				{
 					Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					Debug.Log(gameObject.name + "target pos: " + target.position.x);
