@@ -12238,7 +12238,7 @@ GameObject:
   - component: {fileID: 3671641758732387596}
   - component: {fileID: 3671641758732387595}
   m_Layer: 0
-  m_Name: P1
+  m_Name: NPC
   m_TagString: Player
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

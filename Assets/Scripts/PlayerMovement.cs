@@ -5,7 +5,7 @@ using Rewired;
 using Uduino;
 using System;
 
-/* by Aubrey Isaacman and Trever Berryman
+/* by Aubrey Isaacman, Trever Berryman, and Lex Yu
  *
  * Trever's code:
  * players can move to the seats directly next to them
@@ -14,9 +14,18 @@ using System;
  * Aubrey's code:
  * when players are sitting next to each other, they prep to kiss
  * if players are both pressing their kiss buttons, they'll kiss
+ * Arduino input via Uduino ReadWrite
+ ***** analog pins A0 and A3 are for flex sensor input
+ ***** pins 3 and 6 are for analog LED output
+ * 
 */
 // Kissing particles: lsyu@usc.edu. particles should spawn when players hold down kiss buttons. also players should lean into each other.
 public class PlayerMovement : MonoBehaviour {
+
+	// Arduino input
+	UduinoManager u;
+	int p1ReadVal = 0;
+	int p2ReadVal = 0;
 
 	[Header("Rewired")]
     public Player rewiredPlayer; // Player object for rewired
@@ -48,9 +57,6 @@ public class PlayerMovement : MonoBehaviour {
 	public float rotSpeed = 1.0f;
 	public float kissRot;
 
-	// reading the input from the pressure sensors
-	float readValue = 0f;
-
 	//public ParticleSystem smoochParticle;
 	public Transform kissparticle;
 
@@ -59,11 +65,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start() {
 
+		u = UduinoManager.Instance;
 		// set up the lip controllers
-		UduinoManager.Instance.pinMode(AnalogPin.A0, PinMode.Input);
-		UduinoManager.Instance.pinMode(AnalogPin.A3, PinMode.Input);
+		u.pinMode(AnalogPin.A0, PinMode.Input);
+		u.pinMode(AnalogPin.A3, PinMode.Input);
 		// setting up the LED on the Arduino as output for testing
-		UduinoManager.Instance.pinMode(13, PinMode.Output);
+		u.pinMode(3, PinMode.Input);
+		u.pinMode(6, PinMode.Input);
 
 		// the particle system is OFF
 		//smoochParticle.GetComponent<ParticleSystem>().enableEmission = false;
@@ -93,8 +101,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 		// read the sensor value
-		readValue = UduinoManager.Instance.analogRead(AnalogPin.A0, "PinRead");
-		Debug.Log("Pressure sensor: " + readValue);
+		p1ReadVal = u.analogRead(AnalogPin.A0);
+		p2ReadVal = u.analogRead(AnalogPin.A3);
+		
+		Debug.Log("Player 1: " + p1ReadVal);
+		Debug.Log("Player 2: " + p2ReadVal);
 
 		// move the players
 		Move ();
