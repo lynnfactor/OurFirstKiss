@@ -24,9 +24,24 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Arduino input
 	UduinoManager u;
-	int p1ReadVal = 0;
-	int p2ReadVal = 0;
-	public int minKissPressure = 20;
+	// player 1 stuff
+		int p1ReadVal = 0;
+		// left button
+		int p1LeftPin = 2;
+		int p1LeftVal = 0;
+		// right button
+		int p1RightPin = 4;
+		int p1RightVal = 0;
+	// player 2 stuff
+		int p2ReadVal = 0;
+		// left button
+		int p2LeftPin = 5;
+		int p2LeftVal = 0;
+		// right button
+		int p2RightPin = 7;
+		int p2RightVal = 0;
+	// for both players
+		public int minKissPressure = 20;
 
 	[Header("Rewired")]
     public Player rewiredPlayer; // Player object for rewired
@@ -67,12 +82,28 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 
 		u = UduinoManager.Instance;
-		// set up the pressure sensors
-		u.pinMode(AnalogPin.A0, PinMode.Input);
-		u.pinMode(AnalogPin.A3, PinMode.Input);
-		// setting up the LED on the Arduino as output for testing
-		u.pinMode(3, PinMode.Input);
-		u.pinMode(6, PinMode.Input);
+
+		// player 1
+			// pressure sensor
+			u.pinMode(AnalogPin.A0, PinMode.Input);
+			// LED
+			u.pinMode(3, PinMode.Output);
+			// push buttons
+			// left
+			u.pinMode(2, PinMode.Input_pullup);
+			// right
+			u.pinMode(4, PinMode.Input_pullup);
+
+		// player 2
+			// pressure sensor
+			u.pinMode(AnalogPin.A3, PinMode.Input);
+			// LED
+			u.pinMode(6, PinMode.Output);
+			// push buttons
+			// left
+			u.pinMode(5, PinMode.Input_pullup);
+			// right
+			u.pinMode(7, PinMode.Input_pullup);
 
 		// the particle system is OFF
 		//smoochParticle.GetComponent<ParticleSystem>().enableEmission = false;
@@ -102,11 +133,29 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 		// read the sensor value
-		p1ReadVal = u.analogRead(AnalogPin.A0);
-		p2ReadVal = u.analogRead(AnalogPin.A3);
-		
-		Debug.Log("Player 1: " + p1ReadVal);
-		Debug.Log("Player 2: " + p2ReadVal);
+		// player 1
+			// pressure sensor
+			p1ReadVal = u.analogRead(AnalogPin.A0);
+
+			// buttons
+			p1LeftVal = u.digitalRead(p1LeftPin);
+			p1RightVal = u.digitalRead(p1RightPin);
+
+		// player 2
+			// pressure sensor
+			p2ReadVal = u.analogRead(AnalogPin.A3);
+
+			//butons
+			p2LeftVal = u.digitalRead(p2LeftPin);
+			p2RightVal = u.digitalRead(p2RightPin);
+
+		// Debug
+		// player 1
+		Debug.Log("PLAYER 1 " + "left: " + p1LeftVal);
+		Debug.Log("PLAYER 1 " + "right: " + p1RightVal);
+		// player 2
+		Debug.Log("PLAYER 2 " + "left: " + p2LeftVal);
+		Debug.Log("PLAYER 2 " + "right: " + p2RightVal);
 
 		// move the players
 		Move ();
