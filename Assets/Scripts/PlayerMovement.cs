@@ -131,23 +131,13 @@ public class PlayerMovement : MonoBehaviour {
         moveH = rewiredPlayer.GetAxisRaw("Horizontal");
     }
 
+
+
 	void Update () {
 		// read the sensor value
-		// player 1
-			// pressure sensor
-			p1ReadVal = u.analogRead(AnalogPin.A0);
+		ReadValue();
 
-			// buttons
-			p1LeftVal = u.digitalRead(p1LeftPin);
-			p1RightVal = u.digitalRead(p1RightPin);
-
-		// player 2
-			// pressure sensor
-			p2ReadVal = u.analogRead(AnalogPin.A3);
-
-			//butons
-			p2LeftVal = u.digitalRead(p2LeftPin);
-			p2RightVal = u.digitalRead(p2RightPin);
+		
 
 		// Debug
 		// player 1
@@ -160,6 +150,31 @@ public class PlayerMovement : MonoBehaviour {
 		// move the players
 		Move ();
 	}
+
+	void ReadValue()
+    {
+
+		// player 1
+			// when P1 pressure sensor is pushed,
+			p1ReadVal = u.analogRead(AnalogPin.A0);
+			// change their LED brightness to that relative value
+			u.analogWrite(3, p1ReadVal / 6);
+			
+		// buttons
+			p1LeftVal = u.digitalRead(p1LeftPin);
+			p1RightVal = u.digitalRead(p1RightPin);
+
+		// player 2
+			// when P2 pressure sensor is pushed,
+			p2ReadVal = u.analogRead(AnalogPin.A3);
+			// change their LED brightness to that relative value
+			u.analogWrite(6, p2ReadVal / 6);
+			
+			//butons
+			p2LeftVal = u.digitalRead(p2LeftPin);
+			p2RightVal = u.digitalRead(p2RightPin);
+
+    }
 
 	// Sets collided to true if either player's box collider collides with each other
 	void OnTriggerEnter2D(Collider2D other) {
