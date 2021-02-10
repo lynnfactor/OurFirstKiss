@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 
 		u = UduinoManager.Instance;
-		// set up the lip controllers
+		// set up the pressure sensors
 		u.pinMode(AnalogPin.A0, PinMode.Input);
 		u.pinMode(AnalogPin.A3, PinMode.Input);
 		// setting up the LED on the Arduino as output for testing
@@ -142,8 +142,8 @@ public class PlayerMovement : MonoBehaviour {
 	{
 
 		// player input via arduino
-		int p1val = UduinoManager.Instance.digitalRead(2);
-		int p2val = UduinoManager.Instance.digitalRead(2);
+		//int p1val = u.digitalRead(2);
+		//int p2val = u.digitalRead(2);
 
 
 		// Assigns the amountToMoveModifier to the x (horizontal) variable
@@ -160,13 +160,13 @@ public class PlayerMovement : MonoBehaviour {
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if ((p1val == 1 && p2val == 1) || (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
+			if ((p1ReadVal >= 20 && p2ReadVal >= 20) ||/*(p1val == 1 && p2val == 1) || */(Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
 			{
 				Kiss();
 			}
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
-				if (isKissing && ((p1val == 0 && p2val == 0) || (Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
+				if (isKissing && (p1ReadVal < 20 && p2ReadVal < 20 ||/*1val == 0 && p2val == 0) ||*/(Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
 				{
 					Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					Debug.Log(gameObject.name + "target pos: " + target.position.x);
