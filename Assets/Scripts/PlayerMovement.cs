@@ -173,7 +173,6 @@ public class PlayerMovement : MonoBehaviour {
 			//butons
 			p2LeftVal = u.digitalRead(p2LeftPin);
 			p2RightVal = u.digitalRead(p2RightPin);
-
     }
 
 	// Sets collided to true if either player's box collider collides with each other
@@ -205,11 +204,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Move()
 	{
-
-		// player input via arduino
-		//int p1val = u.digitalRead(2);
-		//int p2val = u.digitalRead(2);
-
 
 		// Assigns the amountToMoveModifier to the x (horizontal) variable
 		amountToMove = new Vector3(amountToMoveModifier,0,0);
