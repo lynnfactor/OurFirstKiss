@@ -29,17 +29,21 @@ public class PlayerMovement : MonoBehaviour {
 		// left button
 		int p1LeftPin = 2;
 		int p1LeftVal = 0;
+		public bool p1LeftPress = false;
 		// right button
 		int p1RightPin = 4;
 		int p1RightVal = 0;
+		public bool p1RightPress = false;
 	// player 2 stuff
 		int p2ReadVal = 0;
 		// left button
 		int p2LeftPin = 5;
 		int p2LeftVal = 0;
+		public bool p2LeftPress = false;
 		// right button
 		int p2RightPin = 7;
 		int p2RightVal = 0;
+		public bool p2RightPress = false;
 	// for both players
 		public int minKissPressure = 20;
 
@@ -138,7 +142,6 @@ public class PlayerMovement : MonoBehaviour {
 		ReadValue();
 
 		
-
 		// Debug
 		// player 1
 		Debug.Log("PLAYER 1 " + "left: " + p1LeftVal);
@@ -225,7 +228,7 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
-				if (isKissing && (p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||/*1val == 0 && p2val == 0) ||*/(Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
+				if (isKissing && (p1ReadVal < minKissPressure && p2ReadVal < minKissPressure || (Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
 				{
 					Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					Debug.Log(gameObject.name + "target pos: " + target.position.x);
@@ -245,8 +248,8 @@ public class PlayerMovement : MonoBehaviour {
 			}
 
 			// MOVE LOGIC:
-			// Player 2 can only move left when collided is true
-				if (gameObject.name == "P1" && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+			// Player 1 can only move left when collided is true
+				if (gameObject.name == "P1" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal == 1)) {
 				if(transform.position.x > -8.8) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
@@ -254,7 +257,7 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 			// Player 2 can only move right when collided is true
-			else if(gameObject.name == "P2" && rewiredPlayer.GetButtonDown("Horizontal")) {
+			else if(gameObject.name == "P2" && (rewiredPlayer.GetButtonDown("Horizontal")) || p2RightVal == 1) {
 				if(transform.position.x < 8.8) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
@@ -276,34 +279,34 @@ public class PlayerMovement : MonoBehaviour {
 			// turn off kissing particle system
 			StartCoroutine(stopParticles());
 			// Player is at left barrier, don't move left
-			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal == 1) {
 				//Don't move
 			}
 			// Player is at right barrier, don't move right
-			else if(transform.position.x > 8.8 && rewiredPlayer.GetButtonDown("Horizontal")) {
+			else if(transform.position.x > 8.8 && (rewiredPlayer.GetButtonDown("Horizontal") || p2RightVal == 1)) {
 				//Don't move
 			}
 			
 			// If Player's are within the barriers, move normally
 
 			else if(transform.position.x >= -8.8 || transform.position.x <= 8.8) {
-				if(rewiredPlayer.GetButtonDown("Horizontal")) {
+				if(rewiredPlayer.GetButtonDown("Horizontal") /*|| p1RightVal == 1 this value moves the player to the right but they move far away really fast*/) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
 				}
-				else if(rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+				else if(rewiredPlayer.GetNegativeButtonDown("Horizontal") /*|| p1LeftVal == 1*/) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
 				}
 			}
 			else if(transform.position.x >= -8.8 || transform.position.x <= 8.8){
-				if(rewiredPlayer.GetNegativeButtonDown("Horizontal")) {
+				if(rewiredPlayer.GetNegativeButtonDown("Horizontal") /*|| p2LeftVal == 1*/) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
 				}
 			}
 			else if(transform.position.x >= -8.8 || transform.position.x <= 8.8){
-				if(rewiredPlayer.GetButtonDown("Horizontal")) {
+				if(rewiredPlayer.GetButtonDown("Horizontal") /*|| p2RightVal == 1*/) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
 				}
