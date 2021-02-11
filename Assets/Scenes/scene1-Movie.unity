@@ -12348,7 +12348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3671641758732387594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.67, y: 2.8, z: 1}
+  m_LocalPosition: {x: 14.45, y: 2.8, z: 1}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 422713624}
@@ -12371,7 +12371,7 @@ GameObject:
   - component: {fileID: 3671641758732387596}
   - component: {fileID: 3671641758732387595}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: RandomAudience
   m_TagString: Player
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -12408,6 +12408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4510fb145bac64c989e169da2c2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: {fileID: 1708290102}
+  P2: {fileID: 105732642}
 --- !u!1001 &3725269186758777862
 PrefabInstance:
   m_ObjectHideFlags: 0
