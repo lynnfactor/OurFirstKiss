@@ -266,7 +266,7 @@ public class PlayerMovement : MonoBehaviour {
 					//Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					//Debug.Log(gameObject.name + "target pos: " + target.position.x);
 					//Debug.Log(transform.position.x >= target.position.x - 3f);
-					if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f))
+					if (gameObject.name == "P1")
 					{
 					
 						Debug.Log(gameObject.name);
@@ -296,9 +296,9 @@ public class PlayerMovement : MonoBehaviour {
 						*/
 						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
 						//transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
-					
+						Debug.Log("Snapped P1 to " + transform.position.x);
 					}
-					else if (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f)
+					else if (gameObject.name == "P2")
 					{
 						Debug.Log(gameObject.name);
 						Vector3 targetDirection = target.position - transform.position;
@@ -321,6 +321,7 @@ public class PlayerMovement : MonoBehaviour {
 							pos = 8.8f;
 						}
 						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
+						Debug.Log("Snapped P2 to " + transform.position.x);
 					}
 					StartCoroutine(stopParticles());
 				}
