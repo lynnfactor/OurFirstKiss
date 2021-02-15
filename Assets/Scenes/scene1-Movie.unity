@@ -222,9 +222,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.8313851, y: 1.3769245}
+  m_Offset: {x: -3.8313854, y: 1.8365514}
   serializedVersion: 2
-  m_Radius: 2.6103106
+  m_Radius: 3.0699372
 --- !u!58 &258325086
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6518,12 +6518,12 @@ PrefabInstance:
     - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Offset.y
-      value: -4.891372
+      value: -4.563068
       objectReference: {fileID: 0}
     - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
       propertyPath: m_Size.y
-      value: 6.3192205
+      value: 6.975829
       objectReference: {fileID: 0}
     - target: {fileID: 1520791698556863824, guid: e2a3be6f2501daa4fa44629df7da36c6,
         type: 3}
@@ -12629,6 +12629,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 96ecc4ac6b96bdb40959dcecee33215f, type: 2}
+    - target: {fileID: 8907509884048033549, guid: b5d24641513556648b747b0e3dcc2aab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907509884048033549, guid: b5d24641513556648b747b0e3dcc2aab,
+        type: 3}
+      propertyPath: movie
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8907509884082184916, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}
       propertyPath: sound
@@ -12682,7 +12692,7 @@ PrefabInstance:
     - target: {fileID: 8907509885419947272, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8907509885419947273, guid: b5d24641513556648b747b0e3dcc2aab,
         type: 3}

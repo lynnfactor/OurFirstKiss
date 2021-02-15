@@ -144,14 +144,18 @@ public class PlayerMovement : MonoBehaviour {
 		
 		// Debug
 		// player 1
-		Debug.Log("PLAYER 1 " + "left: " + p1LeftVal);
-		Debug.Log("PLAYER 1 " + "right: " + p1RightVal);
+		//Debug.Log("PLAYER 1 " + "left: " + p1LeftVal);
+		//Debug.Log("PLAYER 1 " + "right: " + p1RightVal);
 		// player 2
-		Debug.Log("PLAYER 2 " + "left: " + p2LeftVal);
-		Debug.Log("PLAYER 2 " + "right: " + p2RightVal);
+		//Debug.Log("PLAYER 2 " + "left: " + p2LeftVal);
+		//Debug.Log("PLAYER 2 " + "right: " + p2RightVal);
 
 		// move the players
-		Move ();
+
+		if (Input.anyKey)
+        {
+			Move ();
+		}
 	}
 
 	void ReadValue()
@@ -181,7 +185,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Sets collided to true if either player's box collider collides with each other
 	void OnTriggerEnter2D(Collider2D other) {
 		if (gameObject.name == "P1" || gameObject.name == "P2") {
-			//Debug.Log("Touching: " + gameObject.name); // Debug alerts for when they touch
+			Debug.Log("Touching: " + gameObject.name); // Debug alerts for when they touch
 			collided = true;	
         }
 	}
@@ -189,7 +193,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Sets collided to false if either player's box collider exits the other player's box collider
 	void OnTriggerExit2D(Collider2D other) {
 		if (gameObject.name == "P1" || gameObject.name == "P2") {
-			//Debug.Log("Not Touching: " + gameObject.name); // Debug alerts for when they stop touching
+			Debug.Log("Not Touching: " + gameObject.name); // Debug alerts for when they stop touching
 			collided = false;	
         }
 	}
@@ -212,7 +216,17 @@ public class PlayerMovement : MonoBehaviour {
 		amountToMove = new Vector3(amountToMoveModifier,0,0);
 		
 		// Logic for when the players have collided	
-		if(collided == true || isKissing == true) {
+		if(collided == true /*|| isKissing == true*/) {
+
+			if (transform.position.x < -8.8f) {
+				//Don't move
+				transform.position = new Vector3(-8.8f, transform.position.y, transform.position.z);
+			}
+			// Player is at right barrier, don't move right
+			else if(transform.position.x > 8.8f) {
+				//Don't move
+				transform.position = new Vector3(8.8f, transform.position.y, transform.position.z);
+			}
 			// KISS LOGIC:
 			// change player sprites to look at each other
 			if (spriteRend.sprite == spriteRest)
@@ -222,25 +236,79 @@ public class PlayerMovement : MonoBehaviour {
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if ((p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||/*(p1val == 1 && p2val == 1) || */(Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
+			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(Input.GetKey("e") && Input.GetKey("u")))
 			{
+				//Debug.Log("pressure: " + (p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure));
+				//Debug.Log("kissing key: " + (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))));
+
 				Kiss();
-				Debug.Log("kissing");
+				//Debug.Log("kissing");
 			}
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
-				if (isKissing && (p1ReadVal < minKissPressure && p2ReadVal < minKissPressure || (Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKeyUp((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss"))))))
+				//Debug.Log("not pressing kissing keys but are collided");
+				Debug.Log("kissing key released: " + (Input.GetKeyUp("e") || Input.GetKeyUp("u")));
+				if (/*isKissing && */(/*p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||*/ (Input.GetKeyUp("e") || Input.GetKeyUp("u"))))
 				{
-					Debug.Log(gameObject.name + " pos: " + transform.position.x);
-					Debug.Log(gameObject.name + "target pos: " + target.position.x);
-					Debug.Log(transform.position.x >= target.position.x - 3f);
-					if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f) || (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f))
-					{
-					Debug.Log(gameObject.name);
-					Vector3 targetDirection = target.position - transform.position;
-					transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
-					transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
 					
+					//Debug.Log(gameObject.name + " pos: " + transform.position.x);
+					//Debug.Log(gameObject.name + "target pos: " + target.position.x);
+					//Debug.Log(transform.position.x >= target.position.x - 3f);
+					if ((gameObject.name == "P1" && transform.position.x <= target.position.x - 3f))
+					{
+					
+						Debug.Log(gameObject.name);
+						Vector3 targetDirection = target.position - transform.position;
+						transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
+						float pos = 0f;
+						if (transform.position.x >= -8.8f && transform.position.x <= -4.4f)
+						{
+							pos = -8.8f;
+						}
+						else if (transform.position.x >= -4.4f && transform.position.x <= 0f)
+						{
+							pos = -4.4f;
+						}
+						else if (transform.position.x >= 0f && transform.position.x <= 4.4f)
+						{
+							pos = 0f;
+						}
+						else if (transform.position.x >= 4.4f && transform.position.x <= 8.8f)
+						{
+							pos = 4.4f;
+						}
+						/*
+						for (float i = -8.8f; i <= 8.8f; i += 4.4f){
+							min = Mathf.Min(Math.Abs(i - transform.position.x), min);
+						}
+						*/
+						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
+						//transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
+					
+					}
+					else if (gameObject.name == "P2" && transform.position.x <= target.position.x + 3f)
+					{
+						Debug.Log(gameObject.name);
+						Vector3 targetDirection = target.position - transform.position;
+						transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
+						float pos = 0f;
+						if (transform.position.x >= -8.8f && transform.position.x <= -4.4f)
+						{
+							pos = -4.4f;
+						}
+						else if (transform.position.x >= -4.4f && transform.position.x <= 0f)
+						{
+							pos = 0f;
+						}
+						else if (transform.position.x >= 0f && transform.position.x <= 4.4f)
+						{
+							pos = 4.4f;
+						}
+						else if (transform.position.x >= 4.4f && transform.position.x <= 8.8f)
+						{
+							pos = 8.8f;
+						}
+						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
 					}
 					StartCoroutine(stopParticles());
 				}
@@ -250,7 +318,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			// MOVE LOGIC:
 			// Player 1 can only move left when collided is true
-				if (gameObject.name == "P1" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal == 1)) {
+			if (gameObject.name == "P1" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal == 1)) {
 				if(transform.position.x > -8.8) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
@@ -269,17 +337,29 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		
 		// Movement logic for when players are separated
-		if(collided != true && isKissing != true) {
-
+		if(collided != true /*&& isKissing != true*/) {
+			if (transform.position.x < -8.8f) {
+				//Don't move
+				transform.position = new Vector3(-8.8f, transform.position.y, transform.position.z);
+			}
+			// Player is at right barrier, don't move right
+			else if(transform.position.x > 8.8f) {
+				//Don't move
+				transform.position = new Vector3(8.8f, transform.position.y, transform.position.z);
+			}
 			// change sprites back to resting position
-			if (spriteRend.sprite == spriteReady)
+			if (spriteRend.sprite == spriteReady )
 			{
-				spriteRend.sprite = spriteRest;
+				StartCoroutine(stopParticles());
+				if (!isKissing){
+					spriteRend.sprite = spriteRest;
+				}
+				
 			}
 
 			// turn off kissing particle system
-			StartCoroutine(stopParticles());
 			// Player is at left barrier, don't move left
+			/*
 			if (transform.position.x < -8.8 && rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal == 1) {
 				//Don't move
 			}
@@ -287,10 +367,10 @@ public class PlayerMovement : MonoBehaviour {
 			else if(transform.position.x > 8.8 && (rewiredPlayer.GetButtonDown("Horizontal") || p2RightVal == 1)) {
 				//Don't move
 			}
-			
+			*/
 			// If Player's are within the barriers, move normally
 
-			else if(transform.position.x >= -8.8 || transform.position.x <= 8.8) {
+			if(transform.position.x >= -8.8 || transform.position.x <= 8.8) {
 				if(rewiredPlayer.GetButtonDown("Horizontal") /*|| p1RightVal == 1 this value moves the player to the right but they move far away really fast*/) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
@@ -368,6 +448,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator stopParticles()
 	{
+		Debug.Log("start clearing the particles");
 		isKissing = false;
 		yield return new WaitForSeconds(0.4f);
 
@@ -375,7 +456,7 @@ public class PlayerMovement : MonoBehaviour {
 		kisseffect.enabled = false;
 		kissparticle.GetComponent<ParticleSystem>().Pause();
 		kissparticle.GetComponent<ParticleSystem>().Clear();
-
+		Debug.Log("particles cleared");
 		
 	}
 
