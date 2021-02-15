@@ -170,6 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d2e35037b86a34388ee39fcd66cc2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1LeftPress: 0
+  p1RightPress: 0
+  p2LeftPress: 0
+  p2RightPress: 0
   minKissPressure: 20
   playerID: 1
   amountToMoveModifier: 4.4
@@ -11794,6 +11798,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d2e35037b86a34388ee39fcd66cc2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1LeftPress: 0
+  p1RightPress: 0
+  p2LeftPress: 0
+  p2RightPress: 0
   minKissPressure: 20
   playerID: 0
   amountToMoveModifier: 4.4

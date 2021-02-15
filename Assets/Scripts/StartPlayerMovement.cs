@@ -52,7 +52,7 @@ public class StartPlayerMovement : MonoBehaviour {
 	float readValue = 0f;
 
 	//public ParticleSystem smoochParticle;
-	public Transform kissparticle;
+	//public Transform kissparticle;
 
 	//are they kissing?
 	private bool isKissing = false;
@@ -72,8 +72,8 @@ public class StartPlayerMovement : MonoBehaviour {
 		spriteRend = GetComponent<SpriteRenderer>();
 		// if the sprite is null, set it to resting sprite
 
-		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
-		kisseffect.enabled = false;
+		//var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+		//kisseffect.enabled = false;
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object

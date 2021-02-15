@@ -225,6 +225,7 @@ public class PlayerMovement : MonoBehaviour {
 			if ((p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||/*(p1val == 1 && p2val == 1) || */(Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))))
 			{
 				Kiss();
+				Debug.Log("kissing");
 			}
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
@@ -299,18 +300,8 @@ public class PlayerMovement : MonoBehaviour {
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
 				}
 			}
-			else if(transform.position.x >= -8.8 || transform.position.x <= 8.8){
-				if(rewiredPlayer.GetNegativeButtonDown("Horizontal") /*|| p2LeftVal == 1*/) {
-					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
-				}
-			}
-			else if(transform.position.x >= -8.8 || transform.position.x <= 8.8){
-				if(rewiredPlayer.GetButtonDown("Horizontal") /*|| p2RightVal == 1*/) {
-					StartCoroutine(Wiggle()); //Start wiggle corouitine
-					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
-				}
-			}
+			
+			
 		}	
 	}
 
