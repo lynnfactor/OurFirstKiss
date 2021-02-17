@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	//are they kissing?
 	private bool isKissing = false;
+	private bool collidedWithPlayer = false;
 
 	void Start() {
 
@@ -191,15 +192,21 @@ public class PlayerMovement : MonoBehaviour {
 	// Sets collided to true if either player's box collider collides with each other
 	void OnTriggerEnter2D(Collider2D other) {
 		if (gameObject.name == "P1" || gameObject.name == "P2") {
+			/*
 			if (other is CircleCollider2D){
 				Debug.Log("Touching: " + gameObject.name + " Circle");
 			}
 			if (other is BoxCollider2D){
 				Debug.Log("Touching: " + gameObject.name + " Box");
 			}
+			*/
 			 // Debug alerts for when they touch
-			collided = true;	
+			collided = true;
+			collidedWithPlayer = true;
         }
+		else{
+			collidedWithPlayer = false;
+		}
 	}
 
 	// Sets collided to false if either player's box collider exits the other player's box collider
@@ -213,7 +220,11 @@ public class PlayerMovement : MonoBehaviour {
 				Debug.Log("Not Touching: " + gameObject.name + " Box");
 			}
 			collided = false;	
+			
         }
+		else{
+			collidedWithPlayer = false;
+		}
 	}
 
 	// Make the players wiggle when they move from seat to seat
@@ -247,14 +258,14 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			// KISS LOGIC:
 			// change player sprites to look at each other
-			if (spriteRend.sprite == spriteRest)
+			if (spriteRend.sprite == spriteRest && collidedWithPlayer)
 			{
 				spriteRend.sprite = spriteReady;
 			}
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")))
+			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && collidedWithPlayer)
 			{
 				//Debug.Log("pressure: " + (p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure));
 				//Debug.Log("kissing key: " + (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))));
