@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	[Header("Rewired")]
     public Player rewiredPlayer; // Player object for rewired
+	public Player otherPlayer;
     public int playerID; // Player ID in Rewired Settings
 
 	[Header("Movement")]
@@ -123,6 +124,11 @@ public class PlayerMovement : MonoBehaviour {
 	// Sets up player ID in inspector to assign controls to the rewired Player object
 	private void InitializeControls() {
         rewiredPlayer = ReInput.players.GetPlayer(playerID);
+		int otherID = 1;
+		if (playerID == 1){
+			otherID = 0;
+		}
+		otherPlayer = ReInput.players.GetPlayer(otherID);
     }
 
 	private void Awake() {
@@ -248,7 +254,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(Input.GetKey("e") && Input.GetKey("u")))
+			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")))
 			{
 				//Debug.Log("pressure: " + (p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure));
 				//Debug.Log("kissing key: " + (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))));
@@ -259,8 +265,8 @@ public class PlayerMovement : MonoBehaviour {
 			else // if they stop hitting kiss buttons stop the particles and undo the lean
 			{
 				//Debug.Log("not pressing kissing keys but are collided");
-				Debug.Log("kissing key released: " + (Input.GetKeyUp("e") || Input.GetKeyUp("u")));
-				if (/*isKissing && */(/*p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||*/ (Input.GetKeyUp("e") || Input.GetKeyUp("u"))))
+				Debug.Log("kissing key released: " + (rewiredPlayer.GetButtonUp("Kiss") || otherPlayer.GetButtonUp("Kiss")));
+				if (/*isKissing && */(/*p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||*/ rewiredPlayer.GetButtonUp("Kiss") || otherPlayer.GetButtonUp("Kiss")))
 				{
 					
 					//Debug.Log(gameObject.name + " pos: " + transform.position.x);
