@@ -14712,12 +14712,11 @@ GameObject:
   - component: {fileID: 1452820094}
   - component: {fileID: 1452820093}
   - component: {fileID: 1452820092}
-  - component: {fileID: 1452820091}
   - component: {fileID: 1452820089}
   - component: {fileID: 1452820088}
   m_Layer: 0
   m_Name: RandomAudience
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14730,8 +14729,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452820086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.84, y: 2.24, z: 1}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 14.84, y: -4.04, z: 1}
+  m_LocalScale: {x: 0.76500005, y: 0.7898, z: 1}
   m_Children: []
   m_Father: {fileID: 756929046}
   m_RootOrder: 2
@@ -14748,6 +14747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3782d4f9aaca61340a0ca6bc48bf0e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audienceSprite: {fileID: 0}
 --- !u!95 &1452820089
 Animator:
   serializedVersion: 3
@@ -14767,36 +14767,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1452820091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452820086}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d2e35037b86a34388ee39fcd66cc2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p1LeftPress: 0
-  p1RightPress: 0
-  p2LeftPress: 0
-  p2RightPress: 0
-  minKissPressure: 20
-  playerID: 0
-  amountToMoveModifier: 4.4
-  collided: 0
-  speed: 5
-  duration: 0.01
-  time: 2
-  maxRotation: 2.5
-  spriteRest: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
-  spriteReady: {fileID: 21300000, guid: db5ea91e8f0fe4b08b9cea1e21ca6151, type: 3}
-  target: {fileID: 2820748048168446313}
-  rotSpeed: 1
-  kissRot: 0
-  kissparticle: {fileID: 0}
 --- !u!58 &1452820092
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14804,7 +14774,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452820086}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -14863,18 +14833,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17579079, y: -3.7274587}
+  m_Offset: {x: 0.46895814, y: 1.3535337}
   m_SpriteTilingProperty:
-    border: {x: 5.9300003, y: 0, z: 6.04, w: 2.1602702}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 26.67, y: 20.0025}
+    oldSize: {x: 13.334375, y: 42.670002}
     newSize: {x: 26.67, y: 20.0025}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.866875, y: 7.3887525}
+  m_Size: {x: 10.417019, y: 5.275629}
   m_EdgeRadius: 0
 --- !u!212 &1452820096
 SpriteRenderer:
@@ -14915,7 +14885,7 @@ SpriteRenderer:
   m_SortingLayerID: 398129167
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e63403bdcd2a34429a1c4f5214cd219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
