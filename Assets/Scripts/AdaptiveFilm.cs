@@ -12,10 +12,16 @@ using UnityEngine.Video;
  * 
  * Tutorials used:
  * https://forum.unity.com/threads/scroll-through-video-array-randomly.522563/
+ * https://www.codegrepper.com/code-examples/csharp/unity+how+to+play+video+on+canvas
+ * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/passing-arrays-as-arguments
+ * https://answers.unity.com/questions/1418348/how-do-i-access-a-bool-from-another-script.html
  */
 
 public class AdaptiveFilm : MonoBehaviour
 {
+    // reference to PlayerMovement script
+    public PlayerMovement pm;
+
     // 3 different arrays for each distance
     public VideoClip[] FarArray;
     public VideoClip[] CloseArray;
@@ -24,6 +30,21 @@ public class AdaptiveFilm : MonoBehaviour
     // video elements
     public VideoPlayer videoPlayer;
     private float timeUntilNextVideo;
+
+
+    // for player distances
+    public GameObject p1;
+    public GameObject p2;
+
+    Transform player1;
+    Transform player2;
+    
+    //detect distance
+    //public float farDist;
+    public float closeDist;
+    public float kissingDist;
+    public float currentDist;
+
 
     private void Awake()
     {
@@ -40,10 +61,44 @@ public class AdaptiveFilm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // get transform for players
+        if(p1 != null)
+        {
+            player1 = p1.transform;
+        }
+        if (p2 != null)
+        {
+            player2 = p2.transform;
+        }
+
+        currentDist = Vector2.Distance(player1.position, player2.position);
+
+        // if players are far apart
+        if(currentDist > closeDist)
+        {
+            PlayFootage(FarArray);
+        }
+
+        //if players are closer than the farthest distance
+        if(currentDist <= closeDist)
+        {
+            PlayFootage(CloseArray);
+        }
+
+        // if they're next to each other & kissing
+        if(currentDist <= kissingDist && pm.isKissing)
+        {
+            PlayFootage(KissingArray);
+        }
+    }
+
+    // this function takes in which array you want to call
+    // then it plays the footage from that array
+    void PlayFootage(VideoClip[] array)
+    {
         if(Time.time > timeUntilNextVideo)
         {
-            videoPlayer.clip = FarArray[Random.Range(0, FarArray.Length)];
-            Debug.Log("shh the movie's starting");
+            videoPlayer.clip = array[Random.Range(0, array.Length)];
             timeUntilNextVideo = Time.time + (float)videoPlayer.clip.length;
             videoPlayer.Play();
         }
