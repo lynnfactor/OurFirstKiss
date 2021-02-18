@@ -226,7 +226,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3671641758732387594}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -695,9 +695,9 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 1
-      _name: Action1
+      _name: Kiss
       _type: 1
-      _descriptiveName: Action1
+      _descriptiveName: Kiss
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0
@@ -834,6 +834,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 1
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 101
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     - id: 2
       categoryId: 0
       layoutId: 2
@@ -860,6 +871,17 @@ MonoBehaviour:
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 108
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 1
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 117
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
@@ -11525,18 +11547,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34287453, y: -4.815025}
+  m_Offset: {x: 0.22480679, y: 7.349615}
   m_SpriteTilingProperty:
-    border: {x: 5.9300003, y: 0, z: 6.04, w: 2.1602702}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 26.67, y: 20.0025}
+    oldSize: {x: 13.33125, y: 42.66}
     newSize: {x: 26.67, y: 20.0025}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.63662, y: 5.21362}
+  m_Size: {x: 10.56686, y: 6.1243253}
   m_EdgeRadius: 0
 --- !u!61 &1520791699099215938
 BoxCollider2D:
@@ -11642,8 +11664,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3671641758732387594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.45, y: 2.8, z: 1}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 16.4, y: -1.5, z: 1}
+  m_LocalScale: {x: 0.75151604, y: 0.68163913, z: 1}
   m_Children: []
   m_Father: {fileID: 422713624}
   m_RootOrder: 0
@@ -11726,7 +11748,7 @@ GameObject:
   - component: {fileID: 3671641758732387595}
   m_Layer: 0
   m_Name: RandomAudience
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11741,7 +11763,7 @@ Animator:
   m_GameObject: {fileID: 3671641758732387594}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 402b0eb498bafa54097b0841caf7c3f7, type: 2}
+  m_Controller: {fileID: 9100000, guid: e3fc6e4f72193da4099d7d9a5c6f9a29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11762,6 +11784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4510fb145bac64c989e169da2c2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3671641758732387595}
   P1: {fileID: 3671641758387278402}
   P2: {fileID: 3671641757494344755}
 --- !u!1001 &3725269186758777862
@@ -11922,7 +11945,7 @@ SpriteRenderer:
   m_SortingLayerID: 398129167
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 283feffde231c4e43a86b59386f7d0ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
