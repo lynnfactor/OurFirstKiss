@@ -31,6 +31,13 @@ public class AdaptiveFilm : MonoBehaviour
     public VideoPlayer videoPlayer;
     private float timeUntilNextVideo;
 
+    // audio elements
+    public AudioSource music;
+
+    public AudioClip[] clips;
+    //public AudioClip farSong;
+    //public AudioClip closeSong;
+    //public AudioClip kissSong;
 
     // for player distances
     public GameObject p1;
@@ -40,7 +47,6 @@ public class AdaptiveFilm : MonoBehaviour
     Transform player2;
     
     //detect distance
-    //public float farDist;
     public float closeDist;
     public float kissingDist;
     public float currentDist;
@@ -56,11 +62,13 @@ public class AdaptiveFilm : MonoBehaviour
     void Start()
     {
         timeUntilNextVideo = 0f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        music.Play();
         // get transform for players
         if(p1 != null)
         {
@@ -77,19 +85,36 @@ public class AdaptiveFilm : MonoBehaviour
         if(currentDist > closeDist)
         {
             PlayFootage(FarArray);
+            music.clip = clips[0];
         }
 
         //if players are closer than the farthest distance
         if(currentDist <= closeDist)
         {
             PlayFootage(CloseArray);
+            music.clip = clips[1];
+        } 
+        // if they move far apart, stop this clip
+        /*
+        else
+        {
+
         }
+        */
 
         // if they're next to each other & kissing
         if(currentDist <= kissingDist && pm.isKissing)
         {
             PlayFootage(KissingArray);
+            music.clip = clips[2];
         }
+        // if they're not kissing anymore, stop this clip
+        /*
+        else
+        {
+            music.clip 
+        }
+        */
     }
 
     // this function takes in which array you want to call
