@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Transform kissparticle;
 
 	//are they kissing?
-	private bool isKissing = false;
+	public bool isKissing = false;
 	private bool collidedWithPlayer = false;
 
 	void Start() {
@@ -147,7 +147,6 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		// read the sensor value
 		ReadValue();
-
 		
 		// Debug
 		// player 1
