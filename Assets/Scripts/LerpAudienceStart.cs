@@ -6,12 +6,13 @@ public class LerpAudienceStart : MonoBehaviour
 {
     // Start is called before the first frame update
     //[SerializeField]
-    private Animation anim;
-    public GameObject audienceSprite;
+    private Animator anim;
+    
     void Start()
     {
-        audienceSprite.GetComponent<Animation>();
-        anim.Play();
+        anim = gameObject.GetComponent<Animator>();
+        anim.SetBool("enter", true);
+        Debug.Log("Animation played");
     }
 
     // Update is called once per frame
