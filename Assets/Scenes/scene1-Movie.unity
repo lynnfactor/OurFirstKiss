@@ -6003,7 +6003,7 @@ MonoBehaviour:
   p1: {fileID: 3671641758387278402}
   p2: {fileID: 3671641757494344755}
   closeDist: 13
-  kissingDist: 4.4
+  kissingDist: 4.6
   currentDist: 0
 --- !u!328 &1060937428
 VideoPlayer:
