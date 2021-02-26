@@ -24,7 +24,7 @@ MonoBehaviour:
     _fillClockwise: 0
     _fillOrigin: 0
   _popupWindowBackground:
-    _color: {r: 1, g: 1, b: 1, a: 1}
+    _color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
     _sprite: {fileID: 21300000, guid: c1333cf5dab2cdb4e9a5c68f82a62ff6, type: 3}
     _materal: {fileID: 0}
     _type: 3
@@ -46,7 +46,7 @@ MonoBehaviour:
     _fillClockwise: 0
     _fillOrigin: 0
   _selectableSettings:
-    _transition: 1
+    _transition: 0
     _colors:
       m_ColorMultiplier: 1
       m_DisabledColor: {r: 0.14037678, g: 0.18981342, b: 0.21960784, a: 1}
@@ -84,13 +84,13 @@ MonoBehaviour:
     _transition: 1
     _colors:
       m_ColorMultiplier: 1
-      m_DisabledColor: {r: 0.14037678, g: 0.18981342, b: 0.21960784, a: 1}
+      m_DisabledColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.58431375}
       m_FadeDuration: 0.1
-      m_HighlightedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 1}
-      m_NormalColor: {r: 0.30048442, g: 0.39928094, b: 0.45882353, a: 1}
-      m_PressedColor: {r: 0, g: 0.62758636, b: 1, a: 1}
-      m_SelectedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 1}
-      m_DisabledHighlightedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 0.49411765}
+      m_HighlightedColor: {r: 0.5460972, g: 0.4237273, b: 0.6509434, a: 1}
+      m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+      m_PressedColor: {r: 0.4749687, g: 0.33641866, b: 0.5660378, a: 1}
+      m_SelectedColor: {r: 0.3515447, g: 0.257298, b: 0.46226418, a: 1}
+      m_DisabledHighlightedColor: {r: 0.27670854, g: 0.17007832, b: 0.3679245, a: 0.49411765}
     _spriteState:
       m_DisabledSprite: {fileID: 0}
       m_HighlightedSprite: {fileID: 0}
@@ -119,13 +119,13 @@ MonoBehaviour:
     _transition: 1
     _colors:
       m_ColorMultiplier: 1
-      m_DisabledColor: {r: 0.14037678, g: 0.18981342, b: 0.21960784, a: 1}
+      m_DisabledColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.58431375}
       m_FadeDuration: 0.1
-      m_HighlightedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 1}
+      m_HighlightedColor: {r: 0.5289632, g: 0.4570132, b: 0.6132076, a: 1}
       m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-      m_PressedColor: {r: 0, g: 0.62758636, b: 1, a: 1}
-      m_SelectedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 1}
-      m_DisabledHighlightedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 0.49411765}
+      m_PressedColor: {r: 0.47298744, g: 0.40717337, b: 0.5754717, a: 1}
+      m_SelectedColor: {r: 0.33699748, g: 0.27474192, b: 0.46226418, a: 1}
+      m_DisabledHighlightedColor: {r: 0.7843114, g: 0.753204, b: 0.8584906, a: 0.49411765}
     _spriteState:
       m_DisabledSprite: {fileID: 0}
       m_HighlightedSprite: {fileID: 0}
@@ -151,16 +151,16 @@ MonoBehaviour:
       _fillClockwise: 0
       _fillOrigin: 0
   _scrollbarSettings:
-    _transition: 1
+    _transition: 0
     _colors:
       m_ColorMultiplier: 1
-      m_DisabledColor: {r: 0.14037678, g: 0.18981342, b: 0.21960784, a: 1}
+      m_DisabledColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0.6117647}
       m_FadeDuration: 0.1
-      m_HighlightedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 1}
-      m_NormalColor: {r: 0.30048442, g: 0.39928094, b: 0.45882353, a: 1}
-      m_PressedColor: {r: 0, g: 0.62758636, b: 1, a: 1}
-      m_SelectedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 1}
-      m_DisabledHighlightedColor: {r: 0, g: 0.41992915, b: 0.6691177, a: 0.49411765}
+      m_HighlightedColor: {r: 0.5984156, g: 0.499822, b: 0.735849, a: 1}
+      m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+      m_PressedColor: {r: 0.43317702, g: 0.30455676, b: 0.5471698, a: 1}
+      m_SelectedColor: {r: 0.3600676, g: 0.28622285, b: 0.4528302, a: 1}
+      m_DisabledHighlightedColor: {r: 0.8518537, g: 0.8009968, b: 0.9433962, a: 0.49411765}
     _spriteState:
       m_DisabledSprite: {fileID: 0}
       m_HighlightedSprite: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
     _fillClockwise: 0
     _fillOrigin: 0
   _calibrationRawValueMarker:
-    _color: {r: 0.30048442, g: 0.39928094, b: 0.45882353, a: 1}
+    _color: {r: 1, g: 1, b: 1, a: 0}
     _sprite: {fileID: 21300000, guid: 7f4e5f9eac93c0a4ab5e638adf6b02e1, type: 3}
     _materal: {fileID: 0}
     _type: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
     _fillClockwise: 0
     _fillOrigin: 0
   _calibrationZeroMarker:
-    _color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+    _color: {r: 1, g: 1, b: 1, a: 0}
     _sprite: {fileID: 0}
     _materal: {fileID: 0}
     _type: 0
