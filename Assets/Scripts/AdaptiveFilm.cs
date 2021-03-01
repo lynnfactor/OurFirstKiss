@@ -85,14 +85,14 @@ public class AdaptiveFilm : MonoBehaviour
         if(currentDist > closeDist)
         {
             PlayFootage(FarArray);
-            music.clip = clips[0];
+           //music.clip = clips[0];
         }
 
         //if players are closer than the farthest distance
         if(currentDist <= closeDist)
         {
             PlayFootage(CloseArray);
-            music.clip = clips[1];
+            //music.clip = clips[1];
         } 
         // if they move far apart, stop this clip
         /*
@@ -103,10 +103,11 @@ public class AdaptiveFilm : MonoBehaviour
         */
 
         // if they're next to each other & kissing
-        if(currentDist <= kissingDist && pm.isKissing)
+        if(currentDist <= kissingDist && pm.isKissing) //KB: right now we're having trouble figuring out why isKissing isn't turning on
         {
+            Debug.Log("iskissing");
             PlayFootage(KissingArray);
-            music.clip = clips[2];
+            //music.clip = clips[2];
         }
         // if they're not kissing anymore, stop this clip
         /*
