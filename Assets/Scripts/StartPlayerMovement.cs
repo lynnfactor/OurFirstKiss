@@ -102,7 +102,7 @@ public class StartPlayerMovement : MonoBehaviour {
 
 	// Sets collided to true if either player's box collider collides with each other
 	void OnTriggerEnter2D(Collider2D other) {
-		if (gameObject.name == "P1" || gameObject.name == "P2") {
+		if (other.name == "P1" || other.name == "P2") {
 			//Debug.Log("Touching: " + gameObject.name); // Debug alerts for when they touch
 			collided = true;	
         }
@@ -110,7 +110,7 @@ public class StartPlayerMovement : MonoBehaviour {
 
 	// Sets collided to false if either player's box collider exits the other player's box collider
 	void OnTriggerExit2D(Collider2D other) {
-		if (gameObject.name == "P1" || gameObject.name == "P2") {
+		if (other.name == "P1" || other.name == "P2") {
 			//Debug.Log("Not Touching: " + gameObject.name); // Debug alerts for when they stop touching
 			collided = false;	
         }

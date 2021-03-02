@@ -8,14 +8,18 @@ public class accessorySelect : MonoBehaviour
     public Sprite[] all; // all the accessories
     public GameObject[] slots; // the 5 slots
     private SpriteRenderer[] slotrend;
+    private int index = 7; // next available index
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    public void SpawnNextAccessory(SpriteRenderer rend){
+        rend.sprite = all[index];
+        index++;
+        if (index >= all.Length){
+            index = 0;
+        }
     }
 }
