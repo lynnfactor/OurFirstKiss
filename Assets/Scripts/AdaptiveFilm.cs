@@ -68,7 +68,7 @@ public class AdaptiveFilm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        music.Play();
+        //music.Play();
         // get transform for players
         if(p1 != null)
         {
@@ -85,7 +85,11 @@ public class AdaptiveFilm : MonoBehaviour
         if(currentDist > closeDist)
         {
             PlayFootage(FarArray);
+<<<<<<< HEAD
            //music.clip = clips[0];
+=======
+            //music.clip = clips[0];
+>>>>>>> master
         }
 
         //if players are closer than the farthest distance
@@ -107,6 +111,10 @@ public class AdaptiveFilm : MonoBehaviour
         {
             Debug.Log("iskissing");
             PlayFootage(KissingArray);
+<<<<<<< HEAD
+=======
+            //Debug.Log("Adaptive Film thinks players are kissing: " + pm.isKissing);
+>>>>>>> master
             //music.clip = clips[2];
         }
         // if they're not kissing anymore, stop this clip

@@ -436,6 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 422713624}
+  - component: {fileID: 422713625}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -460,6 +461,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422713625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422713623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e77aaa50b9dec4492fc5e46e2a4b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1dec: {fileID: 5705958034626988462}
+  P2dec: {fileID: 5705958033799030751}
+  all:
+  - {fileID: -6641897492746884056, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -610194290797867346, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -732412429160401614, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -362264754482288459, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -6638728268054029147, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -2860209177179756968, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -1316147832002923533, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -4793560005049450915, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -2036884230454539762, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: -8492840131140733643, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: 1498860155456435736, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: 1298417550377639087, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: 6520411303866352457, guid: ec45bdeee9d99c84698957bee1309388, type: 3}
+  - {fileID: 455163420627201395, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 8629282690095514200, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: -6190129309157710853, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: -1540699402806744565, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 1238808829011789506, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 3375834771703288745, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 3548554942673507280, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 7797029606885862713, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 3098136972992376, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 1259647731060918079, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 3460760297124425934, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 4730807691845341858, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: -835144386942720089, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 5515543613329690008, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: -502930785885943632, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 8330595082700829301, guid: 5fd74d8a692787446907959d97bc471c, type: 3}
+  - {fileID: 1865727948091758720, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -4810417708717022800, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -4512083125268445868, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -234810374224640025, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -2918189406708961264, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: 5885688359942077428, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -5377617356202912121, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -7223566657384124357, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: -8852847602320577524, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: 3176036498326850850, guid: 0014ec36905002049ab2ad908406de92, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3725269186994414713, guid: 726c0a57ae533fc4e9db0c18a663e951,
@@ -6037,7 +6095,7 @@ MonoBehaviour:
   p1: {fileID: 3671641758387278402}
   p2: {fileID: 3671641757494344755}
   closeDist: 13
-  kissingDist: 4.4
+  kissingDist: 4.6
   currentDist: 0
 --- !u!328 &1060937428
 VideoPlayer:

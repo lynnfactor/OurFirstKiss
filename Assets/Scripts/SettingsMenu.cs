@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
 {
 
     public AudioMixer audioMixer;
+    //public static float masterVolume;
 
     public void SetVolume (float volume)
     {
