@@ -8,10 +8,12 @@ public class accessorySelect : MonoBehaviour
     public Sprite[] all; // all the accessories
     public GameObject[] slots; // the 5 slots
     private SpriteRenderer[] slotrend;
-    private int index = 0; // next available index
+    private int index = 7; // next available index
     void Start()
     {
         all = Resources.LoadAll<Sprite>("accessories");
+        PlayerPrefs.SetString("P1 accessory", "decorations-04_1");
+        PlayerPrefs.SetString("P2 accessory", "decorations-04_2");
     }
 
     // get the next available accessory and spawn it, then return the index of the accessory the player is now wearing

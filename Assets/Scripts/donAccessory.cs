@@ -10,16 +10,16 @@ public class donAccessory : MonoBehaviour
     private Sprite[] all;
     void Start()
     {
-        Debug.Log(PlayerPrefs.GetString("P1 accessory"));
-        Debug.Log(PlayerPrefs.GetString("P2 accessory"));
+        Debug.Log("P1 playerpref: " + PlayerPrefs.GetString("P1 accessory"));
+        Debug.Log("P2 playerpref: " + PlayerPrefs.GetString("P2 accessory"));
         
         all = Resources.LoadAll<Sprite>("accessories");
         int p1 = Array.FindIndex(all, s=> s.name == PlayerPrefs.GetString("P1 accessory"));
         P1dec.GetComponent<SpriteRenderer>().sprite = all[p1];
-        Debug.Log("P1: " + P1dec.GetComponent<SpriteRenderer>().sprite.name);
+        Debug.Log("P1 game: " + P1dec.GetComponent<SpriteRenderer>().sprite.name);
         int p2 = Array.FindIndex(all, s=> s.name == PlayerPrefs.GetString("P2 accessory"));
-        P1dec.GetComponent<SpriteRenderer>().sprite = all[p2];
-        Debug.Log("P2: " + P2dec.GetComponent<SpriteRenderer>().sprite.name);
+        P2dec.GetComponent<SpriteRenderer>().sprite = all[p2];
+        Debug.Log("P2 game: " + P2dec.GetComponent<SpriteRenderer>().sprite.name);
     }
 
 }

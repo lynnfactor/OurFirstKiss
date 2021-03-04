@@ -13,8 +13,7 @@ public class swapAccessory : MonoBehaviour
     void Start()
     {
         rend = gameObject.GetComponent<SpriteRenderer>();
-        PlayerPrefs.SetString("P1 accessory", "decorations-04_1");
-        PlayerPrefs.SetString("P2 accessory", "decorations-04_2");
+       
         //all = Resources.LoadAll<Sprite>("accessories");
     }
 
@@ -23,14 +22,16 @@ public class swapAccessory : MonoBehaviour
         //Debug.Log(gameObject.name);
         if (other.name == "P1"){
             P1dec.GetComponent<SpriteRenderer>().sprite = rend.sprite;
-            Debug.Log("P1: " + rend.sprite.name);
+            
             PlayerPrefs.SetString("P1 accessory", rend.sprite.name);
+            Debug.Log("P1: " + PlayerPrefs.GetString("P1 accessory"));
             
         }
         if (other.name == "P2"){
             P2dec.GetComponent<SpriteRenderer>().sprite = rend.sprite;
-            Debug.Log("P2: " + rend.sprite.name);
+            
             PlayerPrefs.SetString("P2 accessory", rend.sprite.name);
+            Debug.Log("P2: " + PlayerPrefs.GetString("P2 accessory"));
             
         }
         main.SpawnNextAccessory(rend);
