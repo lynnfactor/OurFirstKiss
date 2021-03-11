@@ -4,6 +4,10 @@ using UnityEngine;
 using System;
 public class donAccessory : MonoBehaviour
 {
+    /*
+    By Lex Yu (lsyu@usc.edu)
+    Sets the correct accessories based on what the players chose in the start screen.
+    */
     // Start is called before the first frame update
     public GameObject P1dec;
     public GameObject P2dec;

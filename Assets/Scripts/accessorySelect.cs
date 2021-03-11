@@ -4,6 +4,11 @@ using UnityEngine;
 using System;
 public class accessorySelect : MonoBehaviour
 {
+    /*
+    By Lex Yu (lsyu@usc.edu)
+    This script loads all the accessories from the Resources folder (do NOT remove the acessories from the Resources folder!!)
+
+    */
     // Start is called before the first frame update
     public Sprite[] all; // all the accessories
     public GameObject[] slots; // the 5 slots
@@ -17,6 +22,7 @@ public class accessorySelect : MonoBehaviour
     }
 
     // get the next available accessory and spawn it, then return the index of the accessory the player is now wearing
+    // this function is called by the GameObjects floating above the seats
     public void SpawnNextAccessory(SpriteRenderer rend){
         
         index++;

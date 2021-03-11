@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
-/* created by Aubrey Isaacman
+/* created by Aubrey Isaacman and Lex Yu
  * 
  * This script determines if the players are far apart (opposite seats), close (anything in the middle), or kissing
  * Depending on which one of those 3 states the players are in, a random video will play that corresponds to their distance
  * I imagine we will also play our adaptive audio through this script
  * *** this will work the same where depending on the distance and state of the players, we will add or take away an audio layer
  * 
+ * It also adjusts the saturation of the videos based on how far the players are.
+ *
  * Tutorials used:
  * https://forum.unity.com/threads/scroll-through-video-array-randomly.522563/
  * https://www.codegrepper.com/code-examples/csharp/unity+how+to+play+video+on+canvas
@@ -51,6 +55,9 @@ public class AdaptiveFilm : MonoBehaviour
     public float kissingDist;
     public float currentDist;
 
+    // saturation adjustment
+    public Volume volume;
+    private ColorAdjustments color;
 
     private void Awake()
     {
@@ -62,7 +69,7 @@ public class AdaptiveFilm : MonoBehaviour
     void Start()
     {
         timeUntilNextVideo = 0f;
-
+        volume.profile.TryGet(out color);
     }
 
     // Update is called once per frame
@@ -85,13 +92,14 @@ public class AdaptiveFilm : MonoBehaviour
         if(currentDist > closeDist)
         {
             PlayFootage(FarArray);
-
+            color.saturation.value = -80f;
         }
 
         //if players are closer than the farthest distance
         if(currentDist <= closeDist)
         {
             PlayFootage(CloseArray);
+            color.saturation.value = 0f;
             //music.clip = clips[1];
         } 
         // if they move far apart, stop this clip
@@ -106,6 +114,7 @@ public class AdaptiveFilm : MonoBehaviour
         if(currentDist <= kissingDist && pm.isKissing) //KB: right now we're having trouble figuring out why isKissing isn't turning on
         {
             PlayFootage(KissingArray);
+            color.saturation.value = 50f;
             //music.clip = clips[2];
         }
         // if they're not kissing anymore, stop this clip

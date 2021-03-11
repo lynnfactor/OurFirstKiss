@@ -4,6 +4,11 @@ using UnityEngine;
 using System;
 public class swapAccessory : MonoBehaviour
 {
+    /*
+    By Lex Yu (lsyu@usc.edu)
+    Attached to the GameObjects floating above the seats. Each one has a SpriteRenderer that has the accessory sprite.
+
+    */
     // Start is called before the first frame update
     public accessorySelect main;
     private SpriteRenderer rend; // this object's sprite renderer
@@ -34,7 +39,7 @@ public class swapAccessory : MonoBehaviour
             Debug.Log("P2: " + PlayerPrefs.GetString("P2 accessory"));
             
         }
-        main.SpawnNextAccessory(rend);
+        main.SpawnNextAccessory(rend); // Load a new accessory
         
     }
 }
