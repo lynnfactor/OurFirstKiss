@@ -8,12 +8,12 @@ public class TwitchChatMessage
 
     public TwitchChatMessage(string _sender, string[] _parameters)
     {
-        parameters = new string[_parameters.Length-1];
+        parameters = new string[_parameters.Length - 1];
         command = _parameters[0].ToLower();
 
-        for(int i=1; i<_parameters.Length; i++)
+        for (int i = 1; i < _parameters.Length; i++)
         {
-            parameters[i-1] = Regex.Replace(_parameters[i].ToLower(), "@", "");
+            parameters[i - 1] = Regex.Replace(_parameters[i].ToLower(), "@", "");
         }
 
         sender = _sender.ToLower();

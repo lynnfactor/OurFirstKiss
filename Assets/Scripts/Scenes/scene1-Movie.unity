@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1356,6 +1356,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3892131984471505148, guid: 3b16bc2157112204f87a85bcf334210a,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3892131984471505151, guid: 3b16bc2157112204f87a85bcf334210a,
         type: 3}
       propertyPath: m_Name
@@ -1363,6 +1368,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b16bc2157112204f87a85bcf334210a, type: 3}
+--- !u!114 &863716458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3892131984471505149, guid: 3b16bc2157112204f87a85bcf334210a,
+    type: 3}
+  m_PrefabInstance: {fileID: 863716457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b103d2501b73f4ebae225eb15836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1026711038
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,12 +6139,6 @@ Transform:
   m_Father: {fileID: 2820748047717495721}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1 &1040259070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3892131984471505151, guid: 3b16bc2157112204f87a85bcf334210a,
-    type: 3}
-  m_PrefabInstance: {fileID: 863716457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1040259071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3892131984471505138, guid: 3b16bc2157112204f87a85bcf334210a,
@@ -11494,10 +11505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a7bb5551ac7b940814b2649fbcbf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amScript: {fileID: 863716458}
   emojiPrefab:
   - {fileID: 2252612992870669283, guid: 02a1caca692bc0d44ba92b6747ee16c6, type: 3}
   canvas: {fileID: 1685277074}
-  audioManager: {fileID: 1040259070}
   randomRangeMax: 10
 --- !u!1 &1627021479
 GameObject:
