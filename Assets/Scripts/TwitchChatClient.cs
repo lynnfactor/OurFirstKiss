@@ -177,7 +177,7 @@ public class TwitchChatClient : MonoBehaviour
                 StartCoroutine(RandomlyDelaySendEmoji(Boo));
             }
             //check for awws, keyword = ":)"
-            else if (strL.IndexOf(":)") != -1)
+            else if (strL.IndexOf("uwu") != -1)
             {
                 StartCoroutine(RandomlyDelaySendEmoji(Aww));
             }

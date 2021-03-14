@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11514,7 +11514,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amScript: {fileID: 863716458}
   emojiPrefab:
+  - {fileID: 2252612992870669283, guid: 95f684ef645bd5f4b852c0fc789f8b9e, type: 3}
+  - {fileID: 2252612992870669283, guid: faa750a1585c5e1448d34d700466c55e, type: 3}
+  - {fileID: 2252612992870669283, guid: 1026f5529a9846c4684242d12bf064e2, type: 3}
+  - {fileID: 2252612992870669283, guid: 3ec4c70026ac6c743a6554945d890ec2, type: 3}
   - {fileID: 2252612992870669283, guid: 02a1caca692bc0d44ba92b6747ee16c6, type: 3}
+  - {fileID: 2252612992870669283, guid: 1646f2c60e91c034ea1881539a32ad99, type: 3}
+  - {fileID: 2252612992870669283, guid: d6c96442a81f3a74eb35209ed138ab26, type: 3}
   canvas: {fileID: 1685277074}
   randomRangeMax: 10
 --- !u!1 &1627021479
