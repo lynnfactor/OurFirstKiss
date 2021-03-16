@@ -12,7 +12,8 @@ public class EmojiMovement : MonoBehaviour
     private RectTransform emojiRT;
     private float hTimer = 0f; //an accumulative timer for horizontal movement
     private Vector2 crtPos, deltaPos; //crtPos: current position
-    private Image emoImg; //emoji image
+    
+    private SpriteRenderer emoImg; //emoji image
     private Color emoColor; //emoji color
 
     void Start()
@@ -20,7 +21,7 @@ public class EmojiMovement : MonoBehaviour
         //initial setup to record the current location of the emoji
         emojiRT = this.GetComponent<RectTransform>();
         crtPos = emojiRT.anchoredPosition;
-        emoImg = this.GetComponent<Image>();
+        emoImg = this.GetComponent<SpriteRenderer>();
         emoColor = emoImg.color;
     }
 

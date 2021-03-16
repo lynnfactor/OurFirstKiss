@@ -1367,6 +1367,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 2bccba70c25630243a34e2d482e47d21,
         type: 2}
+    - target: {fileID: 3892131984471505149, guid: 3b16bc2157112204f87a85bcf334210a,
+        type: 3}
+      propertyPath: emojiCounts.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892131984471505149, guid: 3b16bc2157112204f87a85bcf334210a,
+        type: 3}
+      propertyPath: arrayLen
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892131984471505149, guid: 3b16bc2157112204f87a85bcf334210a,
+        type: 3}
+      propertyPath: emojiNumbers
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3892131984471505151, guid: 3b16bc2157112204f87a85bcf334210a,
         type: 3}
       propertyPath: m_Name

@@ -171,7 +171,7 @@ public class TwitchChatClient : MonoBehaviour
                 StartCoroutine(RandomlyDelaySendEmoji(Laugh));
             }
             //check for boos, keyword =":\"
-            else if (strL.IndexOf(":'\'") != -1)
+            else if (strL.IndexOf(":(") != -1)
             {
                 //Debug.Log("Checking for :\");
                 StartCoroutine(RandomlyDelaySendEmoji(Boo));
