@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.Rendering;
@@ -21,6 +22,23 @@ using UnityEngine.Rendering.Universal;
  * https://answers.unity.com/questions/1418348/how-do-i-access-a-bool-from-another-script.html
  */
 
+//Audio Stuff KB
+[System.Serializable]
+public class Sound
+{
+    public string name;
+
+    public AudioClip clip;
+
+    [Range(0f, 1f)]
+    public float volume;
+    public bool loop;
+
+    [HideInInspector]
+    public AudioSource source;
+
+}
+
 public class AdaptiveFilm : MonoBehaviour
 {
     // reference to PlayerMovement script
@@ -35,13 +53,17 @@ public class AdaptiveFilm : MonoBehaviour
     public VideoPlayer videoPlayer;
     private float timeUntilNextVideo;
 
-    // audio elements
-    public AudioSource music;
+    //KB  note: I'm temporarily hiding this while I experiment with my own AudioManager!
+    //public AudioSource music;
 
-    public AudioClip[] clips;
+    //public AudioClip[] clips;
     //public AudioClip farSong;
     //public AudioClip closeSong;
     //public AudioClip kissSong;
+
+    //Audio Stuff KB
+    [SerializeField] Sound[] sounds;
+    private bool fadeinClose, fadeoutClose, fadeinKiss, fadeoutKiss;
 
     // for player distances
     public GameObject p1;
@@ -59,10 +81,29 @@ public class AdaptiveFilm : MonoBehaviour
     public Volume volume;
     private ColorAdjustments color;
 
+    //Audio Stuff KB
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Play();
+    }
+
     private void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
         //videoPlayer.Pause();
+
+        //Audio Stuff KB
+        //loop gives properties to ALL music files in the array
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.loop = s.loop;
+
+        }
+
     }
 
     // Start is called before the first frame update
@@ -70,6 +111,29 @@ public class AdaptiveFilm : MonoBehaviour
     {
         timeUntilNextVideo = 0f;
         volume.profile.TryGet(out color);
+
+        //Audio Stuff KB
+        //play all 3 music files on Start
+        Play("Far");
+        Play("Close");
+        Play("Kiss");
+
+        //set volumes: want the far apart to be 1, while everything else is 0
+        sounds[0].source.volume = 1f;
+        sounds[1].source.volume = 0f;
+        sounds[2].source.volume = 0f;
+
+        //loop all music files
+        sounds[0].source.loop = true;
+        sounds[1].source.loop = true;
+        sounds[2].source.loop = true;
+
+        //these are like 'locks' for the fadein/fadeout coroutines... idk... cloud knows this lol
+        fadeinClose = false;
+        fadeoutClose = false;
+        fadeinKiss = false;
+        fadeoutKiss = false;
+
     }
 
     // Update is called once per frame
@@ -100,30 +164,36 @@ public class AdaptiveFilm : MonoBehaviour
         {
             PlayFootage(CloseArray);
             color.saturation.value = 0f;
-            //music.clip = clips[1];
+
+            //Audio Stuff KB - fade in "close" music
+            StartCoroutine(FadeIn(sounds[1].source));
+            fadeinClose = true;
+
         } 
-        // if they move far apart, stop this clip
-        /*
+        // Audio Stuff KB - if they move far apart, fade out "close" music
         else
         {
-
+            StartCoroutine(FadeOut(sounds[1].source));
+            fadeoutClose = true;
         }
-        */
 
         // if they're next to each other & kissing
         if(currentDist <= kissingDist && pm.isKissing) //KB: right now we're having trouble figuring out why isKissing isn't turning on
         {
             PlayFootage(KissingArray);
             color.saturation.value = 50f;
-            //music.clip = clips[2];
+
+            //Audio Stuff KB - fade in "KISSING" music
+            StartCoroutine(FadeIn(sounds[2].source));
+            fadeinKiss = true;
+
         }
-        // if they're not kissing anymore, stop this clip
-        /*
+        // Audio Stuff KB - if they're not kissing anymore, stop "KISSING" music
         else
         {
-            music.clip 
+            StartCoroutine(FadeOut(sounds[2].source));
+            fadeoutKiss = true;
         }
-        */
     }
 
     // this function takes in which array you want to call
@@ -132,9 +202,35 @@ public class AdaptiveFilm : MonoBehaviour
     {
         if(Time.time > timeUntilNextVideo)
         {
-            videoPlayer.clip = array[Random.Range(0, array.Length)];
+            videoPlayer.clip = array[UnityEngine.Random.Range(0, array.Length)];
             timeUntilNextVideo = Time.time + (float)videoPlayer.clip.length;
             videoPlayer.Play();
         }
+    }
+
+    //Audio Stuff KB - these are coroutines that cloud helped me make to fadein and fadeout audio :D
+    //need to examine why the fadeins and fadeouts aren't happening... 3/23/21
+    IEnumerator FadeIn(AudioSource track)
+    {
+        while (track.volume < 1)
+        {
+            track.volume += 0.05f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        fadeinClose = false;
+        fadeinKiss = false;
+    }
+
+    IEnumerator FadeOut(AudioSource track)
+    {
+        while (track.volume > 0)
+        {
+            track.volume -= 0.05f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        fadeoutClose = false;
+        fadeoutKiss = false;
     }
 }
