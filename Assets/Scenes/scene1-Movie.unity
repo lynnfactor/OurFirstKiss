@@ -5242,14 +5242,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 1060937429}
   - component: {fileID: 1060937428}
   - component: {fileID: 1060937427}
-=======
-  - component: {fileID: 422713624}
-  - component: {fileID: 422713625}
->>>>>>> aubrey
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -5257,7 +5252,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!114 &1060937427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5399,9 +5393,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
 --- !u!4 &1060937429
-=======
---- !u!4 &422713624
->>>>>>> aubrey
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5418,25 +5409,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1174354207
-=======
---- !u!114 &422713625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422713623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e77aaa50b9dec4492fc5e46e2a4b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  P1dec: {fileID: 5705958034626988462}
-  P2dec: {fileID: 5705958033799030751}
---- !u!1 &519420028
->>>>>>> aubrey
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -17,6 +17,10 @@ using System;
  * Arduino input via Uduino ReadWrite
  ***** analog pins A0 and A3 are for flex sensor input
  ***** pins 3 and 6 are for analog LED output
+ *
+ * Lex's code:
+ * spawn kiss particles when kissing and make them lean into each other, then snap back to seats after.
+ * when players are next to each other they have to press the move button again to face each other
  * 
 */
 // Kissing particles: lsyu@usc.edu. particles should spawn when players hold down kiss buttons. also players should lean into each other.
@@ -84,6 +88,8 @@ public class PlayerMovement : MonoBehaviour {
 	//are they kissing?
 	public bool isKissing = false;
 	private bool collidedWithPlayer = false;
+	private bool p1Ready = false;
+	private bool p2Ready = false;
 
 	void Start() {
 
@@ -259,14 +265,20 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			// KISS LOGIC:
 			// change player sprites to look at each other
-			if (spriteRend.sprite == spriteRest && collidedWithPlayer)
+			if (collidedWithPlayer && gameObject.name == "P1" && (rewiredPlayer.GetButtonDown("Horizontal") || p1RightVal == 1))
 			{
 				spriteRend.sprite = spriteReady;
+				p2Ready = true;
+			}
+			if (collidedWithPlayer && gameObject.name == "P2" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal == 1))
+			{
+				spriteRend.sprite = spriteReady;
+				p2Ready = true;
 			}
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && collidedWithPlayer)
+			if ((rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && p1Ready && p2Ready)
 			{
 				//Debug.Log("pressure: " + (p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure));
 				//Debug.Log("kissing key: " + (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))));
