@@ -17,7 +17,9 @@ using System;
  * Arduino input via Uduino ReadWrite
  ***** analog pins A0 and A3 are for flex sensor input
  ***** pins 3 and 6 are for analog LED output
- * 
+ * * Lex's code:
+ * spawn kiss particles when kissing and make them lean into each other, then snap back to seats after.
+ * when players are next to each other they have to press the move button again to face each other
 */
 // Kissing particles: lsyu@usc.edu. particles should spawn when players hold down kiss buttons. also players should lean into each other.
 public class PlayerMovement : MonoBehaviour {
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour {
 	//are they kissing?
 	public bool isKissing = false;
 	private bool collidedWithPlayer = false;
+	
 
 	void Start() {
 
@@ -120,6 +123,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
 		kisseffect.enabled = false;
+		PlayerPrefs.SetString("p1Ready", "no");
+		PlayerPrefs.SetString("p2Ready", "no"); // global vars to tell whether players are ready to kiss
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -259,14 +264,28 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			// KISS LOGIC:
 			// change player sprites to look at each other
-			if (spriteRend.sprite == spriteRest && collidedWithPlayer)
+			if (collidedWithPlayer && gameObject.name == "P1" && (rewiredPlayer.GetButtonDown("Horizontal") || p1RightVal == 1))
 			{
 				spriteRend.sprite = spriteReady;
+				PlayerPrefs.SetString("p1Ready", "yes");
+				Debug.Log("p1 is ready");
+			}
+			if (collidedWithPlayer && gameObject.name == "P2" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p2LeftVal == 1))
+			{
+				spriteRend.sprite = spriteReady;
+				PlayerPrefs.SetString("p2Ready", "yes");
+				Debug.Log("p2 is ready");
 			}
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && collidedWithPlayer)
+			Debug.LogWarning("--------");
+			Debug.Log("get button: " + gameObject.name + " " + rewiredPlayer.GetButton("Kiss"));
+			Debug.Log("other player button: " + otherPlayer.GetButton("Kiss"));
+			Debug.Log("Kiss? " + ((rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && PlayerPrefs.GetString("p1Ready")=="yes" && PlayerPrefs.GetString("p2Ready")=="yes"));
+			
+			//if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && collidedWithPlayer)
+			if ((rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && PlayerPrefs.GetString("p1Ready")=="yes" && PlayerPrefs.GetString("p2Ready")=="yes")
 			{
 				//Debug.Log("pressure: " + (p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure));
 				//Debug.Log("kissing key: " + (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))));
@@ -278,9 +297,9 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				//Debug.Log("not pressing kissing keys but are collided");
 				Debug.Log("kissing key released: " + (rewiredPlayer.GetButtonUp("Kiss") || otherPlayer.GetButtonUp("Kiss")));
-				if (/*isKissing && */(/*p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||*/ rewiredPlayer.GetButtonUp("Kiss") || otherPlayer.GetButtonUp("Kiss")))
+				if (/*isKissing && */(/*p1ReadVal < minKissPressure && p2ReadVal < minKissPressure ||*/ isKissing && (rewiredPlayer.GetButtonUp("Kiss") || otherPlayer.GetButtonUp("Kiss"))))
 				{
-					
+					isKissing = false;
 					//Debug.Log(gameObject.name + " pos: " + transform.position.x);
 					//Debug.Log(gameObject.name + "target pos: " + target.position.x);
 					//Debug.Log(transform.position.x >= target.position.x - 3f);
@@ -315,6 +334,7 @@ public class PlayerMovement : MonoBehaviour {
 						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
 						//transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
 						Debug.Log("Snapped P1 to " + transform.position.x);
+						
 					}
 					else if (gameObject.name == "P2")
 					{
@@ -340,8 +360,11 @@ public class PlayerMovement : MonoBehaviour {
 						}
 						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
 						Debug.Log("Snapped P2 to " + transform.position.x);
+						
+						
 					}
 					StartCoroutine(stopParticles());
+					
 				}
 				
 				
@@ -384,6 +407,8 @@ public class PlayerMovement : MonoBehaviour {
 				StartCoroutine(stopParticles());
 				if (!isKissing){
 					spriteRend.sprite = spriteRest;
+					PlayerPrefs.SetString("p2Ready", "no");
+					PlayerPrefs.SetString("p1Ready", "no");
 				}
 				
 			}
@@ -419,7 +444,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Kiss()
 	{
-		
+		Debug.Log("started kissing");
 		isKissing = true;
 		// lean both players towards each other
 		// players need to stay in the ready position
@@ -480,7 +505,6 @@ public class PlayerMovement : MonoBehaviour {
 	IEnumerator stopParticles()
 	{
 		Debug.Log("start clearing the particles");
-		isKissing = false;
 		yield return new WaitForSeconds(0.4f);
 
 		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;

@@ -11028,11 +11028,7 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 367a909316b843848a9c234ee652b900, type: 3}
   - {fileID: 32900000, guid: 304e3be14cdb18142a43fd67c283ef7f, type: 3}
   videoPlayer: {fileID: 1060937428}
-  music: {fileID: 1060937430}
-  clips:
-  - {fileID: 8300000, guid: aa87b4923b1cedf468692c64f4b641de, type: 3}
-  - {fileID: 8300000, guid: 9f0bb47453a918747a4eb26b9c4b1ae6, type: 3}
-  - {fileID: 8300000, guid: ea23c408909a07d41b6b733c8a8d20b7, type: 3}
+  sounds: []
   p1: {fileID: 3671641758387278402}
   p2: {fileID: 3671641757494344755}
   closeDist: 13
