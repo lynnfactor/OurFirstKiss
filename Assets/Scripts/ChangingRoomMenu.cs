@@ -28,4 +28,9 @@ public class ChangingRoomMenu : MonoBehaviour
     public void Quit(){
         Application.Quit();
     }
+
+    public void LoadChangingRoom()
+    {
+        SceneManager.LoadScene("scene1-ChangingRoom");
+    }
 }

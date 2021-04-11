@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SwapCredits : MonoBehaviour
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class EndGame : MonoBehaviour
 {
     // Start is called before the first frame update
     public Image creditsBackground;
+    public GameObject creditsCanvas;
+    public GameObject movieCanvas;
     public Sprite[] sprites = new Sprite[9];
+    private ColorAdjustments color;
     
-    IEnumerator Start()
-    {
-        yield return StartCoroutine("Wait", 2.0f);
+    public void End(){
+        StartCoroutine(WaitAndDisplay(3.0f));
     }
-
     
 
-    private IEnumerator Wait(float wait)
+    IEnumerator WaitAndDisplay(float wait)
     {
+        movieCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
         int i = 0;
         while (i < 9)
         {

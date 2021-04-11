@@ -86,7 +86,9 @@ public class PlayerMovement : MonoBehaviour {
 	//are they kissing?
 	public bool isKissing = false;
 	private bool collidedWithPlayer = false;
+	public bool gameEnded = false;
 	
+	public EndGame end; // load the EndGame.cs script
 
 	void Start() {
 
@@ -444,6 +446,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Kiss()
 	{
+		if (!gameEnded){
+			StartCoroutine(waitThenEnd());
+		}
+		
 		Debug.Log("started kissing");
 		isKissing = true;
 		// lean both players towards each other
@@ -515,5 +521,13 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
-
+	// wait for a few seconds, and if the players are still kissing then don't end the game, otherwise end
+	IEnumerator waitThenEnd()
+	{
+		yield return new WaitForSeconds(7f);
+		if (!isKissing){
+			end.End();
+			gameEnded = true;
+		}
+	}
 }
