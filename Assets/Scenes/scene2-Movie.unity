@@ -11028,7 +11028,22 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 367a909316b843848a9c234ee652b900, type: 3}
   - {fileID: 32900000, guid: 304e3be14cdb18142a43fd67c283ef7f, type: 3}
   videoPlayer: {fileID: 1060937428}
-  sounds: []
+  sounds:
+  - name: Far
+    clip: {fileID: 8300000, guid: aa87b4923b1cedf468692c64f4b641de, type: 3}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Close
+    clip: {fileID: 8300000, guid: 9f0bb47453a918747a4eb26b9c4b1ae6, type: 3}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Kiss
+    clip: {fileID: 8300000, guid: ea23c408909a07d41b6b733c8a8d20b7, type: 3}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
   p1: {fileID: 3671641758387278402}
   p2: {fileID: 3671641757494344755}
   closeDist: 13
@@ -11091,7 +11106,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060937426}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 2bccba70c25630243a34e2d482e47d21,
     type: 2}
