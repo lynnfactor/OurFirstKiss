@@ -12675,7 +12675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: -180}
+  m_AnchoredPosition: {x: -2.5, y: -84}
   m_SizeDelta: {x: -5, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1053778555
@@ -12728,7 +12728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1058121910
 Transform:
   m_ObjectHideFlags: 0
@@ -13360,6 +13360,8 @@ MonoBehaviour:
   kissRot: 0
   kissparticle: {fileID: 121337007}
   isKissing: 0
+  gameEnded: 0
+  end: {fileID: 0}
 --- !u!58 &1214696167
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17713,8 +17715,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 80, y: -80}
-  m_SizeDelta: {x: -240, y: -240}
+  m_AnchoredPosition: {x: 198, y: -45}
+  m_SizeDelta: {x: -476, y: -170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2086227899
 GameObject:
@@ -19073,6 +19075,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1049872055}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3671641757675648435
 GameObject:
