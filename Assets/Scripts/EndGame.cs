@@ -13,20 +13,27 @@ public class EndGame : MonoBehaviour
     public GameObject creditsCanvas;
     public GameObject movieCanvas;
     public Sprite[] sprites = new Sprite[9];
+    public GameObject adaptiveFilm;
+    public Sound sound;
     private ColorAdjustments color;
     
     public void End(){
+        adaptiveFilm.GetComponent<AdaptiveFilm>().enabled = false;
+        movieCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
+        //color.saturation.value = 100f;
+        //sound.source.Play();
         StartCoroutine(WaitAndDisplay(3.0f));
     }
     
 
     IEnumerator WaitAndDisplay(float wait)
     {
-        movieCanvas.SetActive(false);
-        creditsCanvas.SetActive(true);
         int i = 0;
         while (i < 9)
         {
+            Debug.Log(i);
+            Debug.Log(sprites[i].name);
             yield return new WaitForSeconds(wait);
             creditsBackground.sprite = sprites[i];
             i++;

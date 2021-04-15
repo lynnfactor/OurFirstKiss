@@ -20,6 +20,7 @@ using System;
  * * Lex's code:
  * spawn kiss particles when kissing and make them lean into each other, then snap back to seats after.
  * when players are next to each other they have to press the move button again to face each other
+ * after players kiss, wait a few seconds and if they aren't kissing anymore end the game
 */
 // Kissing particles: lsyu@usc.edu. particles should spawn when players hold down kiss buttons. also players should lean into each other.
 public class PlayerMovement : MonoBehaviour {
@@ -524,10 +525,13 @@ public class PlayerMovement : MonoBehaviour {
 	// wait for a few seconds, and if the players are still kissing then don't end the game, otherwise end
 	IEnumerator waitThenEnd()
 	{
+		gameEnded = true;
 		yield return new WaitForSeconds(7f);
 		if (!isKissing){
 			end.End();
-			gameEnded = true;
+		}
+		else{
+			gameEnded = false;
 		}
 	}
 }

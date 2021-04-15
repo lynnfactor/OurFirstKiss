@@ -183,6 +183,7 @@ MonoBehaviour:
   kissRot: 0
   kissparticle: {fileID: 239391139}
   isKissing: 0
+  gameEnded: 0
   end: {fileID: 1627021484}
 --- !u!50 &105732645
 Rigidbody2D:
@@ -12170,6 +12171,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b1fcf32046f432b418b3c61a2dd855ec, type: 3}
   - {fileID: 21300000, guid: c8ce30fcab656244cafd089d0b318477, type: 3}
   - {fileID: 21300000, guid: 830701b2ebc7e90499369c178c51d792, type: 3}
+  adaptiveFilm: {fileID: 1060937426}
+  sound:
+    name: sound
+    clip: {fileID: 8300000, guid: 38718effed704394990c6191bafba8eb, type: 3}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &1685277071
 GameObject:
   m_ObjectHideFlags: 0
@@ -12299,6 +12307,7 @@ MonoBehaviour:
   kissRot: 0
   kissparticle: {fileID: 1026711041}
   isKissing: 0
+  gameEnded: 0
   end: {fileID: 1627021484}
 --- !u!50 &1708290105
 Rigidbody2D:
