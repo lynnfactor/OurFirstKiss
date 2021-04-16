@@ -15,15 +15,26 @@ public class EndGame : MonoBehaviour
     public Sprite[] sprites = new Sprite[9];
     public GameObject adaptiveFilm;
     public Sound sound;
+    public Volume vol;
     private ColorAdjustments color;
+    private AudioSource[] allAudioSources;
+ 
     
     public void End(){
+
         adaptiveFilm.GetComponent<AdaptiveFilm>().enabled = false;
         movieCanvas.SetActive(false);
         creditsCanvas.SetActive(true);
-        //color.saturation.value = 100f;
-        //sound.source.Play();
-        StartCoroutine(WaitAndDisplay(3.0f));
+        vol.profile.TryGet(out color);
+        color.saturation.value = 100f;
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach(AudioSource audioS in allAudioSources)  {
+            audioS.Stop();
+        }
+        sound.source = gameObject.AddComponent<AudioSource>();
+        sound.source.clip = sound.clip;
+        sound.source.Play();
+        StartCoroutine(WaitAndDisplay(4.0f));
     }
     
 

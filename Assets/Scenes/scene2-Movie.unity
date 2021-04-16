@@ -12175,9 +12175,10 @@ MonoBehaviour:
   sound:
     name: sound
     clip: {fileID: 8300000, guid: 38718effed704394990c6191bafba8eb, type: 3}
-    volume: 0.5
+    volume: 0.4
     loop: 1
     source: {fileID: 0}
+  vol: {fileID: 224751692}
 --- !u!1 &1685277071
 GameObject:
   m_ObjectHideFlags: 0
