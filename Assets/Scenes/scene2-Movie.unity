@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -176,8 +176,9 @@ MonoBehaviour:
   duration: 0.01
   time: 2
   maxRotation: 2.5
-  spriteRest: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
-  spriteReady: {fileID: 21300000, guid: 4e5492d3114b142359b01b4879a8d2a3, type: 3}
+  spriteRest: {fileID: 21300000, guid: 74d3023ffded4e24b90bbbd527507899, type: 3}
+  spriteReady: {fileID: 21300000, guid: a1a4b7f56c926564e9636707e71e1c67, type: 3}
+  decRend: {fileID: 5453091123498201561}
   target: {fileID: 2820748047717495721}
   rotSpeed: 1
   kissRot: 0
@@ -5476,7 +5477,7 @@ Transform:
   - {fileID: 2820748047717495721}
   - {fileID: 2820748049709080024}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &422713625
 MonoBehaviour:
@@ -11542,7 +11543,7 @@ Transform:
   - {fileID: 210180013}
   - {fileID: 8176242628642031071}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1060937430
 AudioSource:
@@ -11932,7 +11933,7 @@ Transform:
   - {fileID: 1174354208}
   - {fileID: 1778040977}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510718551
 GameObject:
@@ -12301,8 +12302,9 @@ MonoBehaviour:
   duration: 0.01
   time: 2
   maxRotation: 2.5
-  spriteRest: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
-  spriteReady: {fileID: 21300000, guid: db5ea91e8f0fe4b08b9cea1e21ca6151, type: 3}
+  spriteRest: {fileID: 21300000, guid: 92b9022e611ed2d41a29dc3b6a21bb97, type: 3}
+  spriteReady: {fileID: 21300000, guid: aa80d8a23a2c3624d8aafbc01f78e188, type: 3}
+  decRend: {fileID: 5453091124189650856}
   target: {fileID: 2820748049709080024}
   rotSpeed: 1
   kissRot: 0
@@ -13463,9 +13465,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.080079794, y: -4.3553996}
   m_SpriteTilingProperty:
-    border: {x: 5.9300003, y: 0, z: 6.04, w: 2.1602702}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 26.67, y: 20.0025}
+    oldSize: {x: 24.808582, y: 15.360001}
     newSize: {x: 26.67, y: 20.0025}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -13489,9 +13491,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.07304621, y: -4.563068}
   m_SpriteTilingProperty:
-    border: {x: 5.9300003, y: 0, z: 6.04, w: 2.1602702}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 26.67, y: 20.0025}
+    oldSize: {x: 24.808582, y: 15.360001}
     newSize: {x: 26.67, y: 20.0025}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -13764,7 +13766,7 @@ SpriteRenderer:
   m_SortingLayerID: 398129167
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92b9022e611ed2d41a29dc3b6a21bb97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13814,7 +13816,7 @@ SpriteRenderer:
   m_SortingLayerID: 398129167
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6064befef07743c4db629204bac6adb3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74d3023ffded4e24b90bbbd527507899, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

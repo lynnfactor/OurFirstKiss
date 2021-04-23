@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
 	private SpriteRenderer spriteRend;
 	public Sprite spriteRest; // facing movie
 	public Sprite spriteReady; // facing partner
+	public SpriteRenderer decRend;
 
 	// So we can rotate the players towards each other for kissing
 	// target marker
@@ -88,7 +89,9 @@ public class PlayerMovement : MonoBehaviour {
 	public bool isKissing = false;
 	private bool collidedWithPlayer = false;
 	public bool gameEnded = false;
-	
+	private Sprite sideDec;
+	private Sprite normalDec;
+
 	public EndGame end; // load the EndGame.cs script
 
 	void Start() {
@@ -128,6 +131,15 @@ public class PlayerMovement : MonoBehaviour {
 		kisseffect.enabled = false;
 		PlayerPrefs.SetString("p1Ready", "no");
 		PlayerPrefs.SetString("p2Ready", "no"); // global vars to tell whether players are ready to kiss
+		/*
+		if (gameObject.name == "P1"){
+			Debug.Log("p1 side: " + PlayerPrefs.GetString("P1 accessory side"));
+			sideDec = Resources.Load<Sprite>("Sprites/accessories/" + PlayerPrefs.GetString("P1 accessory side"));
+			normalDec = Resources.Load<Sprite>("Sprites/accessories/" + PlayerPrefs.GetString("P1 accessory"));
+			Debug.Log("P1 side: " + sideDec.name); 
+			Debug.Log(" P1 normal: " + normalDec.name);
+		}
+		*/
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -282,10 +294,10 @@ public class PlayerMovement : MonoBehaviour {
 
 			// then, if players both hit their kiss buttons, spawn cool shit
 			
-			Debug.LogWarning("--------");
-			Debug.Log("get button: " + gameObject.name + " " + rewiredPlayer.GetButton("Kiss"));
-			Debug.Log("other player button: " + otherPlayer.GetButton("Kiss"));
-			Debug.Log("Kiss? " + ((rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && PlayerPrefs.GetString("p1Ready")=="yes" && PlayerPrefs.GetString("p2Ready")=="yes"));
+			//Debug.LogWarning("--------");
+			//Debug.Log("get button: " + gameObject.name + " " + rewiredPlayer.GetButton("Kiss"));
+			//Debug.Log("other player button: " + otherPlayer.GetButton("Kiss"));
+			//Debug.Log("Kiss? " + ((rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && PlayerPrefs.GetString("p1Ready")=="yes" && PlayerPrefs.GetString("p2Ready")=="yes"));
 			
 			//if (/*(p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure) ||*//*(p1val == 1 && p2val == 1) || */(rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && collidedWithPlayer)
 			if ((rewiredPlayer.GetButton("Kiss") && otherPlayer.GetButton("Kiss")) && PlayerPrefs.GetString("p1Ready")=="yes" && PlayerPrefs.GetString("p2Ready")=="yes")
@@ -410,6 +422,7 @@ public class PlayerMovement : MonoBehaviour {
 				StartCoroutine(stopParticles());
 				if (!isKissing){
 					spriteRend.sprite = spriteRest;
+					//decRend.sprite = normalDec;
 					PlayerPrefs.SetString("p2Ready", "no");
 					PlayerPrefs.SetString("p1Ready", "no");
 				}
@@ -458,6 +471,8 @@ public class PlayerMovement : MonoBehaviour {
 		if (spriteRend.sprite == spriteRest)
 		{
 			spriteRend.sprite = spriteReady;
+			//decRend.sprite = sideDec;
+			
 		}
 
 		// turn on particle system

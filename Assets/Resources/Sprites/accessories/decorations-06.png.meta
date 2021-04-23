@@ -1,55 +1,37 @@
 fileFormatVersion: 2
-guid: ee9d186c7f75e0d42b04cb2cebba9992
+guid: e2e22490b3398e9448e0938ee8a73847
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 455163420627201395
-    second: decorations-05_0
+      213: 1865727948091758720
+    second: decorations-06_0
   - first:
-      213: 8629282690095514200
-    second: decorations-05_1
+      213: -4810417708717022800
+    second: decorations-06_1
   - first:
-      213: -6190129309157710853
-    second: decorations-05_2
+      213: -4512083125268445868
+    second: decorations-06_2
   - first:
-      213: -1540699402806744565
-    second: decorations-05_3
+      213: -234810374224640025
+    second: decorations-06_3
   - first:
-      213: 1238808829011789506
-    second: decorations-05_4
+      213: -2918189406708961264
+    second: decorations-06_4
   - first:
-      213: 3375834771703288745
-    second: decorations-05_5
+      213: 5885688359942077428
+    second: decorations-06_5
   - first:
-      213: 3548554942673507280
-    second: decorations-05_6
+      213: -5377617356202912121
+    second: decorations-06_6
   - first:
-      213: 7797029606885862713
-    second: decorations-05_7
+      213: -7223566657384124357
+    second: decorations-06_7
   - first:
-      213: 3098136972992376
-    second: decorations-05_8
+      213: -8852847602320577524
+    second: decorations-06_8
   - first:
-      213: 1259647731060918079
-    second: decorations-05_9
-  - first:
-      213: 3460760297124425934
-    second: decorations-05_10
-  - first:
-      213: 4730807691845341858
-    second: decorations-05_11
-  - first:
-      213: -835144386942720089
-    second: decorations-05_12
-  - first:
-      213: 5515543613329690008
-    second: decorations-05_13
-  - first:
-      213: -502930785885943632
-    second: decorations-05_14
-  - first:
-      213: 8330595082700829301
-    second: decorations-05_15
+      213: 3176036498326850850
+    second: decorations-06_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -147,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: decorations-05_0
+      name: decorations-06_0
       rect:
         serializedVersion: 2
         x: 222
-        y: 3527
-        width: 1086
-        height: 721
+        y: 3161
+        width: 1214
+        height: 925
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37d6c3138b0115600800000000000000
-      internalID: 455163420627201395
+      spriteID: 08817890fa564e910800000000000000
+      internalID: 1865727948091758720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_1
+      name: decorations-06_1
       rect:
         serializedVersion: 2
-        x: 1563
-        y: 3696
-        width: 994
-        height: 535
+        x: 1623
+        y: 3288
+        width: 1307
+        height: 688
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,103 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 852029103ee51c770800000000000000
-      internalID: 8629282690095514200
+      spriteID: 0b16ca2a496fd3db0800000000000000
+      internalID: -4810417708717022800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_2
+      name: decorations-06_2
       rect:
         serializedVersion: 2
-        x: 2811
-        y: 3399
-        width: 798
-        height: 764
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf3abe5a03e381aa0800000000000000
-      internalID: -6190129309157710853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decorations-05_3
-      rect:
-        serializedVersion: 2
-        x: 3771
-        y: 3527
-        width: 1053
-        height: 619
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0a2c0e5e065e9ae0800000000000000
-      internalID: -1540699402806744565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decorations-05_4
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 2355
-        width: 1061
-        height: 849
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c68dd50112213110800000000000000
-      internalID: 1238808829011789506
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decorations-05_5
-      rect:
-        serializedVersion: 2
-        x: 1657
-        y: 2482
-        width: 1205
-        height: 645
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a359c3c6df59de20800000000000000
-      internalID: 3375834771703288745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decorations-05_6
-      rect:
-        serializedVersion: 2
-        x: 3075
-        y: 2499
-        width: 959
+        x: 3100
+        y: 3271
+        width: 976
         height: 654
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -287,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d3d2085beffe3130800000000000000
-      internalID: 3548554942673507280
+      spriteID: 4550759bd4cd161c0800000000000000
+      internalID: -4512083125268445868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_7
+      name: decorations-06_3
       rect:
         serializedVersion: 2
-        x: 4212
-        y: 2491
-        width: 883
-        height: 755
+        x: 4221
+        y: 3229
+        width: 934
+        height: 934
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93da2a5fd1d943c60800000000000000
-      internalID: 7797029606885862713
+      spriteID: 7e783ce6539cdbcf0800000000000000
+      internalID: -234810374224640025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_8
+      name: decorations-06_4
       rect:
         serializedVersion: 2
-        x: 290
-        y: 1251
-        width: 1035
-        height: 908
+        x: 230
+        y: 2108
+        width: 1163
+        height: 603
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87f9db93db10b0000800000000000000
-      internalID: 3098136972992376
+      spriteID: 010fdc122328087d0800000000000000
+      internalID: -2918189406708961264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_9
+      name: decorations-06_5
       rect:
         serializedVersion: 2
-        x: 1308
-        y: 1370
-        width: 1334
-        height: 891
+        x: 1733
+        y: 2066
+        width: 1129
+        height: 721
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,61 +248,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f37430000fa2b7110800000000000000
-      internalID: 1259647731060918079
+      spriteID: 4fbbff0316a2ea150800000000000000
+      internalID: 5885688359942077428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_10
+      name: decorations-06_6
       rect:
         serializedVersion: 2
-        x: 2947
-        y: 1327
-        width: 1053
-        height: 926
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec070e28727170030800000000000000
-      internalID: 3460760297124425934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decorations-05_11
-      rect:
-        serializedVersion: 2
-        x: 4076
-        y: 1302
-        width: 1045
-        height: 959
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a29025e78437a140800000000000000
-      internalID: 4730807691845341858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decorations-05_12
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 207
-        width: 1308
+        x: 3075
+        y: 2032
+        width: 908
         height: 772
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -413,20 +269,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a72e18da98f864f0800000000000000
-      internalID: -835144386942720089
+      spriteID: 786dc81a18dde55b0800000000000000
+      internalID: -5377617356202912121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_13
+      name: decorations-06_7
       rect:
         serializedVersion: 2
-        x: 1487
-        y: 224
-        width: 1172
-        height: 679
+        x: 4263
+        y: 2074
+        width: 926
+        height: 866
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89dc0b791b52b8c40800000000000000
-      internalID: 5515543613329690008
+      spriteID: b30734fa56cb0cb90800000000000000
+      internalID: -7223566657384124357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_14
+      name: decorations-06_8
       rect:
         serializedVersion: 2
-        x: 2913
-        y: 181
-        width: 1036
-        height: 739
+        x: 230
+        y: 1038
+        width: 1028
+        height: 815
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,20 +311,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b809a86d1b3509f0800000000000000
-      internalID: -502930785885943632
+      spriteID: c0c6305920e542580800000000000000
+      internalID: -8852847602320577524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-05_15
+      name: decorations-06_9
       rect:
         serializedVersion: 2
-        x: 4153
-        y: 105
-        width: 959
-        height: 1010
+        x: 1826
+        y: 945
+        width: 977
+        height: 781
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,8 +332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 572bfff17183c9370800000000000000
-      internalID: 8330595082700829301
+      spriteID: 22d827c2e5c831c20800000000000000
+      internalID: 3176036498326850850
       vertices: []
       indices: 
       edges: []

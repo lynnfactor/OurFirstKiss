@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 343c028c4ac8d574ca04fff787edd764
+guid: ca183e4c5e948554daedaebb41270188
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1865727948091758720
-    second: decorations-06_0
+      213: 672878562219560750
+    second: decorations7_0
   - first:
-      213: -4810417708717022800
-    second: decorations-06_1
+      213: 8604061109389700786
+    second: decorations7_1
   - first:
-      213: -4512083125268445868
-    second: decorations-06_2
+      213: 5448555050869229200
+    second: decorations7_2
   - first:
-      213: -234810374224640025
-    second: decorations-06_3
+      213: -2546597197117419106
+    second: decorations7_3
   - first:
-      213: -2918189406708961264
-    second: decorations-06_4
+      213: 8414278622889412177
+    second: decorations7_4
   - first:
-      213: 5885688359942077428
-    second: decorations-06_5
+      213: -2613218917237044039
+    second: decorations7_5
   - first:
-      213: -5377617356202912121
-    second: decorations-06_6
+      213: 7315277635456332788
+    second: decorations7_6
   - first:
-      213: -7223566657384124357
-    second: decorations-06_7
+      213: 6957045048602066589
+    second: decorations7_7
   - first:
-      213: -8852847602320577524
-    second: decorations-06_8
+      213: 4730938257450707793
+    second: decorations7_8
   - first:
-      213: 3176036498326850850
-    second: decorations-06_9
+      213: 1629996442523019282
+    second: decorations7_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,11 +114,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: decorations-06_0
+      name: decorations7_0
       rect:
         serializedVersion: 2
-        x: 222
-        y: 3161
-        width: 1214
-        height: 925
+        x: 98
+        y: 2788
+        width: 1335
+        height: 1098
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08817890fa564e910800000000000000
-      internalID: 1865727948091758720
+      spriteID: e2f821ebc7b865900800000000000000
+      internalID: 672878562219560750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_1
+      name: decorations7_1
       rect:
         serializedVersion: 2
-        x: 1623
-        y: 3288
-        width: 1307
-        height: 688
+        x: 1483
+        y: 2889
+        width: 1317
+        height: 1048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b16ca2a496fd3db0800000000000000
-      internalID: -4810417708717022800
+      spriteID: 2be2de22ef3c76770800000000000000
+      internalID: 8604061109389700786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_2
+      name: decorations7_2
       rect:
         serializedVersion: 2
-        x: 3100
-        y: 3271
-        width: 976
-        height: 654
+        x: 2902
+        y: 2873
+        width: 1148
+        height: 1114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4550759bd4cd161c0800000000000000
-      internalID: -4512083125268445868
+      spriteID: 096883a73f72d9b40800000000000000
+      internalID: 5448555050869229200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_3
+      name: decorations7_3
       rect:
         serializedVersion: 2
-        x: 4221
-        y: 3229
-        width: 934
-        height: 934
+        x: 4067
+        y: 2957
+        width: 1115
+        height: 1081
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e783ce6539cdbcf0800000000000000
-      internalID: -234810374224640025
+      spriteID: e919fc7775ba8acd0800000000000000
+      internalID: -2546597197117419106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_4
+      name: decorations7_4
       rect:
         serializedVersion: 2
-        x: 230
-        y: 2108
-        width: 1163
-        height: 603
+        x: 81
+        y: 1842
+        width: 1284
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 010fdc122328087d0800000000000000
-      internalID: -2918189406708961264
+      spriteID: 1568c76a3d585c470800000000000000
+      internalID: 8414278622889412177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_5
+      name: decorations7_5
       rect:
         serializedVersion: 2
-        x: 1733
-        y: 2066
-        width: 1129
-        height: 721
+        x: 1550
+        y: 1775
+        width: 1284
+        height: 844
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +248,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fbbff0316a2ea150800000000000000
-      internalID: 5885688359942077428
+      spriteID: 9bc41cd7d3bfbbbd0800000000000000
+      internalID: -2613218917237044039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_6
+      name: decorations7_6
       rect:
         serializedVersion: 2
-        x: 3075
-        y: 2032
-        width: 908
-        height: 772
+        x: 2935
+        y: 1825
+        width: 1064
+        height: 811
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,20 +269,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 786dc81a18dde55b0800000000000000
-      internalID: -5377617356202912121
+      spriteID: 4f3fbbe5046158560800000000000000
+      internalID: 7315277635456332788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_7
+      name: decorations7_7
       rect:
         serializedVersion: 2
-        x: 4263
-        y: 2074
-        width: 926
-        height: 866
+        x: 4168
+        y: 1792
+        width: 997
+        height: 912
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b30734fa56cb0cb90800000000000000
-      internalID: -7223566657384124357
+      spriteID: d9ef0589c936c8060800000000000000
+      internalID: 6957045048602066589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_8
+      name: decorations7_8
       rect:
         serializedVersion: 2
-        x: 230
-        y: 1038
-        width: 1028
-        height: 815
+        x: 98
+        y: 711
+        width: 1182
+        height: 979
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,20 +311,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0c6305920e542580800000000000000
-      internalID: -8852847602320577524
+      spriteID: 15ba7a1974ba7a140800000000000000
+      internalID: 4730938257450707793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorations-06_9
+      name: decorations7_9
       rect:
         serializedVersion: 2
-        x: 1826
-        y: 945
-        width: 977
-        height: 781
+        x: 1618
+        y: 660
+        width: 1301
+        height: 929
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,8 +332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22d827c2e5c831c20800000000000000
-      internalID: 3176036498326850850
+      spriteID: 2182cbdd029ee9610800000000000000
+      internalID: 1629996442523019282
       vertices: []
       indices: 
       edges: []
