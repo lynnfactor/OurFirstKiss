@@ -185,6 +185,7 @@ MonoBehaviour:
   kissparticle: {fileID: 239391139}
   isKissing: 0
   gameEnded: 0
+  accessory: {fileID: 422713625}
   end: {fileID: 1627021484}
 --- !u!50 &105732645
 Rigidbody2D:
@@ -12311,6 +12312,7 @@ MonoBehaviour:
   kissparticle: {fileID: 1026711041}
   isKissing: 0
   gameEnded: 0
+  accessory: {fileID: 422713625}
   end: {fileID: 1627021484}
 --- !u!50 &1708290105
 Rigidbody2D:

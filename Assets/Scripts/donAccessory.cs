@@ -26,4 +26,28 @@ public class donAccessory : MonoBehaviour
         Debug.Log("P2 game: " + P2dec.GetComponent<SpriteRenderer>().sprite.name);
     }
 
+    public void Front(String name){
+        Debug.LogError("Front");
+        if (name == "P1"){
+            int p1 = Array.FindIndex(accessories, s=> s.name == PlayerPrefs.GetString("P1 accessory"));
+            P1dec.GetComponent<SpriteRenderer>().sprite = accessories[p1];
+        }
+        else if (name == "P2"){
+            int p2 = Array.FindIndex(accessories, s=> s.name == PlayerPrefs.GetString("P2 accessory"));
+            P2dec.GetComponent<SpriteRenderer>().sprite = accessories[p2];
+        }
+    }
+
+    public void Side(String name){
+        Debug.LogError("Side");
+        if (name == "P1"){
+            int p1 = Array.FindIndex(accessories, s=> s.name == PlayerPrefs.GetString("P1 accessory side"));
+            P1dec.GetComponent<SpriteRenderer>().sprite = accessories[p1];
+        }
+        else if (name == "P2"){
+            int p2 = Array.FindIndex(accessories, s=> s.name == PlayerPrefs.GetString("P2 accessory side"));
+            P2dec.GetComponent<SpriteRenderer>().sprite = accessories[p2];
+        }
+    }
+
 }

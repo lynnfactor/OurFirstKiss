@@ -89,8 +89,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool isKissing = false;
 	private bool collidedWithPlayer = false;
 	public bool gameEnded = false;
-	private Sprite sideDec;
-	private Sprite normalDec;
+	public donAccessory accessory;
 
 	public EndGame end; // load the EndGame.cs script
 
@@ -131,15 +130,6 @@ public class PlayerMovement : MonoBehaviour {
 		kisseffect.enabled = false;
 		PlayerPrefs.SetString("p1Ready", "no");
 		PlayerPrefs.SetString("p2Ready", "no"); // global vars to tell whether players are ready to kiss
-		/*
-		if (gameObject.name == "P1"){
-			Debug.Log("p1 side: " + PlayerPrefs.GetString("P1 accessory side"));
-			sideDec = Resources.Load<Sprite>("Sprites/accessories/" + PlayerPrefs.GetString("P1 accessory side"));
-			normalDec = Resources.Load<Sprite>("Sprites/accessories/" + PlayerPrefs.GetString("P1 accessory"));
-			Debug.Log("P1 side: " + sideDec.name); 
-			Debug.Log(" P1 normal: " + normalDec.name);
-		}
-		*/
 	}
 
 	// Sets up player ID in inspector to assign controls to the rewired Player object
@@ -284,12 +274,14 @@ public class PlayerMovement : MonoBehaviour {
 				spriteRend.sprite = spriteReady;
 				PlayerPrefs.SetString("p1Ready", "yes");
 				Debug.Log("p1 is ready");
+				accessory.Side(gameObject.name);
 			}
 			if (collidedWithPlayer && gameObject.name == "P2" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p2LeftVal == 1))
 			{
 				spriteRend.sprite = spriteReady;
 				PlayerPrefs.SetString("p2Ready", "yes");
 				Debug.Log("p2 is ready");
+				accessory.Side(gameObject.name);
 			}
 
 			// then, if players both hit their kiss buttons, spawn cool shit
@@ -422,6 +414,7 @@ public class PlayerMovement : MonoBehaviour {
 				StartCoroutine(stopParticles());
 				if (!isKissing){
 					spriteRend.sprite = spriteRest;
+					accessory.Front(gameObject.name);
 					//decRend.sprite = normalDec;
 					PlayerPrefs.SetString("p2Ready", "no");
 					PlayerPrefs.SetString("p1Ready", "no");
@@ -471,8 +464,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (spriteRend.sprite == spriteRest)
 		{
 			spriteRend.sprite = spriteReady;
-			//decRend.sprite = sideDec;
-			
+			accessory.Side(gameObject.name);			
 		}
 
 		// turn on particle system
