@@ -53,6 +53,14 @@ public class AdaptiveFilm : MonoBehaviour
     public VideoPlayer videoPlayer;
     private float timeUntilNextVideo;
 
+    //KB  note: I'm temporarily hiding this while I experiment with my own AudioManager!
+    //public AudioSource music;
+
+    //public AudioClip[] clips;
+    //public AudioClip farSong;
+    //public AudioClip closeSong;
+    //public AudioClip kissSong;
+
     //Audio Stuff KB
     [SerializeField] Sound[] sounds;
     private bool fadeinClose, fadeoutClose, fadeinKiss, fadeoutKiss;
@@ -131,6 +139,7 @@ public class AdaptiveFilm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //music.Play();
         // get transform for players
         if(p1 != null)
         {
@@ -169,7 +178,7 @@ public class AdaptiveFilm : MonoBehaviour
         }
 
         // if they're next to each other & kissing
-        if(currentDist <= kissingDist && pm.isKissing) 
+        if(currentDist <= kissingDist && pm.isKissing) //KB: right now we're having trouble figuring out why isKissing isn't turning on
         {
             PlayFootage(KissingArray);
             color.saturation.value = 50f;
@@ -205,8 +214,8 @@ public class AdaptiveFilm : MonoBehaviour
     {
         while (track.volume < 1)
         {
-            track.volume += 0.002f;
-            yield return new WaitForSeconds(0.5f);
+            track.volume += 0.05f;
+            yield return new WaitForSeconds(0.1f);
         }
 
         fadeinClose = false;
@@ -217,8 +226,8 @@ public class AdaptiveFilm : MonoBehaviour
     {
         while (track.volume > 0)
         {
-            track.volume -= 0.002f;
-            yield return new WaitForSeconds(0.5f);
+            track.volume -= 0.05f;
+            yield return new WaitForSeconds(0.1f);
         }
 
         fadeoutClose = false;
