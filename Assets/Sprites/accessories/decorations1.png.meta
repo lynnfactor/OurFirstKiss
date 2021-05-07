@@ -123,10 +123,10 @@ TextureImporter:
       name: decorations1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2839
-        width: 1398
-        height: 1368
+        x: 64
+        y: 2856
+        width: 1334
+        height: 1351
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
