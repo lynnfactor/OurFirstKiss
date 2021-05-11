@@ -115,10 +115,10 @@ public class TwitchChatClient : MonoBehaviour
 
         string[] messages = message.Split(' ');
 
-        if (messages.Length == 0 || messages[0][0] != commandPrefix[0]) return;
+        if (messages.Length == 0 /*|| messages[0][0] != commandPrefix[0]*/) return;
 
         /*------START OF CUSTOMIZE CODE------*/
-
+        
         StartCoroutine(CheckEmo(messages));
 
         /*------END OF CUSTOMIZE CODE------*/

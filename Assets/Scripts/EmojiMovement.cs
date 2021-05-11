@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EmojiMovement : MonoBehaviour
 {
-    [SerializeField] float vSpeed = 50f; //vertical speed
+    [SerializeField] float vSpeed = 5f; //vertical speed
     [SerializeField] float hSpeed = 5f; //horizontal speed
     [SerializeField] float canvasHeight = 590f;
     [SerializeField] float fadeRate = 0.005f;

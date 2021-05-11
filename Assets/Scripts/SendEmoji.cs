@@ -25,11 +25,13 @@ public class SendEmoji : MonoBehaviour
     void Start()
     {
         canvasRTrans = canvas.GetComponent<RectTransform>();
-        startPos = new Vector3(Random.Range(0f, randomRangeMax), 0f, 0f);
+        float half = canvasRTrans.rect.width / 2;
+        startPos = new Vector3(startPos.x/*Random.Range(-half, -half + randomRangeMax)*/, -2/*-canvasRTrans.rect.height/2*/, 0f);
     }
     
     public void InitEmoji(int emojiNum)
     {
+     
         startPos.x = Random.Range(0f, randomRangeMax);
         Instantiate(emojiPrefab[emojiNum], startPos, Quaternion.identity, canvasRTrans);
         AddClickCount(emojiNum);
