@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8524017630449047962}
   - component: {fileID: 8524017630449047961}
   m_Layer: 0
-  m_Name: PrefabTwitchChat
+  m_Name: prefab-TwitchChat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,10 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8524017630449047960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf381bff971c17d458f07489c839d146, type: 3}
+  m_Script: {fileID: 11500000, guid: 82dc9c05fd8d39f489207f827466ac50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: 
-  password: 
-  channelName: 
-  chatBox: {fileID: 0}
+  configurationPath: Assets/Scripts/config.json
+  commandPrefix: '!'
+  automaticInit: 1
+  sendEmojiScript: {fileID: 0}
