@@ -21249,7 +21249,7 @@ PrefabInstance:
     - target: {fileID: 6730760238335148519, guid: 777d21837473bc5489a4ad477b4afdc0,
         type: 3}
       propertyPath: randomRangeMax
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6730760238789072290, guid: 777d21837473bc5489a4ad477b4afdc0,
         type: 3}
