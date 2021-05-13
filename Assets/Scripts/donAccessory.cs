@@ -27,7 +27,7 @@ public class donAccessory : MonoBehaviour
     }
 
     public void Front(String name){
-        Debug.LogError("Front");
+        //Debug.LogError("Front");
         if (name == "P1"){
             int p1 = Array.FindIndex(accessories, s=> s.name == PlayerPrefs.GetString("P1 accessory"));
             P1dec.GetComponent<SpriteRenderer>().sprite = accessories[p1];
@@ -39,7 +39,7 @@ public class donAccessory : MonoBehaviour
     }
 
     public void Side(String name){
-        Debug.LogError("Side");
+        //Debug.LogError("Side");
         if (name == "P1"){
             int p1 = Array.FindIndex(accessories, s=> s.name == PlayerPrefs.GetString("P1 accessory side"));
             P1dec.GetComponent<SpriteRenderer>().sprite = accessories[p1];
