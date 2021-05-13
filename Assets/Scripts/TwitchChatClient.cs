@@ -165,9 +165,10 @@ public class TwitchChatClient : MonoBehaviour
                 }
             }
             //check for laughs, keyword = ":D"
-            else if (strL.IndexOf(":D") != -1)
+            else if (strL.IndexOf(":d") != -1)
             {
                 //Debug.Log("Checking for :D");
+                //Debug.Log(":D checked: " + strL);
                 StartCoroutine(RandomlyDelaySendEmoji(Laugh));
             }
             //check for boos, keyword =":\"
@@ -182,7 +183,7 @@ public class TwitchChatClient : MonoBehaviour
                 StartCoroutine(RandomlyDelaySendEmoji(Aww));
             }
             //check for gossip, keyword = "o_O"
-            else if (strL.IndexOf("o_O") != -1)
+            else if (strL.IndexOf("o_o") != -1)
             {
                 StartCoroutine(RandomlyDelaySendEmoji(Gossip));
             }

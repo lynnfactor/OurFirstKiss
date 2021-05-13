@@ -21203,7 +21203,7 @@ PrefabInstance:
         type: 3}
       propertyPath: emojiPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 2252612992870669283, guid: 02a1caca692bc0d44ba92b6747ee16c6,
+      objectReference: {fileID: 2252612992870669283, guid: 95f684ef645bd5f4b852c0fc789f8b9e,
         type: 3}
     - target: {fileID: 6730760238335148519, guid: 777d21837473bc5489a4ad477b4afdc0,
         type: 3}
@@ -21227,7 +21227,7 @@ PrefabInstance:
         type: 3}
       propertyPath: emojiPrefab.Array.data[4]
       value: 
-      objectReference: {fileID: 2252612992870669283, guid: 2fd508735bdcbe04fb436d4315ba2f69,
+      objectReference: {fileID: 2252612992870669283, guid: 02a1caca692bc0d44ba92b6747ee16c6,
         type: 3}
     - target: {fileID: 6730760238335148519, guid: 777d21837473bc5489a4ad477b4afdc0,
         type: 3}
