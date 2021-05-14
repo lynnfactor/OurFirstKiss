@@ -533,7 +533,7 @@ public class PlayerMovement : MonoBehaviour {
 	IEnumerator waitThenEnd()
 	{
 		gameEnded = true;
-		yield return new WaitForSeconds(7f);
+		yield return new WaitForSeconds(5f);
 		if (!isKissing){
 			end.End();
 		}
