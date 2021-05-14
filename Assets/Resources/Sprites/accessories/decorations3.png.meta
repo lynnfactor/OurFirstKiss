@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 28bf6bc57490bef4bb848bf7180ee527
+guid: 8dc59220b2837f7429198b463e136f77
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -129,10 +129,10 @@ TextureImporter:
       name: decorations3_0
       rect:
         serializedVersion: 2
-        x: 166
-        y: 3210
-        width: 1452
-        height: 1351
+        x: 233
+        y: 3244
+        width: 1284
+        height: 1216
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: decorations3_1
       rect:
         serializedVersion: 2
-        x: 1719
-        y: 3143
-        width: 1723
-        height: 1452
+        x: 1770
+        y: 3227
+        width: 1554
+        height: 1267
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: decorations3_2
       rect:
         serializedVersion: 2
-        x: 3543
-        y: 3143
-        width: 1605
-        height: 1452
+        x: 3577
+        y: 3177
+        width: 1504
+        height: 1351
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: decorations3_3
       rect:
         serializedVersion: 2
-        x: 115
-        y: 2096
-        width: 1452
-        height: 1047
+        x: 132
+        y: 2180
+        width: 1385
+        height: 895
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: decorations3_4
       rect:
         serializedVersion: 2
-        x: 1753
-        y: 2045
-        width: 1554
-        height: 1064
+        x: 1804
+        y: 2180
+        width: 1402
+        height: 895
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: decorations3_5
       rect:
         serializedVersion: 2
-        x: 182
-        y: 1150
-        width: 1200
-        height: 810
+        x: 284
+        y: 1199
+        width: 1098
+        height: 761
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: decorations3_6
       rect:
         serializedVersion: 2
-        x: 1601
-        y: 1150
-        width: 1537
-        height: 794
+        x: 1550
+        y: 1233
+        width: 1453
+        height: 711
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,9 +277,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 216
-        y: 255
-        width: 1166
-        height: 861
+        y: 355
+        width: 1115
+        height: 761
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,11 +298,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1652
-        y: 253
-        width: 1351
-        height: 811
+        y: 405
+        width: 1283
+        height: 642
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

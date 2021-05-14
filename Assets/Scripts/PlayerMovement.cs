@@ -296,7 +296,7 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				//Debug.Log("pressure: " + (p1ReadVal >= minKissPressure && p2ReadVal >= minKissPressure));
 				//Debug.Log("kissing key: " + (Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P1Kiss"))) && Input.GetKey((KeyCode)System.Enum.Parse( typeof(KeyCode), PlayerPrefs.GetString("P2Kiss")))));
-
+				isKissing = true;
 				Kiss();
 				//Debug.Log("kissing");
 			}
@@ -458,20 +458,28 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		
 		Debug.Log("started kissing");
-		isKissing = true;
+
+		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
+
+		if (kisseffect.enabled == false)
+		{
+			kisseffect.enabled = true;
+			kissparticle.GetComponent<ParticleSystem>().Play();
+		}
+		
+		
 		// lean both players towards each other
 		// players need to stay in the ready position
 		if (spriteRend.sprite == spriteRest)
 		{
+			
 			spriteRend.sprite = spriteReady;
 			accessory.Side(gameObject.name);			
 		}
 
 		// turn on particle system
 		//kissparticle.GetComponent<ParticleSystem>().enableEmission = true;
-		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
-		kisseffect.enabled = true;
-		kissparticle.GetComponent<ParticleSystem>().Play();
+		
 		//Debug.Log(kissparticle.GetComponent<ParticleSystem>().emission.enabled);
 		//Debug.Log("kissing");
 
