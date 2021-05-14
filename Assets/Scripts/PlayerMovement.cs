@@ -436,11 +436,11 @@ public class PlayerMovement : MonoBehaviour {
 			// If Player's are within the barriers, move normally
 
 			if(transform.position.x >= -8.8 || transform.position.x <= 8.8) {
-				if(rewiredPlayer.GetButtonDown("Horizontal") /*|| p1RightVal == 1 this value moves the player to the right but they move far away really fast*/) {
+				if(rewiredPlayer.GetButtonDown("Horizontal") ||p1RightVal==1) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove, 1); // Move right
 				}
-				else if(rewiredPlayer.GetNegativeButtonDown("Horizontal") /*|| p1LeftVal == 1*/) {
+				else if(rewiredPlayer.GetNegativeButtonDown("Horizontal") || p1LeftVal==1) {
 					StartCoroutine(Wiggle()); //Start wiggle corouitine
 					transform.position = Vector3.Lerp(transform.position, transform.position + amountToMove * -1.0f, 1); // Move left
 				}
