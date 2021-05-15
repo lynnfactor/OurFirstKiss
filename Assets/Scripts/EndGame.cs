@@ -43,8 +43,8 @@ public class EndGame : MonoBehaviour
         int i = 0;
         while (i < 9)
         {
-            Debug.Log(i);
-            Debug.Log(sprites[i].name);
+            //Debug.Log(i);
+            //Debug.Log(sprites[i].name);
             yield return new WaitForSeconds(wait);
             creditsBackground.sprite = sprites[i];
             i++;
