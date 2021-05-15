@@ -150,6 +150,7 @@ public class PlayerMovement : MonoBehaviour {
 	void GetMovementInput() {
 		// assigns moveH value with the movement info from the Player object
         moveH = rewiredPlayer.GetAxisRaw("Horizontal");
+		//Debug.Log("getting horizontal input: " + moveH);
     }
 
 
@@ -171,7 +172,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.anyKey)
         {
 			Move ();
+			//Debug.Log("moving horizontal: " + moveH);
 		}
+
 	}
 
 	void ReadValue()
@@ -273,14 +276,14 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				spriteRend.sprite = spriteReady;
 				PlayerPrefs.SetString("p1Ready", "yes");
-				Debug.Log("p1 is ready");
+				//Debug.Log("p1 is ready");
 				accessory.Side(gameObject.name);
 			}
 			if (collidedWithPlayer && gameObject.name == "P2" && (rewiredPlayer.GetNegativeButtonDown("Horizontal") || p2LeftVal == 1))
 			{
 				spriteRend.sprite = spriteReady;
 				PlayerPrefs.SetString("p2Ready", "yes");
-				Debug.Log("p2 is ready");
+				//Debug.Log("p2 is ready");
 				accessory.Side(gameObject.name);
 			}
 
@@ -313,7 +316,7 @@ public class PlayerMovement : MonoBehaviour {
 					if (gameObject.name == "P1")
 					{
 					
-						Debug.Log(gameObject.name);
+						//Debug.Log(gameObject.name);
 						Vector3 targetDirection = target.position - transform.position;
 						transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
 						float pos = 0f;
@@ -340,12 +343,12 @@ public class PlayerMovement : MonoBehaviour {
 						*/
 						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
 						//transform.position = Vector3.Lerp(transform.position, -0.5f*targetDirection + transform.position, 0.5f);
-						Debug.Log("Snapped P1 to " + transform.position.x);
+						//Debug.Log("Snapped P1 to " + transform.position.x);
 						
 					}
 					else if (gameObject.name == "P2")
 					{
-						Debug.Log(gameObject.name);
+						//Debug.Log(gameObject.name);
 						Vector3 targetDirection = target.position - transform.position;
 						transform.rotation = Quaternion.Euler(0f, 0f, 1f * targetDirection.x);
 						float pos = 0f;
@@ -366,7 +369,7 @@ public class PlayerMovement : MonoBehaviour {
 							pos = 8.8f;
 						}
 						transform.position = new Vector3(pos, transform.position.y, transform.position.z);
-						Debug.Log("Snapped P2 to " + transform.position.x);
+						//Debug.Log("Snapped P2 to " + transform.position.x);
 						
 						
 					}
@@ -457,7 +460,7 @@ public class PlayerMovement : MonoBehaviour {
 			StartCoroutine(waitThenEnd());
 		}
 		
-		Debug.Log("started kissing");
+		//Debug.Log("started kissing");
 
 		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
 
@@ -526,14 +529,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator stopParticles()
 	{
-		Debug.Log("start clearing the particles");
+		//Debug.Log("start clearing the particles");
 		yield return new WaitForSeconds(0.4f);
 
 		var kisseffect = kissparticle.GetComponent<ParticleSystem>().emission;
 		kisseffect.enabled = false;
 		kissparticle.GetComponent<ParticleSystem>().Pause();
 		kissparticle.GetComponent<ParticleSystem>().Clear();
-		Debug.Log("particles cleared");
+		//Debug.Log("particles cleared");
 		
 	}
 

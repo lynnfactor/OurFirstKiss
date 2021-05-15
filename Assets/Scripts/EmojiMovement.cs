@@ -8,7 +8,7 @@ public class EmojiMovement : MonoBehaviour
     [SerializeField] float vSpeed = 5f; //vertical speed
     [SerializeField] float hSpeed = 5f; //horizontal speed
     [SerializeField] float canvasHeight = 590f;
-    [SerializeField] float fadeRate = 0.005f;
+    [SerializeField] float fadeRate = 0.1f;
     private RectTransform emojiRT;
     private float hTimer = 0f; //an accumulative timer for horizontal movement
     private Vector2 crtPos, deltaPos; //crtPos: current position

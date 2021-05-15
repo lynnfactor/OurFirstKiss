@@ -26,7 +26,7 @@ public class SendEmoji : MonoBehaviour
     {
         canvasRTrans = canvas.GetComponent<RectTransform>();
         float half = canvasRTrans.rect.width / 2;
-        startPos = new Vector3(startPos.x/*Random.Range(-half, -half + randomRangeMax)*/, -2/*-canvasRTrans.rect.height/2*/, 0f);
+        startPos = new Vector3(startPos.x/*Random.Range(-half, -half + randomRangeMax)*/, 0/*-canvasRTrans.rect.height/2*/, 0f);
     }
     
     public void InitEmoji(int emojiNum)

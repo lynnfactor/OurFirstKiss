@@ -37,7 +37,7 @@ public class LerpAudienceGame : MonoBehaviour
         if(!enter && Mathf.Abs(P1.transform.position.x - P2.transform.position.x) > 12f){
             animator.SetBool("exit", false);
             animator.SetBool("enter", true);
-            Debug.Log("set enter to true");
+            //Debug.Log("set enter to true");
             StartCoroutine(WaitAudience());
         }
     }
@@ -48,7 +48,7 @@ public class LerpAudienceGame : MonoBehaviour
         animator.SetBool("exit", true);
         animator.SetBool("enter", false);
         enter = false;
-        Debug.Log("waiting");
+        //Debug.Log("waiting");
     }
     
 }
